@@ -11,4 +11,4 @@
 | 7 | shreym | 0.00 | 0.00 | **0.00** |
 | 8 | srustagi | 0.00 | 0.00 | **0.00** |
 
-_First chop window is Weeks 3+4 — lowest two-week total goes home._
+_Form guide only. Nobody can be chopped in the warm-up and these points do not carry. First chop window is Weeks 3+4._
