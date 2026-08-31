@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-08-31T21:08:28+00:00"
+    "generated_at": "2026-08-31T21:20:22+00:00"
   },
   "board": {
     "phase": "warmup",
@@ -28,6 +28,22 @@
       },
       {
         "rank": 2,
+        "roster_id": 1,
+        "team": "L\u2019Incorruptible Offense",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0
+      },
+      {
+        "rank": 3,
+        "roster_id": 2,
+        "team": "Shubham Dubey",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0
+      },
+      {
+        "rank": 4,
         "roster_id": 6,
         "team": "kanaad",
         "week_a": 0.0,
@@ -35,7 +51,7 @@
         "total": 0.0
       },
       {
-        "rank": 3,
+        "rank": 5,
         "roster_id": 8,
         "team": "legend4ever",
         "week_a": 0.0,
@@ -43,7 +59,7 @@
         "total": 0.0
       },
       {
-        "rank": 4,
+        "rank": 6,
         "roster_id": 7,
         "team": "peeyush",
         "week_a": 0.0,
@@ -51,15 +67,7 @@
         "total": 0.0
       },
       {
-        "rank": 5,
-        "roster_id": 1,
-        "team": "sdub",
-        "week_a": 0.0,
-        "week_b": 0.0,
-        "total": 0.0
-      },
-      {
-        "rank": 6,
+        "rank": 7,
         "roster_id": 3,
         "team": "sgupta18",
         "week_a": 0.0,
@@ -67,17 +75,9 @@
         "total": 0.0
       },
       {
-        "rank": 7,
+        "rank": 8,
         "roster_id": 5,
         "team": "shreym",
-        "week_a": 0.0,
-        "week_b": 0.0,
-        "total": 0.0
-      },
-      {
-        "rank": 8,
-        "roster_id": 2,
-        "team": "srustagi",
         "week_a": 0.0,
         "week_b": 0.0,
         "total": 0.0
