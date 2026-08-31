@@ -55,6 +55,10 @@ WINDOWS = [
     (15, 16),  # championship: last 2 teams standing
 ]
 
+# Tiebreak scope: warm-up points don't carry, so the season-total tiebreak
+# starts at the first chop week rather than week 1.
+SCORING_STARTS = WINDOWS[0][0]
+
 API = "https://api.sleeper.app/v1"
 USER_AGENT = "chop-tracker/1.0"
 
@@ -127,7 +131,15 @@ class WeekCache:
         return self._cache[week]
 
     def season_total_through(self, week, roster_id):
-        return sum(self.points(w).get(roster_id, 0.0) for w in range(1, week + 1))
+        """Cumulative points from the first chop week through `week`, inclusive.
+
+        Excludes the warm-up weeks — those points don't carry forward, so they
+        shouldn't decide a tiebreak either.
+        """
+        return sum(
+            self.points(w).get(roster_id, 0.0)
+            for w in range(SCORING_STARTS, week + 1)
+        )
 
 
 # ----------------------------------------------------------------------------
@@ -144,7 +156,8 @@ def window_totals(cache, window, survivors):
 def pick_chopped(cache, window, survivors, totals):
     """
     Lowest two-week total is chopped.
-    Tiebreak 1: lower total season points through the end of the window.
+    Tiebreak 1: fewer cumulative points from week 3 through the end of the
+                window (warm-up weeks excluded — they don't carry forward).
     Tiebreak 2: flagged for manual resolution (returns a warning).
     """
     low = min(totals.values())
@@ -157,7 +170,11 @@ def pick_chopped(cache, window, survivors, totals):
     low_season = min(season.values())
     still_tied = sorted([rid for rid in tied if abs(season[rid] - low_season) < 1e-9])
     if len(still_tied) == 1:
-        return still_tied[0], f"Tie at {low} pts broken on season total."
+        return (
+            still_tied[0],
+            f"Tie at {low} pts broken on cumulative points since week "
+            f"{SCORING_STARTS}.",
+        )
     return (
         still_tied[0],
         f"UNRESOLVED TIE at {low} pts between roster_ids {still_tied}. "
