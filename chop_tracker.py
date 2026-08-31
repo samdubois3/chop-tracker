@@ -114,6 +114,11 @@ ZONE_LABELS = {
     "trailing":   ("TRAILING",                   "\u23F3",     "yellow"),
 }
 
+# Public URL of the board, used in the short alert message.
+BOARD_URL = os.environ.get(
+    "BOARD_URL", "https://samdubois3.github.io/chop-tracker/"
+).strip()
+
 API = "https://api.sleeper.app/v1"
 USER_AGENT = "chop-tracker/1.0"
 
@@ -670,6 +675,68 @@ def render_history(res):
     return "\n".join(out) if out else "No completed windows yet."
 
 
+def render_alert(board, res):
+    """A few lines fit for a group chat. Deliberately short: the page carries
+    the detail, this just says who is in trouble and by how much."""
+    a, b = board["window"]
+    rows = board["rows"]
+    n = len(rows)
+    low = rows[0]
+    lines = []
+
+    if board["is_final"]:
+        lead, trail = rows[-1], rows[0]
+        gap = round(lead["total"] - trail["total"], 2)
+        lines.append(f"\U0001F3C6 CHAMPIONSHIP \u00b7 Weeks {a}+{b}")
+        lines.append("")
+        lines.append(f"{lead['team']} leads {lead['total']:.2f} to {trail['total']:.2f}")
+        lines.append(f"Margin: {gap:.2f}")
+    elif board["window_over"]:
+        lines.append(f"\U0001FA93 Weeks {a}+{b} \u2014 window closed")
+        lines.append("")
+        lines.append(f"Lowest total: {low['team']} \u2014 {low['total']:.2f}")
+        lines.append("Provisional until the commissioner confirms.")
+    elif not board["labels_live"]:
+        lines.append(f"\U0001FA93 Weeks {a}+{b} \u00b7 {n} alive")
+        lines.append("")
+        lines.append(
+            f"Only {board['teams_scored']} of {n} teams have played. Too early to call."
+        )
+    else:
+        lines.append(f"\U0001FA93 Weeks {a}+{b} \u00b7 {n} alive")
+        lines.append("")
+        lines.append(f"GUILLOTINE  {low['team']}  {low['total']:.2f}")
+        if low["needs"] is not None:
+            runner = rows[1]["team"] if len(rows) > 1 else "the field"
+            lines.append(f"   needs {low['needs']:.2f} to pass {runner}")
+        squeezed = [r for r in rows[1:] if r["zone"]["key"] == "danger"]
+        if squeezed:
+            lines.append("")
+            for r in squeezed:
+                lines.append(f"DANGER  {r['team']}  {r['total']:.2f}  (+{r['above_chop']:.2f})")
+
+    lines.append("")
+    lines.append(f"Board \u2192 {BOARD_URL}")
+    return "\n".join(lines)
+
+
+def render_alert_warmup(data):
+    a, b = data["window"]
+    rows = data["rows"]
+    na, nb = data["next_chop_window"]
+    lines = [f"Warm-up \u00b7 Weeks {a}+{b} \u00b7 no chops yet", ""]
+    if rows and rows[0]["total"] > 0:
+        lines.append(f"Top: {rows[0]['team']}  {rows[0]['total']:.2f}")
+        lines.append(f"Bottom: {rows[-1]['team']}  {rows[-1]['total']:.2f}")
+    else:
+        lines.append("Nothing scored yet.")
+    lines.append("")
+    lines.append(f"These points do not carry. First chop is Weeks {na}+{nb}.")
+    lines.append("")
+    lines.append(f"Board \u2192 {BOARD_URL}")
+    return "\n".join(lines)
+
+
 def post_webhook(url, text):
     payload = {"content": text} if "discord" in url else {"text": text}
     req = urllib.request.Request(
@@ -697,6 +764,7 @@ def main():
     p.add_argument("--markdown", action="store_true", help="Markdown table for league chat")
     p.add_argument("--json", action="store_true", help="JSON output")
     p.add_argument("--history", action="store_true", help="Show all completed windows")
+    p.add_argument("--alert", action="store_true", help="Short message for a group chat")
     p.add_argument("--no-color", action="store_true")
     p.add_argument("--webhook", default=os.environ.get("WEBHOOK_URL", ""))
     args = p.parse_args()
@@ -724,6 +792,9 @@ def main():
                     default=str,
                 )
             )
+            return
+        if args.alert:
+            print(render_alert_warmup(data))
             return
         text = render_warmup_markdown(data) if args.markdown else render_warmup(data)
         print(text)
@@ -759,6 +830,10 @@ def main():
                 default=str,
             )
         )
+        return
+
+    if args.alert:
+        print(render_alert(board, res))
         return
 
     text = render_markdown(board, res) if args.markdown else render_terminal(
