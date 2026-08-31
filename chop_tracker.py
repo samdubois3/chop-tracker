@@ -96,6 +96,13 @@ ZONE_BANDS = {
     "B_LATE": (0.12, 0.25,  6.0, 12.0),   # Monday of week B: little left to swing
 }
 
+# What one unplayed starter is worth, for judging whether a lead is real.
+# Half-PPR, 9 starters, ~110 pts/team/week works out near 12 a slot. Kickers
+# and defences run lower and quarterbacks higher, so this is an average, not
+# a projection - it is only ever used to decide whether to withhold the word
+# "safe", never to predict a score.
+POINTS_PER_PENDING_STARTER = 12.0
+
 # Don't label anyone until most of the field has actually played. After
 # Thursday night only a couple of teams have points and the rest sit on zero,
 # which would hand six people a DANGER badge for no reason.
@@ -199,6 +206,40 @@ class WeekCache:
             self._cache[week] = pts
         return self._cache[week]
 
+    def pending(self, week):
+        """roster_id -> how many of that roster's starters are still on zero.
+
+        A proxy for "yet to play". It is not exact: a starter can take the
+        field and score nothing, and a starter on bye stays at zero all week.
+        Both inflate the count. In half-PPR the false positives cluster at
+        kicker and defence, since one catch already puts a skill player above
+        zero. Good enough to decide whether a lead is trustworthy; not good
+        enough to project a score, which is why it never does.
+
+        Returns an empty dict if Sleeper gave us no per-player breakdown, so
+        callers can tell "nobody pending" from "we don't know".
+        """
+        key = ("pending", week)
+        if key not in self._cache:
+            rows = api(f"league/{self.league_id}/matchups/{week}") or []
+            out = {}
+            for row in rows:
+                rid = row.get("roster_id")
+                if rid is None:
+                    continue
+                starters = row.get("starters") or []
+                pts = row.get("players_points")
+                if not starters or pts is None:
+                    continue
+                # "0" is Sleeper's placeholder for an unfilled starting slot.
+                out[rid] = sum(
+                    1
+                    for pid in starters
+                    if pid and pid != "0" and float(pts.get(pid) or 0.0) == 0.0
+                )
+            self._cache[key] = out
+        return self._cache[key]
+
     def season_total_through(self, week, roster_id):
         """Cumulative points from the first chop week through `week`, inclusive.
 
@@ -279,6 +320,38 @@ def absolute_bands(phase, spread):
         round(max(spread * d_frac, d_floor), 1),
         round(max(spread * w_frac, w_floor), 1),
     )
+
+
+def trustworthy_cushion(rid, i, order, totals, lowest, pending):
+    """Discount a lead by the football the teams below you still have to play.
+
+    A 15-point lead with your whole lineup finished is worth less than nothing
+    against someone sitting on four unplayed starters. Ranking still uses real
+    points - this only decides whether we are willing to call a lead safe.
+
+    You are only chopped if you finish last, which means EVERY team currently
+    below you has to pass you. So the binding constraint is the weakest threat,
+    not the strongest: if even one team below you is out of football and still
+    short of your total, you cannot finish last no matter what anyone else
+    does. Hence min() over the teams below - using max() here would flag a
+    comfortable leader as endangered by a team that, even if it passed them,
+    would leave someone else at the bottom.
+
+    Returns (adjusted_cushion, deficit) where deficit is how many more starters
+    that weakest-threat team still has than you do. Never inflates a cushion:
+    having more to play yourself is upside, not safety.
+    """
+    raw = round(totals[rid] - lowest, 2)
+    mine = pending.get(rid)
+    if mine is None:
+        return raw, 0
+    below = [pending[r] for r in order[:i] if r in pending]
+    if not below:
+        return raw, 0
+    deficit = max(0, min(below) - mine)
+    if not deficit:
+        return raw, 0
+    return round(raw - deficit * POINTS_PER_PENDING_STARTER, 2), deficit
 
 
 def zone_for(rank, cushion, bands, labels_live):
@@ -396,6 +469,10 @@ def build_board(cache, res, current_week):
     scored = sum(1 for v in totals.values() if v > 0)
     labels_live = bool(totals) and scored >= max(2, int(len(totals) * MIN_SCORED_FRACTION))
     window_over = current_week > b
+    # Starters still on zero, for the current week only. Week B being entirely
+    # ahead during week A is true for everyone equally, so it creates no
+    # asymmetry and the phase bands already account for it.
+    pending = cache.pending(current_week) if (a <= current_week <= b) else {}
     # The number everyone is chasing: the second-lowest total. Clear it and
     # you're out of the chop zone.
     safety_line = totals[order[1]] if len(order) > 1 else None
@@ -417,12 +494,18 @@ def build_board(cache, res, current_week):
             }
         )
         cushion = round(totals[rid] - lowest, 2)
+        adjusted, deficit = trustworthy_cushion(
+            rid, i, order, totals, lowest, pending
+        )
+        rows[-1]["pending"] = pending.get(rid)
+        rows[-1]["cushion_adjusted"] = adjusted
+        rows[-1]["outplayed_by"] = deficit
         if is_final_window:
             key = "leader" if i == len(order) - 1 else "trailing"
         elif window_over:
             key = "chopped" if i == 0 else "survived"
         else:
-            key = zone_for(i + 1, cushion, bands, labels_live)
+            key = zone_for(i + 1, adjusted, bands, labels_live)
         text, emoji, colour = ZONE_LABELS[key]
         rows[-1]["zone"] = {
             "key": key,
@@ -442,6 +525,7 @@ def build_board(cache, res, current_week):
         "bands": list(bands) if bands else None,
         "spread": spread,
         "teams_scored": scored,
+        "pending_known": bool(pending),
         "labels_live": labels_live,
         "safety_line": safety_line,
         "lowest": lowest,
@@ -481,14 +565,15 @@ def render_terminal(board, res, color=True):
 
     out.append(
         f"{'':>2}  {'TEAM':<20} {'W'+str(a):>7} {'W'+str(b):>7} {'TOTAL':>8} "
-        f"{'CUSHION':>8}  ZONE"
+        f"{'CUSHION':>8} {'LEFT':>5}  ZONE"
     )
-    out.append("-" * 86)
+    out.append("-" * 92)
     for r in board["rows"]:
         z = r["zone"]
         line = (
             f"{r['rank']:>2}  {r['team'][:20]:<20} {r['week_a']:>7.2f} {r['week_b']:>7.2f} "
-            f"{r['total']:>8.2f} {('+' + format(r['above_chop'], '.2f')) if r['above_chop'] else '—':>8}  "
+            f"{r['total']:>8.2f} {('+' + format(r['above_chop'], '.2f')) if r['above_chop'] else '—':>8} "
+            f"{(str(r['pending']) if r.get('pending') is not None else '?'):>5}  "
         )
         out.append(line + c(f"{z['emoji']} {z['label']}", z["color"]))
     out.append("")
@@ -516,6 +601,29 @@ def render_terminal(board, res, color=True):
                 "dim",
             )
         )
+    if board.get("pending_known"):
+        out.append(
+            c(
+                "LEFT = starters still on zero. A lead is discounted by "
+                f"{POINTS_PER_PENDING_STARTER:.0f} pts for every extra starter "
+                "the teams below you have yet to play.",
+                "dim",
+            )
+        )
+        squeezed = [r for r in board["rows"] if r.get("outplayed_by")]
+        for r in squeezed:
+            out.append(
+                c(
+                    f"! {r['team']} leads by {r['above_chop']:.2f} but is "
+                    f"{r['outplayed_by']} starter(s) behind on games left — "
+                    + (
+                        "that lead does not cover it."
+                        if r["cushion_adjusted"] < 0
+                        else f"that lead is worth about {r['cushion_adjusted']:.2f}."
+                    ),
+                    "yellow",
+                )
+            )
     elif not board["labels_live"]:
         out.append(c(f"Only {board['teams_scored']} of {len(board['rows'])} teams have "
                      f"points on the board — zones stay dark until most of the "
@@ -543,14 +651,23 @@ def render_markdown(board, res):
     else:
         lines.append(f"**CHOP WINDOW — Weeks {a}+{b}** · {n} alive · lowest total goes home")
     lines.append("")
-    lines.append(f"| # | Team | W{a} | W{b} | Total | Cushion |")
-    lines.append("|---|------|----:|----:|------:|--------:|")
+    show_left = bool(board.get("pending_known"))
+    head = f"| # | Team | W{a} | W{b} | Total | Cushion |"
+    sep = "|---|------|----:|----:|------:|--------:|"
+    if show_left:
+        head += " Left |"
+        sep += "-----:|"
+    lines.append(head)
+    lines.append(sep)
     for r in board["rows"]:
         z = r["zone"]
-        lines.append(
+        row = (
             f"| {r['rank']} | {z['emoji']} {r['team']} | {r['week_a']:.2f} | {r['week_b']:.2f} "
             f"| **{r['total']:.2f}** | {'+' + format(r['above_chop'], '.2f') if r['above_chop'] else '—'} |"
         )
+        if show_left:
+            row += f" {r['pending'] if r.get('pending') is not None else '?'} |"
+        lines.append(row)
     lines.append("")
     low = board["rows"][0]
     if not board["is_final"] and low["needs"] is not None:
@@ -559,12 +676,25 @@ def render_markdown(board, res):
             f"{z['emoji']} **{low['team']} is {z['label'].lower()}** — needs "
             f"**{low['needs']:.2f}** more points to climb out of last."
         )
+    for r in board["rows"]:
+        if r.get("outplayed_by"):
+            lines.append("")
+            lines.append(
+                f"\u26a0\ufe0f **{r['team']}** leads by {r['above_chop']:.2f} but has "
+                f"{r['outplayed_by']} fewer starter(s) left to play than the teams "
+                f"below \u2014 "
+                + (
+                    "that lead does not cover it."
+                    if r["cushion_adjusted"] < 0
+                    else f"that lead is really worth about {r['cushion_adjusted']:.2f}."
+                )
+            )
     if board["bands"] and board["labels_live"]:
         d, w = board["bands"]
         lines.append("")
         lines.append(
             f"_Cushion under {d} pts = danger \u00b7 under {w} pts = looking over "
-            f"your shoulder. Bands tighten as the window closes._"
+            f"your shoulder. \u201cLeft\u201d is starters still on zero._"
         )
     elif not board["labels_live"]:
         lines.append("")
@@ -675,7 +805,7 @@ def render_history(res):
     return "\n".join(out) if out else "No completed windows yet."
 
 
-def render_alert(board, res):
+def render_alert(board, res, include_link=True):
     """A few lines fit for a group chat. Deliberately short: the page carries
     the detail, this just says who is in trouble and by how much."""
     a, b = board["window"]
@@ -709,18 +839,27 @@ def render_alert(board, res):
         if low["needs"] is not None:
             runner = rows[1]["team"] if len(rows) > 1 else "the field"
             lines.append(f"   needs {low['needs']:.2f} to pass {runner}")
+        if low.get("pending"):
+            lines.append(f"   {low['pending']} starter(s) still to play")
         squeezed = [r for r in rows[1:] if r["zone"]["key"] == "danger"]
         if squeezed:
             lines.append("")
             for r in squeezed:
-                lines.append(f"DANGER  {r['team']}  {r['total']:.2f}  (+{r['above_chop']:.2f})")
+                tail = ""
+                if r.get("outplayed_by"):
+                    tail = f"  \u2014 {r['outplayed_by']} fewer left to play"
+                lines.append(
+                    f"DANGER  {r['team']}  {r['total']:.2f}  "
+                    f"(+{r['above_chop']:.2f}){tail}"
+                )
 
-    lines.append("")
-    lines.append(f"Board \u2192 {BOARD_URL}")
+    if include_link and BOARD_URL:
+        lines.append("")
+        lines.append(f"Board \u2192 {BOARD_URL}")
     return "\n".join(lines)
 
 
-def render_alert_warmup(data):
+def render_alert_warmup(data, include_link=True):
     a, b = data["window"]
     rows = data["rows"]
     na, nb = data["next_chop_window"]
@@ -732,8 +871,9 @@ def render_alert_warmup(data):
         lines.append("Nothing scored yet.")
     lines.append("")
     lines.append(f"These points do not carry. First chop is Weeks {na}+{nb}.")
-    lines.append("")
-    lines.append(f"Board \u2192 {BOARD_URL}")
+    if include_link and BOARD_URL:
+        lines.append("")
+        lines.append(f"Board \u2192 {BOARD_URL}")
     return "\n".join(lines)
 
 
@@ -765,6 +905,11 @@ def main():
     p.add_argument("--json", action="store_true", help="JSON output")
     p.add_argument("--history", action="store_true", help="Show all completed windows")
     p.add_argument("--alert", action="store_true", help="Short message for a group chat")
+    p.add_argument(
+        "--no-link",
+        action="store_true",
+        help="Leave the board URL out of --alert",
+    )
     p.add_argument("--no-color", action="store_true")
     p.add_argument("--webhook", default=os.environ.get("WEBHOOK_URL", ""))
     args = p.parse_args()
@@ -794,7 +939,7 @@ def main():
             )
             return
         if args.alert:
-            print(render_alert_warmup(data))
+            print(render_alert_warmup(data, not args.no_link))
             return
         text = render_warmup_markdown(data) if args.markdown else render_warmup(data)
         print(text)
@@ -833,7 +978,7 @@ def main():
         return
 
     if args.alert:
-        print(render_alert(board, res))
+        print(render_alert(board, res, not args.no_link))
         return
 
     text = render_markdown(board, res) if args.markdown else render_terminal(
