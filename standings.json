@@ -1,0 +1,82 @@
+{
+  "board": {
+    "phase": "warmup",
+    "window": [
+      1,
+      2
+    ],
+    "current_week": 1,
+    "week_a_done": false,
+    "next_chop_window": [
+      3,
+      4
+    ],
+    "rows": [
+      {
+        "rank": 1,
+        "roster_id": 4,
+        "team": "Anurag",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0
+      },
+      {
+        "rank": 2,
+        "roster_id": 6,
+        "team": "kanaad",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0
+      },
+      {
+        "rank": 3,
+        "roster_id": 8,
+        "team": "legend4ever",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0
+      },
+      {
+        "rank": 4,
+        "roster_id": 7,
+        "team": "peeyush",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0
+      },
+      {
+        "rank": 5,
+        "roster_id": 1,
+        "team": "sdub",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0
+      },
+      {
+        "rank": 6,
+        "roster_id": 3,
+        "team": "sgupta18",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0
+      },
+      {
+        "rank": 7,
+        "roster_id": 5,
+        "team": "shreym",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0
+      },
+      {
+        "rank": 8,
+        "roster_id": 2,
+        "team": "srustagi",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0
+      }
+    ]
+  },
+  "history": []
+}
