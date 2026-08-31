@@ -133,6 +133,7 @@ h1{
   font-size:10.5px;font-weight:700;letter-spacing:.075em;text-transform:uppercase;
   color:var(--dim);margin-top:5px;
 }
+.warn{font-size:11.5px;color:var(--amber);margin-top:5px;line-height:1.35}
 .k-guillotine .zone,.k-chopped .zone{color:var(--red)}
 .k-danger .zone{color:var(--orange)}
 .k-watch .zone{color:var(--amber)}
@@ -275,13 +276,23 @@ function render(d){
   h+=`<div class="board">`;
   for(const r of rows){
     const z=r.zone||{key:"early",label:"",emoji:""};
-    const cush = warm ? "" :
-      `<div class="cush">${r.above_chop?("+"+n2(r.above_chop)+" cushion"):"lowest total"}</div>`;
+    let cush = "";
+    if(!warm){
+      const left = (r.pending!=null && r.pending>0) ? ` · ${r.pending} left` : "";
+      cush = `<div class="cush">${r.above_chop?("+"+n2(r.above_chop)+" cushion"):"lowest total"}${left}</div>`;
+    }
+    let warn = "";
+    if(!warm && r.outplayed_by){
+      const gone = Number(r.cushion_adjusted) < 0;
+      const tail = gone ? "that lead doesn't cover it"
+                        : `lead really worth ≈ ${n2(r.cushion_adjusted)}`;
+      warn = `<div class="warn">⚠️ ${r.outplayed_by} fewer starter${r.outplayed_by>1?"s":""} left to play — ${tail}</div>`;
+    }
     h+=`<div class="row k-${esc(z.key)}">
           <div class="rank">${r.rank}</div>
           <div class="who">
             <div class="team">${z.emoji?`<span class="emoji">${esc(z.emoji)}</span>`:""}${esc(r.team)}</div>
-            ${warm?"":`<div class="zone">${esc(z.label)}</div>`}
+            ${warm?"":`<div class="zone">${esc(z.label)}</div>`}${warn}
           </div>
           <div class="nums">
             <div class="split"><b>W${a}</b>${n2(r.week_a)}</div>
@@ -313,6 +324,9 @@ function render(d){
       <div class="k"><span class="sw" style="background:var(--orange)"></span><span><b>Danger zone</b> — cushion under ${b.bands[0]} pts.</span></div>
       <div class="k"><span class="sw" style="background:var(--amber)"></span><span><b>Looking over your shoulder</b> — cushion under ${b.bands[1]} pts.</span></div>
       <div class="k"><span class="sw" style="background:var(--green)"></span><span><b>Looking safe</b> — clear of both.</span></div>
+      <p style="margin-top:11px;color:var(--dimmer)"><b>“Left”</b> is starters still on zero. A lead is discounted
+      by roughly 12 pts for every extra starter the teams below you have yet to play — so being ahead with your
+      lineup finished is not the same as being safe.</p>
       <p style="margin-top:11px;color:var(--dimmer)">Bands scale to how spread out the league is and tighten
       as the window closes, so a lead worth worrying about on Sunday is comfortable by Monday night.</p>
       </div>`;
