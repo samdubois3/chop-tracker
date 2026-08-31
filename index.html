@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chop Tracker</title>
+<meta name="description" content="Live two-week cumulative standings for a biweekly chopped fantasy league.">
+<meta name="theme-color" content="#0a0e1a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪓</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080b14; --bg2:#0f1524; --card:#141b2d; --card2:#1a2338;
+  --line:#243049; --text:#e8ecf5; --dim:#8a97b4; --dimmer:#5b6784;
+  --red:#ff4d5e; --orange:#ff8a3d; --amber:#ffc531; --green:#3ddc84;
+  --gold:#ffd24a; --blue:#4da3ff;
+  --shadow:0 8px 32px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  color:var(--text); background:var(--bg); line-height:1.5;
+  min-height:100vh; padding:0 0 64px;
+  -webkit-font-smoothing:antialiased;
+}
+/* layered background: vertical gradient + two colour glows + faint pitch stripes */
+body::before{
+  content:""; position:fixed; inset:0; z-index:-2;
+  background:
+    radial-gradient(1100px 620px at 12% -8%, rgba(77,163,255,.16), transparent 60%),
+    radial-gradient(900px 560px at 92% 4%, rgba(255,77,94,.13), transparent 62%),
+    linear-gradient(180deg,#0d1322 0%,#080b14 46%,#05070d 100%);
+}
+body::after{
+  content:""; position:fixed; inset:0; z-index:-1; opacity:.35;
+  background-image:repeating-linear-gradient(115deg,
+    rgba(255,255,255,.028) 0 1px, transparent 1px 76px);
+  pointer-events:none;
+}
+.wrap{max-width:940px;margin:0 auto;padding:0 18px}
+
+/* ---------- header ---------- */
+header{padding:52px 0 30px;text-align:center;position:relative}
+.eyebrow{
+  font-family:"Barlow Condensed",Inter,sans-serif; font-weight:600;
+  letter-spacing:.26em; text-transform:uppercase;
+  font-size:12px; color:var(--dim); margin-bottom:12px;
+}
+h1{
+  font-family:"Barlow Condensed",Inter,sans-serif; font-weight:700;
+  font-size:clamp(34px,7.2vw,62px); line-height:1.02;
+  letter-spacing:-.012em; text-wrap:balance;
+  background:linear-gradient(180deg,#fff 20%,#a9b8d8 118%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.sub{margin-top:14px;color:var(--dim);font-size:15px}
+.livebar{
+  display:inline-flex;align-items:center;gap:9px;margin-top:20px;
+  padding:7px 15px;border:1px solid var(--line);border-radius:999px;
+  background:rgba(20,27,45,.72);backdrop-filter:blur(8px);
+  font-size:12.5px;color:var(--dim);
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 0 0 rgba(61,220,132,.55);animation:pulse 2.4s infinite}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(61,220,132,.5)}
+  70%{box-shadow:0 0 0 9px rgba(61,220,132,0)}
+  100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}
+}
+.dot.stale{background:var(--dimmer);animation:none;box-shadow:none}
+
+/* ---------- window banner ---------- */
+.window{
+  margin:30px 0 22px;padding:20px 24px;border-radius:16px;
+  border:1px solid var(--line);
+  background:linear-gradient(135deg,rgba(26,35,56,.94),rgba(16,22,38,.94));
+  box-shadow:var(--shadow);
+  display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;
+}
+.window h2{
+  font-family:"Barlow Condensed",Inter,sans-serif;font-weight:700;
+  font-size:25px;letter-spacing:.012em;
+}
+.window .note{color:var(--dim);font-size:13.5px;margin-top:3px;max-width:52ch}
+.pill{
+  font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  padding:6px 13px;border-radius:999px;white-space:nowrap;
+}
+.pill.warm{background:rgba(77,163,255,.15);color:var(--blue);border:1px solid rgba(77,163,255,.35)}
+.pill.chop{background:rgba(255,77,94,.14);color:var(--red);border:1px solid rgba(255,77,94,.34)}
+.pill.champ{background:rgba(255,210,74,.14);color:var(--gold);border:1px solid rgba(255,210,74,.34)}
+
+/* ---------- board ---------- */
+.board{display:flex;flex-direction:column;gap:9px}
+.row{
+  display:grid; grid-template-columns:40px 1fr auto; gap:14px; align-items:center;
+  padding:15px 18px; border-radius:14px;
+  border:1px solid var(--line); border-left:3px solid var(--dimmer);
+  background:linear-gradient(135deg,rgba(20,27,45,.92),rgba(15,21,36,.92));
+  transition:transform .16s ease, border-color .16s ease;
+}
+.row:hover{transform:translateX(3px)}
+.row.k-guillotine,.row.k-chopped{
+  border-left-color:var(--red);
+  background:linear-gradient(135deg,rgba(48,20,28,.95),rgba(24,14,22,.95));
+  box-shadow:0 0 26px rgba(255,77,94,.13);
+}
+.row.k-danger{border-left-color:var(--orange)}
+.row.k-watch{border-left-color:var(--amber)}
+.row.k-safe,.row.k-survived{border-left-color:var(--green)}
+.row.k-leader{border-left-color:var(--gold);
+  background:linear-gradient(135deg,rgba(46,38,14,.95),rgba(22,19,10,.95))}
+.row.k-trailing{border-left-color:var(--amber)}
+.row.k-early{border-left-color:var(--dimmer)}
+
+.rank{
+  font-family:"Barlow Condensed",Inter,sans-serif;font-weight:700;
+  font-size:26px;color:var(--dimmer);text-align:center;line-height:1;
+}
+.row.k-guillotine .rank,.row.k-chopped .rank{color:var(--red)}
+.row.k-leader .rank{color:var(--gold)}
+
+.who{min-width:0}
+.team{
+  font-weight:600;font-size:17px;letter-spacing:-.005em;
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+}
+.team .emoji{font-size:16px;line-height:1}
+.zone{
+  font-size:10.5px;font-weight:700;letter-spacing:.075em;text-transform:uppercase;
+  color:var(--dim);margin-top:5px;
+}
+.k-guillotine .zone,.k-chopped .zone{color:var(--red)}
+.k-danger .zone{color:var(--orange)}
+.k-watch .zone{color:var(--amber)}
+.k-safe .zone,.k-survived .zone{color:var(--green)}
+.k-leader .zone{color:var(--gold)}
+.k-trailing .zone{color:var(--amber)}
+
+.nums{display:flex;align-items:center;gap:20px;text-align:right}
+.split{font-size:12px;color:var(--dimmer);line-height:1.45;min-width:56px}
+.split b{display:block;color:var(--dim);font-weight:600;font-size:13px}
+.total{
+  font-family:"Barlow Condensed",Inter,sans-serif;font-weight:700;
+  font-size:29px;line-height:1;min-width:78px;letter-spacing:.006em;
+  font-variant-numeric:tabular-nums;
+}
+.cush{font-size:11.5px;color:var(--dimmer);margin-top:4px;font-variant-numeric:tabular-nums}
+
+/* ---------- callout / footer ---------- */
+.callout{
+  margin-top:22px;padding:17px 20px;border-radius:14px;
+  border:1px solid rgba(255,77,94,.3);
+  background:linear-gradient(135deg,rgba(42,18,25,.85),rgba(24,13,20,.85));
+  font-size:14.5px;
+}
+.callout.neutral{border-color:var(--line);
+  background:linear-gradient(135deg,rgba(20,27,45,.85),rgba(15,21,36,.85))}
+.callout b{color:#fff}
+.legend{
+  margin-top:26px;padding:18px 20px;border-radius:14px;
+  border:1px solid var(--line);background:rgba(16,22,38,.6);
+  font-size:13px;color:var(--dim);
+}
+.legend h3{
+  font-family:"Barlow Condensed",Inter,sans-serif;font-size:15px;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--text);margin-bottom:10px;
+}
+.legend .k{display:flex;gap:9px;align-items:baseline;margin-bottom:6px}
+.legend .sw{width:9px;height:9px;border-radius:2px;flex:none;transform:translateY(1px)}
+.hist{margin-top:26px;font-size:13px;color:var(--dim)}
+.hist h3{
+  font-family:"Barlow Condensed",Inter,sans-serif;font-size:15px;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--text);margin-bottom:9px;
+}
+.hist li{margin:5px 0;list-style:none}
+footer{margin-top:40px;text-align:center;font-size:12px;color:var(--dimmer);line-height:1.8}
+.err{
+  margin-top:24px;padding:20px;border-radius:14px;
+  border:1px solid rgba(255,77,94,.35);background:rgba(42,18,25,.6);
+  font-size:14px;color:var(--text);
+}
+.skel{height:74px;border-radius:14px;border:1px solid var(--line);
+  background:linear-gradient(90deg,rgba(20,27,45,.6),rgba(30,40,64,.6),rgba(20,27,45,.6));
+  background-size:200% 100%;animation:sh 1.4s linear infinite}
+@keyframes sh{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+@media(max-width:620px){
+  header{padding:36px 0 22px}
+  .row{grid-template-columns:30px 1fr;gap:11px;padding:13px 14px}
+  .nums{grid-column:1/-1;justify-content:space-between;
+    border-top:1px solid var(--line);padding-top:11px;margin-top:3px;text-align:left}
+  .total{font-size:25px;min-width:0}
+  .rank{font-size:21px}
+  .team{font-size:15.5px}
+  .window{padding:17px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Biweekly Chopped Format</div>
+    <h1 id="league">Chop Tracker</h1>
+    <div class="sub" id="sub">Loading the board…</div>
+    <div class="livebar"><span class="dot" id="dot"></span><span id="stamp">connecting…</span></div>
+  </header>
+  <main id="main">
+    <div class="board">
+      <div class="skel"></div><div class="skel"></div><div class="skel"></div>
+    </div>
+  </main>
+  <footer>
+    Scores from the Sleeper API · rebuilt automatically through the Sunday and Monday game windows.<br>
+    A window is provisional until Tuesday morning, when Sleeper locks the week.
+  </footer>
+</div>
+
+<script>
+const ZONE_COPY = {
+  guillotine:["var(--red)","Lowest total in the window. As things stand, this is the one that goes."],
+  danger:["var(--orange)","Close enough to last that one bad Sunday flips it."],
+  watch:["var(--amber)","Comfortable-ish, but not clear of it yet."],
+  safe:["var(--green)","Enough cushion that it would take a collapse."],
+  early:["var(--dimmer)","Not enough of the field has played to judge."],
+  chopped:["var(--red)","Chopped."],
+  survived:["var(--green)","Survived the window."],
+  leader:["var(--gold)","Leading the championship."],
+  trailing:["var(--amber)","Trailing in the championship."]
+};
+const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const n2 = v => (Number(v)||0).toFixed(2);
+
+function ago(iso){
+  if(!iso) return "unknown";
+  const secs = (Date.now()-new Date(iso).getTime())/1000;
+  if(secs<90) return "just now";
+  if(secs<5400) return Math.round(secs/60)+" min ago";
+  if(secs<172800) return Math.round(secs/3600)+" hr ago";
+  return Math.round(secs/86400)+" days ago";
+}
+
+function render(d){
+  const b=d.board, meta=d.meta||{}, rows=b.rows||[], warm=b.phase==="warmup", champ=b.phase==="championship";
+  const [a,bw]=b.window||[0,0];
+
+  document.title = (meta.league_name||"Chop Tracker")+" · Chop Tracker";
+  document.getElementById("league").textContent = meta.league_name || "Chop Tracker";
+  document.getElementById("sub").textContent =
+    warm ? `Warm-up · Weeks ${a} and ${bw} · nobody can be chopped yet`
+         : champ ? `Championship · Weeks ${a}+${bw} · highest two-week total wins`
+                 : `Chop window · Weeks ${a}+${bw} · ${rows.length} alive · lowest two-week total goes home`;
+
+  const stale = meta.generated_at && (Date.now()-new Date(meta.generated_at).getTime())>3*3600*1000;
+  document.getElementById("dot").className = "dot"+(stale?" stale":"");
+  document.getElementById("stamp").textContent = "Updated "+ago(meta.generated_at)+
+    (b.current_week?` · NFL week ${b.current_week}`:"");
+
+  let h="";
+  h+=`<div class="window">
+        <div>
+          <h2>${warm?`Warm-up — Weeks ${a} &amp; ${bw}`:champ?`Championship — Weeks ${a}+${bw}`:`Chop Window — Weeks ${a}+${bw}`}</h2>
+          <div class="note">${
+            warm ? `These points do not carry forward. The first chop window is Weeks ${(b.next_chop_window||[3,4])[0]}+${(b.next_chop_window||[3,4])[1]}.`
+                 : champ ? `Two teams left. Whoever scores more across both weeks takes it.`
+                 : b.window_over ? `This window is final.`
+                 : `Totals are live and provisional until Sleeper locks the week on Tuesday morning.`}</div>
+        </div>
+        <span class="pill ${warm?"warm":champ?"champ":"chop"}">${warm?"No chop":champ?"Final":"1 gets chopped"}</span>
+      </div>`;
+
+  h+=`<div class="board">`;
+  for(const r of rows){
+    const z=r.zone||{key:"early",label:"",emoji:""};
+    const cush = warm ? "" :
+      `<div class="cush">${r.above_chop?("+"+n2(r.above_chop)+" cushion"):"lowest total"}</div>`;
+    h+=`<div class="row k-${esc(z.key)}">
+          <div class="rank">${r.rank}</div>
+          <div class="who">
+            <div class="team">${z.emoji?`<span class="emoji">${esc(z.emoji)}</span>`:""}${esc(r.team)}</div>
+            ${warm?"":`<div class="zone">${esc(z.label)}</div>`}
+          </div>
+          <div class="nums">
+            <div class="split"><b>W${a}</b>${n2(r.week_a)}</div>
+            <div class="split"><b>W${bw}</b>${n2(r.week_b)}</div>
+            <div><div class="total">${n2(r.total)}</div>${cush}</div>
+          </div>
+        </div>`;
+  }
+  h+=`</div>`;
+
+  if(!warm && !champ && rows.length){
+    const low=rows[0];
+    if(b.labels_live && low.needs!=null){
+      h+=`<div class="callout">🪓 <b>${esc(low.team)}</b> is in line for the guillotine —
+           needs <b>${n2(low.needs)}</b> more points to climb out of last.</div>`;
+    }else if(!b.labels_live){
+      h+=`<div class="callout neutral">Only ${b.teams_scored||0} of ${rows.length} teams have points on the
+           board. Zones stay dark until most of the field has played.</div>`;
+    }
+  }
+  if(warm){
+    h+=`<div class="callout neutral">Form guide only — no zones, no chops, and none of these
+         points carry into the first chop window.</div>`;
+  }
+
+  if(b.bands && b.labels_live){
+    h+=`<div class="legend"><h3>How the zones are set</h3>
+      <div class="k"><span class="sw" style="background:var(--red)"></span><span><b>In line for the guillotine</b> — lowest total in the window.</span></div>
+      <div class="k"><span class="sw" style="background:var(--orange)"></span><span><b>Danger zone</b> — cushion under ${b.bands[0]} pts.</span></div>
+      <div class="k"><span class="sw" style="background:var(--amber)"></span><span><b>Looking over your shoulder</b> — cushion under ${b.bands[1]} pts.</span></div>
+      <div class="k"><span class="sw" style="background:var(--green)"></span><span><b>Looking safe</b> — clear of both.</span></div>
+      <p style="margin-top:11px;color:var(--dimmer)">Bands scale to how spread out the league is and tighten
+      as the window closes, so a lead worth worrying about on Sunday is comfortable by Monday night.</p>
+      </div>`;
+  }
+
+  const hist=(d.history||[]).filter(x=>x.chopped_name||x.champion_name);
+  if(hist.length){
+    h+=`<div class="hist"><h3>Season so far</h3><ul>`;
+    for(const x of hist){
+      const [wa,wb]=x.window||[0,0];
+      h+= x.champion_name
+        ? `<li>🏆 Weeks ${wa}+${wb} — <b>${esc(x.champion_name)}</b> took the title</li>`
+        : `<li>🪓 Weeks ${wa}+${wb} — ${esc(x.chopped_name)} chopped</li>`;
+    }
+    h+=`</ul></div>`;
+  }
+  document.getElementById("main").innerHTML=h;
+}
+
+async function load(){
+  try{
+    const r=await fetch("standings.json?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok) throw new Error("standings.json returned "+r.status);
+    render(await r.json());
+  }catch(e){
+    document.getElementById("main").innerHTML=
+      `<div class="err"><b>Couldn't load the board.</b><br>${esc(e.message)}<br>
+       <span style="color:var(--dim)">This usually means the tracker hasn't run yet.
+       It rebuilds through the Sunday and Monday game windows.</span></div>`;
+    document.getElementById("dot").className="dot stale";
+    document.getElementById("stamp").textContent="offline";
+  }
+}
+load();
+setInterval(load,60000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)load()});
+</script>
+</body>
+</html>
