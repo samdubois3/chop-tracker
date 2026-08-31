@@ -1,0 +1,58 @@
+name: Chop Tracker
+
+# Times are UTC. NFL game windows in ET:
+#   Sun 1:00pm  = 17:00 UTC (EDT) / 18:00 UTC (EST, after early Nov)
+#   Sun 4:25pm  = 20:25 UTC (EDT) / 21:25 UTC (EST)
+#   Sun 8:20pm  = 00:20 UTC Mon  / 01:20 UTC Mon
+#   Mon 8:15pm  = 00:15 UTC Tue  / 01:15 UTC Tue
+# The ranges below are wide enough to cover both DST and standard time.
+
+on:
+  schedule:
+    - cron: "*/30 16-23 * * 0"   # Sunday afternoon/evening slate
+    - cron: "*/30 0-5   * * 1"   # SNF + final Sunday scoring
+    - cron: "0    13    * * 1"   # Monday morning recap
+    - cron: "*/30 0-5   * * 2"   # MNF + window close
+    - cron: "0    14    * * 2"   # Tuesday: window is now final
+  workflow_dispatch:              # manual "run now" button
+
+concurrency:
+  group: chop-tracker
+  cancel-in-progress: true
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build the board
+        env:
+          SLEEPER_LEAGUE_ID: ${{ secrets.SLEEPER_LEAGUE_ID }}
+        run: |
+          python chop_tracker.py --no-color | tee board.txt
+          python chop_tracker.py --markdown > STANDINGS.md
+          python chop_tracker.py --json > standings.json
+
+      - name: Post to league chat webhook
+        if: ${{ secrets.WEBHOOK_URL != '' }}
+        env:
+          SLEEPER_LEAGUE_ID: ${{ secrets.SLEEPER_LEAGUE_ID }}
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        run: python chop_tracker.py --markdown --webhook "$WEBHOOK_URL" > /dev/null
+
+      - name: Commit the snapshot
+        run: |
+          git config user.name  "chop-tracker"
+          git config user.email "actions@github.com"
+          git add STANDINGS.md standings.json
+          git diff --staged --quiet && exit 0
+          git commit -m "chop board: $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git pull --rebase --autostash origin main
+          git push
