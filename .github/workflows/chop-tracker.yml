@@ -39,12 +39,13 @@ jobs:
           python chop_tracker.py --no-color | tee board.txt
           python chop_tracker.py --markdown > STANDINGS.md
           python chop_tracker.py --json > standings.json
+          python chop_tracker.py --alert > alert.txt
 
       - name: Commit the snapshot
         run: |
           git config user.name  "chop-tracker"
           git config user.email "actions@github.com"
-          git add STANDINGS.md standings.json
+          git add STANDINGS.md standings.json alert.txt
           git diff --staged --quiet && exit 0
           git commit -m "chop board: $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase --autostash origin main
