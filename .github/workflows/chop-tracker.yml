@@ -25,6 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      SLEEPER_LEAGUE_ID: ${{ secrets.SLEEPER_LEAGUE_ID }}
     steps:
       - uses: actions/checkout@v4
 
@@ -33,19 +35,10 @@ jobs:
           python-version: "3.12"
 
       - name: Build the board
-        env:
-          SLEEPER_LEAGUE_ID: ${{ secrets.SLEEPER_LEAGUE_ID }}
         run: |
           python chop_tracker.py --no-color | tee board.txt
           python chop_tracker.py --markdown > STANDINGS.md
           python chop_tracker.py --json > standings.json
-
-      - name: Post to league chat webhook
-        if: ${{ secrets.WEBHOOK_URL != '' }}
-        env:
-          SLEEPER_LEAGUE_ID: ${{ secrets.SLEEPER_LEAGUE_ID }}
-          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
-        run: python chop_tracker.py --markdown --webhook "$WEBHOOK_URL" > /dev/null
 
       - name: Commit the snapshot
         run: |
