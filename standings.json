@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-09-13T20:58:24+00:00"
+    "generated_at": "2026-09-13T22:53:23+00:00"
   },
   "board": {
     "phase": "warmup",
@@ -20,67 +20,67 @@
     "rows": [
       {
         "rank": 1,
-        "roster_id": 1,
-        "team": "L\u2019Incorruptible Offense",
-        "week_a": 122.96,
+        "roster_id": 6,
+        "team": "kanaad",
+        "week_a": 137.72,
         "week_b": 0.0,
-        "total": 122.96
+        "total": 137.72
       },
       {
         "rank": 2,
-        "roster_id": 6,
-        "team": "kanaad",
-        "week_a": 111.96,
+        "roster_id": 5,
+        "team": "shreym",
+        "week_a": 120.72,
         "week_b": 0.0,
-        "total": 111.96
+        "total": 120.72
       },
       {
         "rank": 3,
-        "roster_id": 7,
-        "team": "peeyush",
-        "week_a": 108.26,
+        "roster_id": 1,
+        "team": "L\u2019Incorruptible Offense",
+        "week_a": 114.96,
         "week_b": 0.0,
-        "total": 108.26
+        "total": 114.96
       },
       {
         "rank": 4,
-        "roster_id": 5,
-        "team": "shreym",
-        "week_a": 94.52,
+        "roster_id": 7,
+        "team": "peeyush",
+        "week_a": 113.26,
         "week_b": 0.0,
-        "total": 94.52
+        "total": 113.26
       },
       {
         "rank": 5,
-        "roster_id": 3,
-        "team": "sgupta18",
-        "week_a": 69.62,
+        "roster_id": 2,
+        "team": "Go Blue",
+        "week_a": 88.82,
         "week_b": 0.0,
-        "total": 69.62
+        "total": 88.82
       },
       {
         "rank": 6,
-        "roster_id": 2,
-        "team": "Go Blue",
-        "week_a": 68.9,
+        "roster_id": 3,
+        "team": "sgupta18",
+        "week_a": 78.3,
         "week_b": 0.0,
-        "total": 68.9
+        "total": 78.3
       },
       {
         "rank": 7,
         "roster_id": 4,
         "team": "Burrowed in Loveland",
-        "week_a": 65.26,
+        "week_a": 76.46,
         "week_b": 0.0,
-        "total": 65.26
+        "total": 76.46
       },
       {
         "rank": 8,
         "roster_id": 8,
         "team": "legend4ever",
-        "week_a": 53.76,
+        "week_a": 67.66,
         "week_b": 0.0,
-        "total": 53.76
+        "total": 67.66
       }
     ]
   },
