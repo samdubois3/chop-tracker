@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-09-13T18:24:51+00:00"
+    "generated_at": "2026-09-13T20:58:24+00:00"
   },
   "board": {
     "phase": "warmup",
@@ -22,65 +22,65 @@
         "rank": 1,
         "roster_id": 1,
         "team": "L\u2019Incorruptible Offense",
-        "week_a": 63.96,
+        "week_a": 122.96,
         "week_b": 0.0,
-        "total": 63.96
+        "total": 122.96
       },
       {
         "rank": 2,
         "roster_id": 6,
         "team": "kanaad",
-        "week_a": 61.6,
+        "week_a": 111.96,
         "week_b": 0.0,
-        "total": 61.6
+        "total": 111.96
       },
       {
         "rank": 3,
-        "roster_id": 5,
-        "team": "shreym",
-        "week_a": 59.52,
+        "roster_id": 7,
+        "team": "peeyush",
+        "week_a": 108.26,
         "week_b": 0.0,
-        "total": 59.52
+        "total": 108.26
       },
       {
         "rank": 4,
-        "roster_id": 8,
-        "team": "legend4ever",
-        "week_a": 54.66,
+        "roster_id": 5,
+        "team": "shreym",
+        "week_a": 94.52,
         "week_b": 0.0,
-        "total": 54.66
+        "total": 94.52
       },
       {
         "rank": 5,
-        "roster_id": 7,
-        "team": "peeyush",
-        "week_a": 48.02,
+        "roster_id": 3,
+        "team": "sgupta18",
+        "week_a": 69.62,
         "week_b": 0.0,
-        "total": 48.02
+        "total": 69.62
       },
       {
         "rank": 6,
-        "roster_id": 4,
-        "team": "Burrowed in Loveland",
-        "week_a": 46.52,
+        "roster_id": 2,
+        "team": "Go Blue",
+        "week_a": 68.9,
         "week_b": 0.0,
-        "total": 46.52
+        "total": 68.9
       },
       {
         "rank": 7,
-        "roster_id": 2,
-        "team": "Go Blue",
-        "week_a": 35.5,
+        "roster_id": 4,
+        "team": "Burrowed in Loveland",
+        "week_a": 65.26,
         "week_b": 0.0,
-        "total": 35.5
+        "total": 65.26
       },
       {
         "rank": 8,
-        "roster_id": 3,
-        "team": "sgupta18",
-        "week_a": 18.7,
+        "roster_id": 8,
+        "team": "legend4ever",
+        "week_a": 53.76,
         "week_b": 0.0,
-        "total": 18.7
+        "total": 53.76
       }
     ]
   },

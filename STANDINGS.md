@@ -2,13 +2,13 @@
 
 | # | Team | W1 | W2 | Total |
 |---|------|----:|----:|------:|
-| 1 | L’Incorruptible Offense | 63.96 | 0.00 | **63.96** |
-| 2 | kanaad | 61.60 | 0.00 | **61.60** |
-| 3 | shreym | 59.52 | 0.00 | **59.52** |
-| 4 | legend4ever | 54.66 | 0.00 | **54.66** |
-| 5 | peeyush | 48.02 | 0.00 | **48.02** |
-| 6 | Burrowed in Loveland | 46.52 | 0.00 | **46.52** |
-| 7 | Go Blue | 35.50 | 0.00 | **35.50** |
-| 8 | sgupta18 | 18.70 | 0.00 | **18.70** |
+| 1 | L’Incorruptible Offense | 122.96 | 0.00 | **122.96** |
+| 2 | kanaad | 111.96 | 0.00 | **111.96** |
+| 3 | peeyush | 108.26 | 0.00 | **108.26** |
+| 4 | shreym | 94.52 | 0.00 | **94.52** |
+| 5 | sgupta18 | 69.62 | 0.00 | **69.62** |
+| 6 | Go Blue | 68.90 | 0.00 | **68.90** |
+| 7 | Burrowed in Loveland | 65.26 | 0.00 | **65.26** |
+| 8 | legend4ever | 53.76 | 0.00 | **53.76** |
 
 _Form guide only. Nobody can be chopped in the warm-up and these points do not carry. First chop window is Weeks 3+4._
