@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-09-14T00:31:35+00:00"
+    "generated_at": "2026-09-14T02:59:42+00:00"
   },
   "board": {
     "phase": "warmup",
@@ -28,6 +28,22 @@
       },
       {
         "rank": 2,
+        "roster_id": 5,
+        "team": "shreym",
+        "week_a": 131.42,
+        "week_b": 0.0,
+        "total": 131.42
+      },
+      {
+        "rank": 3,
+        "roster_id": 7,
+        "team": "peeyush",
+        "week_a": 122.06,
+        "week_b": 0.0,
+        "total": 122.06
+      },
+      {
+        "rank": 4,
         "roster_id": 1,
         "team": "L\u2019Incorruptible Offense",
         "week_a": 120.96,
@@ -35,28 +51,12 @@
         "total": 120.96
       },
       {
-        "rank": 3,
-        "roster_id": 5,
-        "team": "shreym",
-        "week_a": 120.72,
-        "week_b": 0.0,
-        "total": 120.72
-      },
-      {
-        "rank": 4,
-        "roster_id": 7,
-        "team": "peeyush",
-        "week_a": 110.26,
-        "week_b": 0.0,
-        "total": 110.26
-      },
-      {
         "rank": 5,
         "roster_id": 2,
         "team": "Go Blue",
-        "week_a": 99.46,
+        "week_a": 102.46,
         "week_b": 0.0,
-        "total": 99.46
+        "total": 102.46
       },
       {
         "rank": 6,
@@ -68,19 +68,19 @@
       },
       {
         "rank": 7,
+        "roster_id": 8,
+        "team": "legend4ever",
+        "week_a": 92.36,
+        "week_b": 0.0,
+        "total": 92.36
+      },
+      {
+        "rank": 8,
         "roster_id": 4,
         "team": "Burrowed in Loveland",
         "week_a": 78.96,
         "week_b": 0.0,
         "total": 78.96
-      },
-      {
-        "rank": 8,
-        "roster_id": 8,
-        "team": "legend4ever",
-        "week_a": 78.86,
-        "week_b": 0.0,
-        "total": 78.86
       }
     ]
   },
