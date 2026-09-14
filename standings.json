@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-09-14T02:59:42+00:00"
+    "generated_at": "2026-09-14T08:47:03+00:00"
   },
   "board": {
     "phase": "warmup",
@@ -30,17 +30,17 @@
         "rank": 2,
         "roster_id": 5,
         "team": "shreym",
-        "week_a": 131.42,
+        "week_a": 133.82,
         "week_b": 0.0,
-        "total": 131.42
+        "total": 133.82
       },
       {
         "rank": 3,
         "roster_id": 7,
         "team": "peeyush",
-        "week_a": 122.06,
+        "week_a": 123.16,
         "week_b": 0.0,
-        "total": 122.06
+        "total": 123.16
       },
       {
         "rank": 4,
@@ -60,19 +60,19 @@
       },
       {
         "rank": 6,
+        "roster_id": 8,
+        "team": "legend4ever",
+        "week_a": 101.96,
+        "week_b": 0.0,
+        "total": 101.96
+      },
+      {
+        "rank": 7,
         "roster_id": 3,
         "team": "sgupta18",
         "week_a": 93.86,
         "week_b": 0.0,
         "total": 93.86
-      },
-      {
-        "rank": 7,
-        "roster_id": 8,
-        "team": "legend4ever",
-        "week_a": 92.36,
-        "week_b": 0.0,
-        "total": 92.36
       },
       {
         "rank": 8,
