@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-09-13T22:53:23+00:00"
+    "generated_at": "2026-09-14T00:31:35+00:00"
   },
   "board": {
     "phase": "warmup",
@@ -22,12 +22,20 @@
         "rank": 1,
         "roster_id": 6,
         "team": "kanaad",
-        "week_a": 137.72,
+        "week_a": 147.32,
         "week_b": 0.0,
-        "total": 137.72
+        "total": 147.32
       },
       {
         "rank": 2,
+        "roster_id": 1,
+        "team": "L\u2019Incorruptible Offense",
+        "week_a": 120.96,
+        "week_b": 0.0,
+        "total": 120.96
+      },
+      {
+        "rank": 3,
         "roster_id": 5,
         "team": "shreym",
         "week_a": 120.72,
@@ -35,52 +43,44 @@
         "total": 120.72
       },
       {
-        "rank": 3,
-        "roster_id": 1,
-        "team": "L\u2019Incorruptible Offense",
-        "week_a": 114.96,
-        "week_b": 0.0,
-        "total": 114.96
-      },
-      {
         "rank": 4,
         "roster_id": 7,
         "team": "peeyush",
-        "week_a": 113.26,
+        "week_a": 110.26,
         "week_b": 0.0,
-        "total": 113.26
+        "total": 110.26
       },
       {
         "rank": 5,
         "roster_id": 2,
         "team": "Go Blue",
-        "week_a": 88.82,
+        "week_a": 99.46,
         "week_b": 0.0,
-        "total": 88.82
+        "total": 99.46
       },
       {
         "rank": 6,
         "roster_id": 3,
         "team": "sgupta18",
-        "week_a": 78.3,
+        "week_a": 93.86,
         "week_b": 0.0,
-        "total": 78.3
+        "total": 93.86
       },
       {
         "rank": 7,
         "roster_id": 4,
         "team": "Burrowed in Loveland",
-        "week_a": 76.46,
+        "week_a": 78.96,
         "week_b": 0.0,
-        "total": 76.46
+        "total": 78.96
       },
       {
         "rank": 8,
         "roster_id": 8,
         "team": "legend4ever",
-        "week_a": 67.66,
+        "week_a": 78.86,
         "week_b": 0.0,
-        "total": 67.66
+        "total": 78.86
       }
     ]
   },
