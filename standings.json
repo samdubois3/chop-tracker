@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-09-21T02:56:52+00:00"
+    "generated_at": "2026-09-21T08:36:53+00:00"
   },
   "board": {
     "phase": "warmup",
@@ -31,8 +31,8 @@
         "roster_id": 6,
         "team": "kanaad",
         "week_a": 147.32,
-        "week_b": 100.16,
-        "total": 247.48
+        "week_b": 102.96,
+        "total": 250.28
       },
       {
         "rank": 3,
@@ -55,16 +55,16 @@
         "roster_id": 1,
         "team": "L\u2019Incorruptible Offense",
         "week_a": 129.86,
-        "week_b": 101.22,
-        "total": 231.08
+        "week_b": 104.82,
+        "total": 234.68
       },
       {
         "rank": 6,
         "roster_id": 3,
         "team": "sgupta18",
         "week_a": 126.46,
-        "week_b": 93.84,
-        "total": 220.3
+        "week_b": 103.34,
+        "total": 229.8
       },
       {
         "rank": 7,
