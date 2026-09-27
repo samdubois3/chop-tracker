@@ -8,12 +8,32 @@ name: Chop Tracker
 # The ranges below are wide enough to cover both DST and standard time.
 
 on:
+  # GitHub throttles dense cron schedules hard. The old version asked for 42
+  # runs a week (three */30 blocks) and was getting roughly 10 - the greedy
+  # lines starved the single-time ones that actually mattered. This asks for
+  # 13, weighted toward Sunday, and gives each alert its own run 10 minutes
+  # ahead instead of hoping one lands nearby.
+  #
+  # Times are UTC. The paired entries an hour apart are the daylight-saving
+  # fix: cron is fixed UTC, so every Eastern time shifts an hour on Nov 1.
+  # One of each pair is the right slot in summer, the other in winter, and
+  # the off-one still lands somewhere useful in the slate.
   schedule:
-    - cron: "*/30 16-23 * * 0"   # Sunday afternoon/evening slate
-    - cron: "*/30 0-5   * * 1"   # SNF + final Sunday scoring
-    - cron: "0    13    * * 1"   # Monday morning recap
-    - cron: "*/30 0-5   * * 2"   # MNF + window close
-    - cron: "0    14    * * 2"   # Tuesday: window is now final
+    # --- Sunday football ---
+    - cron: "0 19 * * 0"   # 3:00pm ET  - early slate underway
+    - cron: "35 20 * * 0"   # 4:35pm ET  - FEEDS THE 4:45pm ALERT (EDT)
+    - cron: "35 21 * * 0"   # 5:35pm ET  - 4:25pm games (and the alert slot in EST)
+    - cron: "0 23 * * 0"   # 7:00pm ET  - late slate finishing
+    - cron: "45 0 * * 1"   # 8:45pm ET  - 4:25s final, SNF kicking off
+    - cron: "30 3 * * 1"   # 11:30pm ET - SNF nearly done
+    - cron: "30 4 * * 1"   # 12:30am ET - SNF final (and 11:30pm in EST)
+    # --- Monday ---
+    - cron: "0 13 * * 1"   # 9:00am ET  - Sunday's final numbers
+    - cron: "40 22 * * 1"   # 6:40pm ET  - FEEDS THE 7:00pm ALERT (EDT)
+    - cron: "40 23 * * 1"   # 7:40pm ET  - the alert slot in EST
+    - cron: "30 3 * * 2"   # 11:30pm ET - MNF done
+    # --- Tuesday ---
+    - cron: "0 14 * * 2"   # 10:00am ET - Sleeper locks the week, window final
   workflow_dispatch:              # manual "run now" button
 
 concurrency:
