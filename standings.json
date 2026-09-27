@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-09-27T23:22:10+00:00"
+    "generated_at": "2026-09-27T23:52:48+00:00"
   },
   "board": {
     "phase": "chop",
@@ -17,14 +17,14 @@
     "window_over": false,
     "clock_phase": "A_SUN",
     "bands": [
-      52.1,
-      83.4
+      54.0,
+      86.4
     ],
-    "spread": 104.24,
+    "spread": 108.04,
     "teams_scored": 8,
     "pending_known": true,
     "labels_live": true,
-    "safety_line": 83.32,
+    "safety_line": 86.84,
     "lowest": 50.4,
     "rows": [
       {
@@ -35,7 +35,7 @@
         "week_b": 0.0,
         "total": 50.4,
         "above_chop": 0.0,
-        "needs": 32.92,
+        "needs": 36.44,
         "pending": 2,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
@@ -48,25 +48,6 @@
       },
       {
         "rank": 2,
-        "roster_id": 8,
-        "team": "legend4ever",
-        "week_a": 83.32,
-        "week_b": 0.0,
-        "total": 83.32,
-        "above_chop": 32.92,
-        "needs": null,
-        "pending": 1,
-        "cushion_adjusted": 20.92,
-        "outplayed_by": 1,
-        "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
-          "color": "yellow"
-        }
-      },
-      {
-        "rank": 3,
         "roster_id": 1,
         "team": "L\u2019Incorruptible Offense",
         "week_a": 86.84,
@@ -85,16 +66,35 @@
         }
       },
       {
+        "rank": 3,
+        "roster_id": 8,
+        "team": "legend4ever",
+        "week_a": 94.04,
+        "week_b": 0.0,
+        "total": 94.04,
+        "above_chop": 43.64,
+        "needs": null,
+        "pending": 1,
+        "cushion_adjusted": 31.64,
+        "outplayed_by": 1,
+        "zone": {
+          "key": "danger",
+          "label": "DANGER ZONE",
+          "emoji": "\ud83d\ude30",
+          "color": "yellow"
+        }
+      },
+      {
         "rank": 4,
         "roster_id": 7,
         "team": "peeyush",
-        "week_a": 101.36,
+        "week_a": 103.26,
         "week_b": 0.0,
-        "total": 101.36,
-        "above_chop": 50.96,
+        "total": 103.26,
+        "above_chop": 52.86,
         "needs": null,
         "pending": 1,
-        "cushion_adjusted": 50.96,
+        "cushion_adjusted": 52.86,
         "outplayed_by": 0,
         "zone": {
           "key": "danger",
@@ -105,15 +105,15 @@
       },
       {
         "rank": 5,
-        "roster_id": 5,
-        "team": "shreym",
-        "week_a": 114.06,
+        "roster_id": 2,
+        "team": "Go Blue",
+        "week_a": 115.28,
         "week_b": 0.0,
-        "total": 114.06,
-        "above_chop": 63.66,
+        "total": 115.28,
+        "above_chop": 64.88,
         "needs": null,
-        "pending": 1,
-        "cushion_adjusted": 63.66,
+        "pending": 2,
+        "cushion_adjusted": 64.88,
         "outplayed_by": 0,
         "zone": {
           "key": "watch",
@@ -124,15 +124,15 @@
       },
       {
         "rank": 6,
-        "roster_id": 2,
-        "team": "Go Blue",
-        "week_a": 115.28,
+        "roster_id": 5,
+        "team": "shreym",
+        "week_a": 118.1,
         "week_b": 0.0,
-        "total": 115.28,
-        "above_chop": 64.88,
+        "total": 118.1,
+        "above_chop": 67.7,
         "needs": null,
-        "pending": 2,
-        "cushion_adjusted": 64.88,
+        "pending": 1,
+        "cushion_adjusted": 67.7,
         "outplayed_by": 0,
         "zone": {
           "key": "watch",
@@ -164,13 +164,13 @@
         "rank": 8,
         "roster_id": 3,
         "team": "sgupta18",
-        "week_a": 154.64,
+        "week_a": 158.44,
         "week_b": 0.0,
-        "total": 154.64,
-        "above_chop": 104.24,
+        "total": 158.44,
+        "above_chop": 108.04,
         "needs": null,
         "pending": 1,
-        "cushion_adjusted": 104.24,
+        "cushion_adjusted": 108.04,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
