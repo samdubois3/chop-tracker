@@ -805,6 +805,14 @@ def render_history(res):
     return "\n".join(out) if out else "No completed windows yet."
 
 
+def alert_stamp():
+    """'as of Sun 4:35pm ET' - so a stale post announces itself."""
+    now = _eastern_now()
+    hour = now.hour % 12 or 12
+    ampm = "am" if now.hour < 12 else "pm"
+    return f"as of {now:%a} {hour}:{now:%M}{ampm} ET"
+
+
 def render_alert(board, res, include_link=True):
     """A few lines fit for a group chat. Deliberately short: the page carries
     the detail, this just says who is in trouble and by how much."""
@@ -818,22 +826,26 @@ def render_alert(board, res, include_link=True):
         lead, trail = rows[-1], rows[0]
         gap = round(lead["total"] - trail["total"], 2)
         lines.append(f"\U0001F3C6 CHAMPIONSHIP \u00b7 Weeks {a}+{b}")
+        lines.append(alert_stamp())
         lines.append("")
         lines.append(f"{lead['team']} leads {lead['total']:.2f} to {trail['total']:.2f}")
         lines.append(f"Margin: {gap:.2f}")
     elif board["window_over"]:
         lines.append(f"\U0001FA93 Weeks {a}+{b} \u2014 window closed")
+        lines.append(alert_stamp())
         lines.append("")
         lines.append(f"Lowest total: {low['team']} \u2014 {low['total']:.2f}")
         lines.append("Provisional until the commissioner confirms.")
     elif not board["labels_live"]:
         lines.append(f"\U0001FA93 Weeks {a}+{b} \u00b7 {n} alive")
+        lines.append(alert_stamp())
         lines.append("")
         lines.append(
             f"Only {board['teams_scored']} of {n} teams have played. Too early to call."
         )
     else:
         lines.append(f"\U0001FA93 Weeks {a}+{b} \u00b7 {n} alive")
+        lines.append(alert_stamp())
         lines.append("")
         lines.append(f"GUILLOTINE  {low['team']}  {low['total']:.2f}")
         if low["needs"] is not None:
@@ -863,7 +875,7 @@ def render_alert_warmup(data, include_link=True):
     a, b = data["window"]
     rows = data["rows"]
     na, nb = data["next_chop_window"]
-    lines = [f"Warm-up \u00b7 Weeks {a}+{b} \u00b7 no chops yet", ""]
+    lines = [f"Warm-up \u00b7 Weeks {a}+{b} \u00b7 no chops yet", alert_stamp(), ""]
     if rows and rows[0]["total"] > 0:
         lines.append(f"Top: {rows[0]['team']}  {rows[0]['total']:.2f}")
         lines.append(f"Bottom: {rows[-1]['team']}  {rows[-1]['total']:.2f}")
