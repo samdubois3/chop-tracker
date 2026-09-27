@@ -1,13 +1,14 @@
 🪓 Weeks 3+4 · 8 alive
+as of Sun 4:37pm ET
 
-GUILLOTINE  legend4ever  15.60
-   needs 20.90 to pass kanaad
-   6 starter(s) still to play
+GUILLOTINE  legend4ever  28.90
+   needs 16.40 to pass kanaad
+   3 starter(s) still to play
 
-DANGER  kanaad  36.50  (+20.90)  — 3 fewer left to play
-DANGER  peeyush  38.66  (+23.06)
-DANGER  L’Incorruptible Offense  43.24  (+27.64)
-DANGER  shreym  43.60  (+28.00)
-DANGER  Go Blue  49.50  (+33.90)
+DANGER  kanaad  45.30  (+16.40)  — 1 fewer left to play
+DANGER  L’Incorruptible Offense  62.14  (+33.24)
+DANGER  peeyush  66.56  (+37.66)
+DANGER  shreym  70.14  (+41.24)  — 1 fewer left to play
+DANGER  Go Blue  72.46  (+43.56)
 
 Board → https://samdubois3.github.io/chop-tracker/
