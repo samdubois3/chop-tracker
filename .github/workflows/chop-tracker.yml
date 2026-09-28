@@ -14,6 +14,11 @@ on:
   # 13, weighted toward Sunday, and gives each alert its own run 10 minutes
   # ahead instead of hoping one lands nearby.
   #
+  # OBSERVED: GitHub runs this workflow about 22-24 minutes after the
+  # requested time, consistently. The pre-alert entries are therefore set
+  # ~45 min before each alert rather than 10 - at the observed delay they
+  # land ~20 min early, and even at zero delay the data is only 45 min old.
+  #
   # Times are UTC. The paired entries an hour apart are the daylight-saving
   # fix: cron is fixed UTC, so every Eastern time shifts an hour on Nov 1.
   # One of each pair is the right slot in summer, the other in winter, and
@@ -21,16 +26,16 @@ on:
   schedule:
     # --- Sunday football ---
     - cron: "0 19 * * 0"   # 3:00pm ET  - early slate underway
-    - cron: "35 20 * * 0"   # 4:35pm ET  - FEEDS THE 4:45pm ALERT (EDT)
-    - cron: "35 21 * * 0"   # 5:35pm ET  - 4:25pm games (and the alert slot in EST)
+    - cron: "0 20 * * 0"   # 4:00pm ET nominal, ~4:22pm actual - FEEDS THE 4:45pm ALERT (EDT)
+    - cron: "0 21 * * 0"   # 5:00pm ET nominal - 4:25pm games (and the alert slot in EST)
     - cron: "0 23 * * 0"   # 7:00pm ET  - late slate finishing
     - cron: "45 0 * * 1"   # 8:45pm ET  - 4:25s final, SNF kicking off
     - cron: "30 3 * * 1"   # 11:30pm ET - SNF nearly done
     - cron: "30 4 * * 1"   # 12:30am ET - SNF final (and 11:30pm in EST)
     # --- Monday ---
     - cron: "0 13 * * 1"   # 9:00am ET  - Sunday's final numbers
-    - cron: "40 22 * * 1"   # 6:40pm ET  - FEEDS THE 7:00pm ALERT (EDT)
-    - cron: "40 23 * * 1"   # 7:40pm ET  - the alert slot in EST
+    - cron: "15 22 * * 1"   # 6:15pm ET nominal, ~6:38pm actual - FEEDS THE 7:00pm ALERT (EDT)
+    - cron: "15 23 * * 1"   # the 6:15pm slot in EST
     - cron: "30 3 * * 2"   # 11:30pm ET - MNF done
     # --- Tuesday ---
     - cron: "0 14 * * 2"   # 10:00am ET - Sleeper locks the week, window final
