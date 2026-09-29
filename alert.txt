@@ -1,10 +1,11 @@
 🪓 Weeks 3+4 · 8 alive
-as of Mon 10:34pm ET
+as of Tue 6:02am ET
 
-GUILLOTINE  kanaad  66.88
-   needs 32.56 to pass legend4ever
+GUILLOTINE  kanaad  68.12
+   needs 31.32 to pass legend4ever
+   9 starter(s) still to play
 
-DANGER  legend4ever  99.44  (+32.56)
-DANGER  peeyush  106.26  (+39.38)
+DANGER  legend4ever  99.44  (+31.32)
+DANGER  peeyush  103.26  (+35.14)
 
 Board → https://samdubois3.github.io/chop-tracker/
