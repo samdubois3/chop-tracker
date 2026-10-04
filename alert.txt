@@ -1,10 +1,11 @@
 🪓 Weeks 3+4 · 8 alive
-as of Sun 6:37pm ET
+as of Sun 7:00pm ET
 
-GUILLOTINE  legend4ever  171.72
-   needs 9.28 to pass Go Blue
+GUILLOTINE  legend4ever  173.22
+   needs 11.60 to pass Go Blue
    3 starter(s) still to play
 
-DANGER  Go Blue  181.00  (+9.28)  — 1 fewer left to play
+DANGER  Go Blue  184.82  (+11.60)  — 1 fewer left to play
+DANGER  kanaad  197.54  (+24.32)  — 1 fewer left to play
 
 Board → https://samdubois3.github.io/chop-tracker/
