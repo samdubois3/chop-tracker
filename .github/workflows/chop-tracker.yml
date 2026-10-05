@@ -43,7 +43,13 @@ on:
 
 concurrency:
   group: chop-tracker
-  cancel-in-progress: true
+  # MUST stay false. Runs take ~15s but can sit in GitHub's queue for a while
+  # waiting on a runner. With cancel-in-progress: true, each new dispatch killed
+  # the one still queued, so a temporary runner shortage became an indefinite
+  # outage - the board froze for 104 minutes on 2026-10-05. Queued runs now wait
+  # their turn instead; a backlog drains in seconds, and the commit step already
+  # rebases before pushing so ordering is safe.
+  cancel-in-progress: false
 
 jobs:
   track:
@@ -65,12 +71,13 @@ jobs:
           python chop_tracker.py --markdown > STANDINGS.md
           python chop_tracker.py --json > standings.json
           python chop_tracker.py --alert > alert.txt
+          python chop_tracker.py --alert-json > alert.json
 
       - name: Commit the snapshot
         run: |
           git config user.name  "chop-tracker"
           git config user.email "actions@github.com"
-          git add STANDINGS.md standings.json alert.txt
+          git add STANDINGS.md standings.json alert.txt alert.json
           git diff --staged --quiet && exit 0
           git commit -m "chop board: $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase --autostash origin main
