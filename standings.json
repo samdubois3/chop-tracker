@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-05T00:00:18+00:00"
+    "generated_at": "2026-10-05T00:30:14+00:00"
   },
   "board": {
     "phase": "chop",
@@ -24,7 +24,7 @@
     "teams_scored": 8,
     "pending_known": true,
     "labels_live": true,
-    "safety_line": 189.72,
+    "safety_line": 197.54,
     "lowest": 189.1,
     "rows": [
       {
@@ -35,7 +35,7 @@
         "week_b": 64.32,
         "total": 189.1,
         "above_chop": 0.0,
-        "needs": 0.62,
+        "needs": 8.44,
         "pending": 2,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
@@ -48,25 +48,6 @@
       },
       {
         "rank": 2,
-        "roster_id": 8,
-        "team": "legend4ever",
-        "week_a": 99.44,
-        "week_b": 90.28,
-        "total": 189.72,
-        "above_chop": 0.62,
-        "needs": null,
-        "pending": 3,
-        "cushion_adjusted": 0.62,
-        "outplayed_by": 0,
-        "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
-          "color": "yellow"
-        }
-      },
-      {
-        "rank": 3,
         "roster_id": 6,
         "team": "kanaad",
         "week_a": 68.12,
@@ -85,26 +66,26 @@
         }
       },
       {
-        "rank": 4,
-        "roster_id": 3,
-        "team": "sgupta18",
-        "week_a": 164.44,
-        "week_b": 55.6,
-        "total": 220.04,
-        "above_chop": 30.94,
+        "rank": 3,
+        "roster_id": 8,
+        "team": "legend4ever",
+        "week_a": 99.44,
+        "week_b": 105.28,
+        "total": 204.72,
+        "above_chop": 15.62,
         "needs": null,
-        "pending": 5,
-        "cushion_adjusted": 30.94,
+        "pending": 2,
+        "cushion_adjusted": 15.62,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
-          "color": "green"
+          "key": "watch",
+          "label": "LOOKING OVER YOUR SHOULDER",
+          "emoji": "\ud83d\udc40",
+          "color": "yellow"
         }
       },
       {
-        "rank": 5,
+        "rank": 4,
         "roster_id": 7,
         "team": "peeyush",
         "week_a": 103.26,
@@ -123,16 +104,35 @@
         }
       },
       {
-        "rank": 6,
-        "roster_id": 5,
-        "team": "shreym",
-        "week_a": 136.0,
-        "week_b": 86.0,
-        "total": 222.0,
-        "above_chop": 32.9,
+        "rank": 5,
+        "roster_id": 3,
+        "team": "sgupta18",
+        "week_a": 164.44,
+        "week_b": 56.6,
+        "total": 221.04,
+        "above_chop": 31.94,
         "needs": null,
-        "pending": 2,
-        "cushion_adjusted": 32.9,
+        "pending": 4,
+        "cushion_adjusted": 31.94,
+        "outplayed_by": 0,
+        "zone": {
+          "key": "safe",
+          "label": "LOOKING SAFE",
+          "emoji": "\ud83d\ude0e",
+          "color": "green"
+        }
+      },
+      {
+        "rank": 6,
+        "roster_id": 4,
+        "team": "Burrowed in Loveland",
+        "week_a": 129.48,
+        "week_b": 93.62,
+        "total": 223.1,
+        "above_chop": 34.0,
+        "needs": null,
+        "pending": 0,
+        "cushion_adjusted": 34.0,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
@@ -143,15 +143,15 @@
       },
       {
         "rank": 7,
-        "roster_id": 4,
-        "team": "Burrowed in Loveland",
-        "week_a": 129.48,
-        "week_b": 93.62,
-        "total": 223.1,
-        "above_chop": 34.0,
+        "roster_id": 5,
+        "team": "shreym",
+        "week_a": 136.0,
+        "week_b": 88.3,
+        "total": 224.3,
+        "above_chop": 35.2,
         "needs": null,
-        "pending": 0,
-        "cushion_adjusted": 34.0,
+        "pending": 1,
+        "cushion_adjusted": 35.2,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
