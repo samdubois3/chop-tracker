@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-05T03:00:15+00:00"
+    "generated_at": "2026-10-05T03:30:15+00:00"
   },
   "board": {
     "phase": "chop",
@@ -15,16 +15,16 @@
     "current_week": 4,
     "week_a_done": true,
     "window_over": false,
-    "clock_phase": "B_SUN",
+    "clock_phase": "B_LATE",
     "bands": [
-      16.5,
-      32.9
+      8.3,
+      17.3
     ],
-    "spread": 65.88,
+    "spread": 69.38,
     "teams_scored": 8,
     "pending_known": true,
     "labels_live": true,
-    "safety_line": 200.64,
+    "safety_line": 215.94,
     "lowest": 188.72,
     "rows": [
       {
@@ -35,7 +35,7 @@
         "week_b": 89.28,
         "total": 188.72,
         "above_chop": 0.0,
-        "needs": 11.92,
+        "needs": 27.22,
         "pending": 2,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
@@ -51,12 +51,12 @@
         "roster_id": 6,
         "team": "kanaad",
         "week_a": 68.12,
-        "week_b": 132.52,
-        "total": 200.64,
-        "above_chop": 11.92,
+        "week_b": 147.82,
+        "total": 215.94,
+        "above_chop": 27.22,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": -12.08,
+        "cushion_adjusted": 3.22,
         "outplayed_by": 2,
         "zone": {
           "key": "danger",
@@ -78,10 +78,10 @@
         "cushion_adjusted": 31.96,
         "outplayed_by": 0,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
-          "color": "yellow"
+          "key": "safe",
+          "label": "LOOKING SAFE",
+          "emoji": "\ud83d\ude0e",
+          "color": "green"
         }
       },
       {
@@ -146,12 +146,12 @@
         "roster_id": 3,
         "team": "sgupta18",
         "week_a": 164.44,
-        "week_b": 85.9,
-        "total": 250.34,
-        "above_chop": 61.62,
+        "week_b": 90.1,
+        "total": 254.54,
+        "above_chop": 65.82,
         "needs": null,
         "pending": 3,
-        "cushion_adjusted": 61.62,
+        "cushion_adjusted": 65.82,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
@@ -165,12 +165,12 @@
         "roster_id": 5,
         "team": "shreym",
         "week_a": 136.0,
-        "week_b": 118.6,
-        "total": 254.6,
-        "above_chop": 65.88,
+        "week_b": 122.1,
+        "total": 258.1,
+        "above_chop": 69.38,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 65.88,
+        "cushion_adjusted": 69.38,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
