@@ -1,11 +1,11 @@
 🪓 Weeks 3+4 · 8 alive
-as of Sun 9:00pm ET
+as of Sun 9:30pm ET
 
-GUILLOTINE  Go Blue  196.30
-   needs 3.14 to pass kanaad
-   1 starter(s) still to play
+GUILLOTINE  legend4ever  197.72
+   needs 2.92 to pass kanaad
+   2 starter(s) still to play
 
-DANGER  kanaad  199.44  (+3.14)  — 1 fewer left to play
-DANGER  legend4ever  199.72  (+3.42)
+DANGER  kanaad  200.64  (+2.92)  — 2 fewer left to play
+DANGER  Go Blue  209.10  (+11.38)
 
 Board → https://samdubois3.github.io/chop-tracker/
