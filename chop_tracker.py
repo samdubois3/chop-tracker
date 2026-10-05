@@ -922,6 +922,11 @@ def main():
         action="store_true",
         help="Leave the board URL out of --alert",
     )
+    p.add_argument(
+        "--alert-json",
+        action="store_true",
+        help="Same message as --alert, wrapped as JSON for iOS Shortcuts",
+    )
     p.add_argument("--no-color", action="store_true")
     p.add_argument("--webhook", default=os.environ.get("WEBHOOK_URL", ""))
     args = p.parse_args()
@@ -950,8 +955,9 @@ def main():
                 )
             )
             return
-        if args.alert:
-            print(render_alert_warmup(data, not args.no_link))
+        if args.alert or args.alert_json:
+            msg = render_alert_warmup(data, not args.no_link)
+            print(json.dumps({"message": msg}) if args.alert_json else msg)
             return
         text = render_warmup_markdown(data) if args.markdown else render_warmup(data)
         print(text)
@@ -989,8 +995,9 @@ def main():
         )
         return
 
-    if args.alert:
-        print(render_alert(board, res, not args.no_link))
+    if args.alert or args.alert_json:
+        msg = render_alert(board, res, not args.no_link)
+        print(json.dumps({"message": msg}) if args.alert_json else msg)
         return
 
     text = render_markdown(board, res) if args.markdown else render_terminal(
