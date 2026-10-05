@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-04T23:39:02+00:00"
+    "generated_at": "2026-10-05T00:00:18+00:00"
   },
   "board": {
     "phase": "chop",
@@ -20,7 +20,7 @@
       12.0,
       24.0
     ],
-    "spread": 45.84,
+    "spread": 45.74,
     "teams_scored": 8,
     "pending_known": true,
     "labels_live": true,
@@ -86,25 +86,6 @@
       },
       {
         "rank": 4,
-        "roster_id": 5,
-        "team": "shreym",
-        "week_a": 136.0,
-        "week_b": 82.3,
-        "total": 218.3,
-        "above_chop": 29.2,
-        "needs": null,
-        "pending": 2,
-        "cushion_adjusted": 29.2,
-        "outplayed_by": 0,
-        "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
-          "color": "green"
-        }
-      },
-      {
-        "rank": 5,
         "roster_id": 3,
         "team": "sgupta18",
         "week_a": 164.44,
@@ -123,7 +104,7 @@
         }
       },
       {
-        "rank": 6,
+        "rank": 5,
         "roster_id": 7,
         "team": "peeyush",
         "week_a": 103.26,
@@ -139,6 +120,25 @@
           "label": "LOOKING OVER YOUR SHOULDER",
           "emoji": "\ud83d\udc40",
           "color": "yellow"
+        }
+      },
+      {
+        "rank": 6,
+        "roster_id": 5,
+        "team": "shreym",
+        "week_a": 136.0,
+        "week_b": 86.0,
+        "total": 222.0,
+        "above_chop": 32.9,
+        "needs": null,
+        "pending": 2,
+        "cushion_adjusted": 32.9,
+        "outplayed_by": 0,
+        "zone": {
+          "key": "safe",
+          "label": "LOOKING SAFE",
+          "emoji": "\ud83d\ude0e",
+          "color": "green"
         }
       },
       {
@@ -165,12 +165,12 @@
         "roster_id": 1,
         "team": "L\u2019Incorruptible Offense",
         "week_a": 122.84,
-        "week_b": 112.1,
-        "total": 234.94,
-        "above_chop": 45.84,
+        "week_b": 112.0,
+        "total": 234.84,
+        "above_chop": 45.74,
         "needs": null,
         "pending": 1,
-        "cushion_adjusted": 45.84,
+        "cushion_adjusted": 45.74,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
