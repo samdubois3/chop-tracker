@@ -9,10 +9,10 @@
 | 5 | 😎 L’Incorruptible Offense | 122.84 | 112.00 | **234.84** | +41.52 | 1 |
 | 6 | 😎 Go Blue | 124.78 | 123.82 | **248.60** | +55.28 | 0 |
 | 7 | 😎 shreym | 136.00 | 122.90 | **258.90** | +65.58 | 0 |
-| 8 | 😎 sgupta18 | 164.44 | 113.26 | **277.70** | +84.38 | 0 |
+| 8 | 😎 sgupta18 | 164.44 | 115.94 | **280.38** | +87.06 | 0 |
 
 🪓 **legend4ever is in line for the guillotine** — needs **22.62** more points to climb out of last.
 
 ⚠️ **kanaad** leads by 22.62 but has 1 fewer starter(s) left to play than the teams below — that lead is really worth about 10.62.
 
-_Cushion under 10.1 pts = danger · under 21.1 pts = looking over your shoulder. “Left” is starters still on zero._
+_Cushion under 10.4 pts = danger · under 21.8 pts = looking over your shoulder. “Left” is starters still on zero._
