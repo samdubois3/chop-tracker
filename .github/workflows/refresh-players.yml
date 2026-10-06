@@ -1,0 +1,57 @@
+name: Refresh Player Map
+
+# Sleeper's /players/nfl blob is ~14MB and they ask that it be fetched at most
+# once a day. This trims it to player_id -> NFL team (about 36KB) and commits
+# it, so the tracker can read it locally on every run without re-downloading.
+#
+# chop_tracker.py uses it to tell a starter who played and scored zero from one
+# who has not kicked off yet - a distinction Sleeper's matchup feed does not make.
+
+on:
+  schedule:
+    - cron: "0 11 * * *"   # 7:00am ET daily, before any games
+  workflow_dispatch:
+
+concurrency:
+  group: refresh-players
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build the trimmed player -> team map
+        run: |
+          python - <<'PY'
+          import json, urllib.request
+          req = urllib.request.Request(
+              "https://api.sleeper.app/v1/players/nfl",
+              headers={"User-Agent": "chop-tracker/1.0"},
+          )
+          with urllib.request.urlopen(req, timeout=180) as r:
+              data = json.loads(r.read().decode("utf-8"))
+          trimmed = {k: v["team"] for k, v in data.items() if v.get("team")}
+          if len(trimmed) < 1000:
+              raise SystemExit(f"only {len(trimmed)} players with a team; refusing to commit")
+          with open("players_teams.json", "w") as f:
+              json.dump(trimmed, f, separators=(",", ":"), sort_keys=True)
+          print(f"wrote {len(trimmed)} players")
+          PY
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "chop-tracker"
+          git config user.email "actions@github.com"
+          git add players_teams.json
+          git diff --staged --quiet && exit 0
+          git commit -m "player map: $(date -u '+%Y-%m-%d')"
+          git pull --rebase --autostash origin main
+          git push
