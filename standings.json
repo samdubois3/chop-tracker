@@ -3,183 +3,182 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-06T04:00:19+00:00"
+    "generated_at": "2026-10-06T04:30:13+00:00"
   },
   "board": {
     "phase": "chop",
     "window": [
-      3,
-      4
+      5,
+      6
     ],
     "is_final": false,
-    "current_week": 4,
-    "week_a_done": true,
+    "current_week": 5,
+    "week_a_done": false,
     "window_over": false,
-    "clock_phase": "B_PRE",
-    "bands": [
-      35.5,
-      62.2
-    ],
-    "spread": 88.86,
-    "teams_scored": 8,
+    "clock_phase": "A_PRE",
+    "bands": null,
+    "spread": 0.0,
+    "teams_scored": 0,
     "pending_known": true,
-    "labels_live": true,
-    "safety_line": 215.94,
-    "lowest": 210.32,
+    "labels_live": false,
+    "safety_line": 0.0,
+    "lowest": 0.0,
     "rows": [
       {
         "rank": 1,
-        "roster_id": 8,
-        "team": "legend4ever",
-        "week_a": 99.44,
-        "week_b": 110.88,
-        "total": 210.32,
+        "roster_id": 4,
+        "team": "Burrowed in Loveland",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0,
         "above_chop": 0.0,
-        "needs": 5.62,
-        "pending": 1,
+        "needs": 0.0,
+        "pending": 9,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
         "zone": {
-          "key": "guillotine",
-          "label": "IN LINE FOR THE GUILLOTINE",
-          "emoji": "\ud83e\ude93",
-          "color": "red"
+          "key": "early",
+          "label": "TOO EARLY TO CALL",
+          "emoji": "\ud83d\udd50",
+          "color": "dim"
         }
       },
       {
         "rank": 2,
-        "roster_id": 6,
-        "team": "kanaad",
-        "week_a": 68.12,
-        "week_b": 147.82,
-        "total": 215.94,
-        "above_chop": 5.62,
+        "roster_id": 2,
+        "team": "Go Blue",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0,
+        "above_chop": 0.0,
         "needs": null,
-        "pending": 0,
-        "cushion_adjusted": -6.38,
-        "outplayed_by": 1,
+        "pending": 9,
+        "cushion_adjusted": 0.0,
+        "outplayed_by": 0,
         "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
-          "color": "yellow"
+          "key": "early",
+          "label": "TOO EARLY TO CALL",
+          "emoji": "\ud83d\udd50",
+          "color": "dim"
         }
       },
       {
         "rank": 3,
-        "roster_id": 7,
-        "team": "peeyush",
-        "week_a": 103.26,
-        "week_b": 117.42,
-        "total": 220.68,
-        "above_chop": 10.36,
+        "roster_id": 1,
+        "team": "L\u2019Incorruptible Offense",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0,
+        "above_chop": 0.0,
         "needs": null,
-        "pending": 0,
-        "cushion_adjusted": 10.36,
+        "pending": 9,
+        "cushion_adjusted": 0.0,
         "outplayed_by": 0,
         "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
-          "color": "yellow"
+          "key": "early",
+          "label": "TOO EARLY TO CALL",
+          "emoji": "\ud83d\udd50",
+          "color": "dim"
         }
       },
       {
         "rank": 4,
-        "roster_id": 4,
-        "team": "Burrowed in Loveland",
-        "week_a": 129.48,
-        "week_b": 93.62,
-        "total": 223.1,
-        "above_chop": 12.78,
+        "roster_id": 6,
+        "team": "kanaad",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0,
+        "above_chop": 0.0,
         "needs": null,
-        "pending": 0,
-        "cushion_adjusted": 12.78,
+        "pending": 9,
+        "cushion_adjusted": 0.0,
         "outplayed_by": 0,
         "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
-          "color": "yellow"
+          "key": "early",
+          "label": "TOO EARLY TO CALL",
+          "emoji": "\ud83d\udd50",
+          "color": "dim"
         }
       },
       {
         "rank": 5,
-        "roster_id": 1,
-        "team": "L\u2019Incorruptible Offense",
-        "week_a": 122.84,
-        "week_b": 112.0,
-        "total": 234.84,
-        "above_chop": 24.52,
+        "roster_id": 7,
+        "team": "peeyush",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0,
+        "above_chop": 0.0,
         "needs": null,
-        "pending": 1,
-        "cushion_adjusted": 24.52,
+        "pending": 9,
+        "cushion_adjusted": 0.0,
         "outplayed_by": 0,
         "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
-          "color": "yellow"
+          "key": "early",
+          "label": "TOO EARLY TO CALL",
+          "emoji": "\ud83d\udd50",
+          "color": "dim"
         }
       },
       {
         "rank": 6,
-        "roster_id": 2,
-        "team": "Go Blue",
-        "week_a": 124.78,
-        "week_b": 128.72,
-        "total": 253.5,
-        "above_chop": 43.18,
+        "roster_id": 3,
+        "team": "sgupta18",
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0,
+        "above_chop": 0.0,
         "needs": null,
-        "pending": 0,
-        "cushion_adjusted": 43.18,
+        "pending": 9,
+        "cushion_adjusted": 0.0,
         "outplayed_by": 0,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
-          "color": "yellow"
+          "key": "early",
+          "label": "TOO EARLY TO CALL",
+          "emoji": "\ud83d\udd50",
+          "color": "dim"
         }
       },
       {
         "rank": 7,
         "roster_id": 5,
         "team": "shreym",
-        "week_a": 136.0,
-        "week_b": 122.9,
-        "total": 258.9,
-        "above_chop": 48.58,
+        "week_a": 0.0,
+        "week_b": 0.0,
+        "total": 0.0,
+        "above_chop": 0.0,
         "needs": null,
-        "pending": 0,
-        "cushion_adjusted": 48.58,
+        "pending": 9,
+        "cushion_adjusted": 0.0,
         "outplayed_by": 0,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
-          "color": "yellow"
-        }
-      },
-      {
-        "rank": 8,
-        "roster_id": 3,
-        "team": "sgupta18",
-        "week_a": 164.44,
-        "week_b": 134.74,
-        "total": 299.18,
-        "above_chop": 88.86,
-        "needs": null,
-        "pending": 0,
-        "cushion_adjusted": 88.86,
-        "outplayed_by": 0,
-        "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
-          "color": "green"
+          "key": "early",
+          "label": "TOO EARLY TO CALL",
+          "emoji": "\ud83d\udd50",
+          "color": "dim"
         }
       }
     ]
   },
-  "history": []
+  "history": [
+    {
+      "window": [
+        3,
+        4
+      ],
+      "totals": {
+        "1": 234.84,
+        "2": 253.5,
+        "3": 299.18,
+        "4": 223.1,
+        "5": 258.9,
+        "6": 215.94,
+        "7": 220.68,
+        "8": 210.32
+      },
+      "chopped": 8,
+      "champion": null,
+      "chopped_name": "legend4ever",
+      "champion_name": null
+    }
+  ]
 }
