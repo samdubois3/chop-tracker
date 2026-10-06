@@ -253,6 +253,7 @@ function render(d){
   document.getElementById("sub").textContent =
     warm ? `Warm-up · Weeks ${a} and ${bw} · nobody can be chopped yet`
          : champ ? `Championship · Weeks ${a}+${bw} · highest two-week total wins`
+         : b.window_over ? `Final · Weeks ${a}+${bw} · the window is decided`
                  : `Chop window · Weeks ${a}+${bw} · ${rows.length} alive · lowest two-week total goes home`;
 
   const stale = meta.generated_at && (Date.now()-new Date(meta.generated_at).getTime())>3*3600*1000;
@@ -263,14 +264,14 @@ function render(d){
   let h="";
   h+=`<div class="window">
         <div>
-          <h2>${warm?`Warm-up — Weeks ${a} &amp; ${bw}`:champ?`Championship — Weeks ${a}+${bw}`:`Chop Window — Weeks ${a}+${bw}`}</h2>
+          <h2>${warm?`Warm-up — Weeks ${a} &amp; ${bw}`:champ?`Championship — Weeks ${a}+${bw}`:b.window_over?`Final — Weeks ${a}+${bw}`:`Chop Window — Weeks ${a}+${bw}`}</h2>
           <div class="note">${
             warm ? `These points do not carry forward. The first chop window is Weeks ${(b.next_chop_window||[3,4])[0]}+${(b.next_chop_window||[3,4])[1]}.`
                  : champ ? `Two teams left. Whoever scores more across both weeks takes it.`
                  : b.window_over ? `This window is final.`
                  : `Totals are live and provisional until Sleeper locks the week on Tuesday morning.`}</div>
         </div>
-        <span class="pill ${warm?"warm":champ?"champ":"chop"}">${warm?"No chop":champ?"Final":"1 gets chopped"}</span>
+        <span class="pill ${warm?"warm":champ?"champ":"chop"}">${warm?"No chop":champ?"Final":b.window_over?"Decided":"1 gets chopped"}</span>
       </div>`;
 
   h+=`<div class="board">`;
@@ -303,7 +304,12 @@ function render(d){
   }
   h+=`</div>`;
 
-  if(!warm && !champ && rows.length){
+  if(b.window_over && b.chopped_team){
+    h+=`<div class="callout">🪓 <b>${esc(b.chopped_team)} is chopped.</b>
+         ${esc(n2(rows[0].total))} — lowest of ${rows.length}.
+         ${b.holding?`<br><span style="color:var(--dim)">Showing the closed window until Wednesday 3am ET. Stat corrections can still move this.</span>`:""}</div>`;
+  }
+  if(!warm && !champ && !b.window_over && rows.length){
     const low=rows[0];
     if(b.labels_live && low.needs!=null){
       h+=`<div class="callout">🪓 <b>${esc(low.team)}</b> is in line for the guillotine —
@@ -318,7 +324,7 @@ function render(d){
          points carry into the first chop window.</div>`;
   }
 
-  if(b.bands && b.labels_live){
+  if(b.bands && b.labels_live && !b.window_over){
     h+=`<div class="legend"><h3>How the zones are set</h3>
       <div class="k"><span class="sw" style="background:var(--red)"></span><span><b>In line for the guillotine</b> — lowest total in the window.</span></div>
       <div class="k"><span class="sw" style="background:var(--orange)"></span><span><b>Danger zone</b> — cushion under ${b.bands[0]} pts.</span></div>
