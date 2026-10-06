@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-06T02:18:53+00:00"
+    "generated_at": "2026-10-06T02:30:12+00:00"
   },
   "board": {
     "phase": "chop",
@@ -17,10 +17,10 @@
     "window_over": false,
     "clock_phase": "B_LATE",
     "bands": [
-      10.4,
-      21.8
+      10.7,
+      22.3
     ],
-    "spread": 87.06,
+    "spread": 89.24,
     "teams_scored": 8,
     "pending_known": true,
     "labels_live": true,
@@ -59,9 +59,9 @@
         "cushion_adjusted": 10.62,
         "outplayed_by": 1,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
+          "key": "danger",
+          "label": "DANGER ZONE",
+          "emoji": "\ud83d\ude30",
           "color": "yellow"
         }
       },
@@ -127,12 +127,12 @@
         "roster_id": 2,
         "team": "Go Blue",
         "week_a": 124.78,
-        "week_b": 123.82,
-        "total": 248.6,
-        "above_chop": 55.28,
+        "week_b": 126.12,
+        "total": 250.9,
+        "above_chop": 57.58,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 55.28,
+        "cushion_adjusted": 57.58,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
@@ -165,12 +165,12 @@
         "roster_id": 3,
         "team": "sgupta18",
         "week_a": 164.44,
-        "week_b": 115.94,
-        "total": 280.38,
-        "above_chop": 87.06,
+        "week_b": 118.12,
+        "total": 282.56,
+        "above_chop": 89.24,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 87.06,
+        "cushion_adjusted": 89.24,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
