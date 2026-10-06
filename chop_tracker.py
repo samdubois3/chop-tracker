@@ -96,6 +96,13 @@ ZONE_BANDS = {
     "B_LATE": (0.12, 0.25,  6.0, 12.0),   # Monday of week B: little left to swing
 }
 
+# After Sleeper rolls the week over on Tuesday morning, keep showing the window
+# that just closed instead of jumping straight to the next one. Stat corrections
+# land Tuesday and Wednesday, and the league wants to see the result it just
+# lived through rather than an empty board. Released at this weekday/hour, ET.
+HOLD_WEEKDAY = 2    # Mon=0 .. so 2 = Wednesday
+HOLD_HOUR = 3       # 3am ET, matching when the league's waivers clear
+
 # What one unplayed starter is worth, for judging whether a lead is real.
 # Half-PPR, 9 starters, ~110 pts/team/week works out near 12 a slot. Kickers
 # and defences run lower and quarterbacks higher, so this is an average, not
@@ -120,6 +127,35 @@ ZONE_LABELS = {
     "leader":     ("LEADER",                     "\U0001F3C6", "green"),
     "trailing":   ("TRAILING",                   "\u23F3",     "yellow"),
 }
+
+# player_id -> NFL team, refreshed daily by .github/workflows/refresh-players.yml.
+# Sleeper's matchup feed gives every rostered player a score of 0.0 whether they
+# played badly or have not kicked off, so a zero on its own tells us nothing.
+# Knowing a player's NFL team lets us ask a question we CAN answer: has that team
+# played this week? If any rostered player from that team scored anything
+# anywhere in the league, it has.
+PLAYER_TEAMS_FILE = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "players_teams.json"
+)
+
+
+def load_player_teams():
+    """Returns {} if the map is missing, which degrades to the old behaviour."""
+    try:
+        with open(PLAYER_TEAMS_FILE) as f:
+            return json.load(f)
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def nfl_team_of(player_id, player_teams):
+    """Defence ids are already team codes ('BAL'), everyone else needs the map."""
+    if player_id in player_teams:
+        return player_teams[player_id]
+    if player_id and len(player_id) <= 3 and player_id.isalpha():
+        return player_id.upper()
+    return None
+
 
 # Public URL of the board, used in the short alert message.
 BOARD_URL = os.environ.get(
@@ -189,6 +225,7 @@ class WeekCache:
     def __init__(self, league_id):
         self.league_id = league_id
         self._cache = {}
+        self.player_teams = load_player_teams()
 
     def points(self, week):
         if week not in self._cache:
@@ -206,6 +243,29 @@ class WeekCache:
             self._cache[week] = pts
         return self._cache[week]
 
+    def teams_played(self, week, rows):
+        """NFL teams confirmed to have played in `week`.
+
+        Inferred from the league's own rosters: if any rostered player on a team
+        has a non-zero score, that team has taken the field. Across 8 rosters of
+        16 that covered 30 of 32 teams in testing. A team nobody rosters, or
+        whose rostered players all scored exactly zero, stays unknown - and
+        unknown falls back to "assume not yet played", which is what the tracker
+        did before this existed. Never worse, usually right.
+
+        A team on bye also never appears here, so its players read as pending all
+        week. Sleeper publishes no bye data, so that one is unresolved.
+        """
+        pt = self.player_teams
+        played = set()
+        for row in rows:
+            for pid, pts in (row.get("players_points") or {}).items():
+                if pts:
+                    t = nfl_team_of(pid, pt)
+                    if t:
+                        played.add(t)
+        return played
+
     def pending(self, week):
         """roster_id -> how many of that roster's starters are still on zero.
 
@@ -222,6 +282,7 @@ class WeekCache:
         key = ("pending", week)
         if key not in self._cache:
             rows = api(f"league/{self.league_id}/matchups/{week}") or []
+            played = self.teams_played(week, rows)
             out = {}
             for row in rows:
                 rid = row.get("roster_id")
@@ -231,12 +292,19 @@ class WeekCache:
                 pts = row.get("players_points")
                 if not starters or pts is None:
                     continue
-                # "0" is Sleeper's placeholder for an unfilled starting slot.
-                out[rid] = sum(
-                    1
-                    for pid in starters
-                    if pid and pid != "0" and float(pts.get(pid) or 0.0) == 0.0
-                )
+                n = 0
+                for pid in starters:
+                    # "0" is Sleeper's placeholder for an unfilled starting slot.
+                    if not pid or pid == "0":
+                        continue
+                    if float(pts.get(pid) or 0.0) != 0.0:
+                        continue
+                    # Scored zero. Only counts as "yet to play" if their NFL
+                    # team has not played; otherwise they played and were bad.
+                    if nfl_team_of(pid, self.player_teams) in played:
+                        continue
+                    n += 1
+                out[rid] = n
             self._cache[key] = out
         return self._cache[key]
 
@@ -404,6 +472,21 @@ def pick_chopped(cache, window, survivors, totals):
     )
 
 
+def in_hold_period(now=None):
+    """True while we should still be showing the window that just closed.
+
+    Runs from whenever Sleeper rolls the week over (Tuesday morning) until
+    HOLD_WEEKDAY/HOLD_HOUR. Monday is included because a window whose second
+    week ends on Monday night is already decided by then.
+    """
+    now = now or _eastern_now()
+    if now.weekday() < HOLD_WEEKDAY:
+        return True
+    if now.weekday() == HOLD_WEEKDAY:
+        return now.hour < HOLD_HOUR
+    return False
+
+
 def resolve(cache, league_id, current_week):
     """
     Replays every completed window from the start to figure out who's still alive.
@@ -414,11 +497,13 @@ def resolve(cache, league_id, current_week):
     history = []
     active = None
     warnings = []
+    just_closed = None
 
     for window in WINDOWS:
         a, b = window
         is_final = window is WINDOWS[-1]
         if current_week > b:
+            before = set(survivors)
             totals = window_totals(cache, window, survivors)
             if is_final:
                 champ = max(totals, key=lambda r: totals[r])
@@ -434,9 +519,24 @@ def resolve(cache, league_id, current_week):
                 {"window": window, "totals": totals, "chopped": chopped, "champion": None}
             )
             survivors = survivors - {chopped}
+            just_closed = {
+                "window": window,
+                "survivors_before": before,
+                "chopped": chopped,
+            }
         else:
             active = window
             break
+
+    # Hold on the window that just closed rather than jumping to the next one.
+    # Only in the week straight after it ended, and only until Wednesday.
+    holding = False
+    if just_closed and in_hold_period():
+        a, b = just_closed["window"]
+        if current_week == b + 1:
+            active = just_closed["window"]
+            survivors = just_closed["survivors_before"]
+            holding = True
 
     return {
         "names": names,
@@ -444,6 +544,8 @@ def resolve(cache, league_id, current_week):
         "history": history,
         "active": active,
         "warnings": warnings,
+        "just_closed": just_closed,
+        "holding": holding,
     }
 
 
@@ -472,7 +574,17 @@ def build_board(cache, res, current_week):
     # Starters still on zero, for the current week only. Week B being entirely
     # ahead during week A is true for everyone equally, so it creates no
     # asymmetry and the phase bands already account for it.
-    pending = cache.pending(current_week) if (a <= current_week <= b) else {}
+    window_done = current_week > b
+    pending = {} if window_done else (
+        cache.pending(current_week) if (a <= current_week <= b) else {}
+    )
+    # Who actually goes. Normally the lowest total, but pick_chopped's tiebreaks
+    # can land elsewhere, so take its answer rather than assuming rank 1.
+    jc = res.get("just_closed") or {}
+    chopped_rid = jc.get("chopped") if jc.get("window") == window else None
+    if window_over and chopped_rid is None and order:
+        chopped_rid = order[0]
+
     # The number everyone is chasing: the second-lowest total. Clear it and
     # you're out of the chop zone.
     safety_line = totals[order[1]] if len(order) > 1 else None
@@ -503,7 +615,7 @@ def build_board(cache, res, current_week):
         if is_final_window:
             key = "leader" if i == len(order) - 1 else "trailing"
         elif window_over:
-            key = "chopped" if i == 0 else "survived"
+            key = "chopped" if rid == chopped_rid else "survived"
         else:
             key = zone_for(i + 1, adjusted, bands, labels_live)
         text, emoji, colour = ZONE_LABELS[key]
@@ -526,6 +638,9 @@ def build_board(cache, res, current_week):
         "spread": spread,
         "teams_scored": scored,
         "pending_known": bool(pending),
+        "holding": bool(res.get("holding")),
+        "chopped_roster_id": chopped_rid,
+        "chopped_team": res["names"].get(chopped_rid) if chopped_rid else None,
         "labels_live": labels_live,
         "safety_line": safety_line,
         "lowest": lowest,
@@ -556,6 +671,8 @@ def render_terminal(board, res, color=True):
     out = []
     if board["is_final"]:
         head = f"CHAMPIONSHIP — Weeks {a}+{b} (highest total wins)"
+    elif board["window_over"]:
+        head = f"FINAL — Weeks {a}+{b}"
     else:
         head = f"CHOP WINDOW — Weeks {a}+{b}  ({n} teams alive, 1 gets chopped)"
     out.append(c(head, "bold"))
@@ -563,26 +680,41 @@ def render_terminal(board, res, color=True):
     out.append(c(f"{status} · {datetime.now(timezone.utc).astimezone():%a %b %d %I:%M %p %Z}", "dim"))
     out.append("")
 
+    show_left = not board["window_over"]
     out.append(
         f"{'':>2}  {'TEAM':<20} {'W'+str(a):>7} {'W'+str(b):>7} {'TOTAL':>8} "
-        f"{'CUSHION':>8} {'LEFT':>5}  ZONE"
+        f"{'CUSHION':>8}{' ' + format('LEFT', '>5') if show_left else ''}  ZONE"
     )
-    out.append("-" * 92)
+    out.append("-" * (92 if show_left else 86))
     for r in board["rows"]:
         z = r["zone"]
         line = (
             f"{r['rank']:>2}  {r['team'][:20]:<20} {r['week_a']:>7.2f} {r['week_b']:>7.2f} "
-            f"{r['total']:>8.2f} {('+' + format(r['above_chop'], '.2f')) if r['above_chop'] else '—':>8} "
-            f"{(str(r['pending']) if r.get('pending') is not None else '?'):>5}  "
+            f"{r['total']:>8.2f} {('+' + format(r['above_chop'], '.2f')) if r['above_chop'] else '—':>8}"
         )
+        if show_left:
+            line += f" {(str(r['pending']) if r.get('pending') is not None else '?'):>5}"
+        line += "  "
         out.append(line + c(f"{z['emoji']} {z['label']}", z["color"]))
     out.append("")
 
     low = board["rows"][0]
+    if board["window_over"] and board.get("chopped_team"):
+        out.append(
+            c(f"\U0001FA93  {board['chopped_team'].upper()} IS CHOPPED.", "red")
+        )
+        if board["holding"]:
+            out.append(
+                c(
+                    "Showing the closed window until Wednesday 3am ET. Stat "
+                    "corrections can still move this.",
+                    "dim",
+                )
+            )
     if board["is_final"]:
         gap = board["rows"][-1]["total"] - low["total"]
         out.append(f"Margin: {gap:.2f} pts")
-    elif low["needs"] is not None:
+    elif not board["window_over"] and low["needs"] is not None:
         out.append(
             c(
                 f"SCORE TO BEAT: {low['team']} needs {low['needs']:.2f} more pts "
@@ -592,7 +724,7 @@ def render_terminal(board, res, color=True):
         )
     if not board["week_a_done"]:
         out.append(c(f"Week {b} hasn't been played yet — totals are week {a} only.", "dim"))
-    if board["bands"] and board["labels_live"]:
+    if board["bands"] and board["labels_live"] and not board["window_over"]:
         d, w = board["bands"]
         out.append(
             c(
@@ -648,10 +780,12 @@ def render_markdown(board, res):
     lines = []
     if board["is_final"]:
         lines.append(f"**CHAMPIONSHIP — Weeks {a}+{b}**")
+    elif board["window_over"]:
+        lines.append(f"**FINAL — Weeks {a}+{b}**")
     else:
         lines.append(f"**CHOP WINDOW — Weeks {a}+{b}** · {n} alive · lowest total goes home")
     lines.append("")
-    show_left = bool(board.get("pending_known"))
+    show_left = bool(board.get("pending_known")) and not board["window_over"]
     head = f"| # | Team | W{a} | W{b} | Total | Cushion |"
     sep = "|---|------|----:|----:|------:|--------:|"
     if show_left:
@@ -670,7 +804,15 @@ def render_markdown(board, res):
         lines.append(row)
     lines.append("")
     low = board["rows"][0]
-    if not board["is_final"] and low["needs"] is not None:
+    if board["window_over"] and board.get("chopped_team"):
+        lines.append(f"\U0001FA93 **{board['chopped_team']} is chopped.**")
+        if board["holding"]:
+            lines.append("")
+            lines.append(
+                "_Showing the closed window until Wednesday 3am ET. "
+                "Stat corrections can still move this._"
+            )
+    if not board["is_final"] and not board["window_over"] and low["needs"] is not None:
         z = low["zone"]
         lines.append(
             f"{z['emoji']} **{low['team']} is {z['label'].lower()}** — needs "
@@ -689,7 +831,7 @@ def render_markdown(board, res):
                     else f"that lead is really worth about {r['cushion_adjusted']:.2f}."
                 )
             )
-    if board["bands"] and board["labels_live"]:
+    if board["bands"] and board["labels_live"] and not board["window_over"]:
         d, w = board["bands"]
         lines.append("")
         lines.append(
@@ -831,11 +973,23 @@ def render_alert(board, res, include_link=True):
         lines.append(f"{lead['team']} leads {lead['total']:.2f} to {trail['total']:.2f}")
         lines.append(f"Margin: {gap:.2f}")
     elif board["window_over"]:
-        lines.append(f"\U0001FA93 Weeks {a}+{b} \u2014 window closed")
+        lines.append(f"\U0001FA93 FINAL \u2014 Weeks {a}+{b}")
         lines.append(alert_stamp())
         lines.append("")
-        lines.append(f"Lowest total: {low['team']} \u2014 {low['total']:.2f}")
-        lines.append("Provisional until the commissioner confirms.")
+        if board.get("chopped_team"):
+            lines.append(f"{board['chopped_team'].upper()} IS CHOPPED.")
+            lines.append(f"   {low['total']:.2f}, lowest of {n}")
+            if len(rows) > 1:
+                nxt = rows[1]
+                lines.append(
+                    f"   survived by {nxt['team']} at {nxt['total']:.2f} "
+                    f"({nxt['above_chop']:.2f} clear)"
+                )
+        else:
+            lines.append(f"Lowest total: {low['team']} \u2014 {low['total']:.2f}")
+        if board.get("holding"):
+            lines.append("")
+            lines.append("Stat corrections can still move this until Wednesday.")
     elif not board["labels_live"]:
         lines.append(f"\U0001FA93 Weeks {a}+{b} \u00b7 {n} alive")
         lines.append(alert_stamp())
