@@ -1,5 +1,5 @@
 🪓 Weeks 3+4 · 8 alive
-as of Mon 11:30pm ET
+as of Tue 12:00am ET
 
 GUILLOTINE  legend4ever  210.32
    needs 5.62 to pass kanaad
@@ -7,5 +7,7 @@ GUILLOTINE  legend4ever  210.32
 
 DANGER  kanaad  215.94  (+5.62)  — 1 fewer left to play
 DANGER  peeyush  220.68  (+10.36)
+DANGER  Burrowed in Loveland  223.10  (+12.78)
+DANGER  L’Incorruptible Offense  234.84  (+24.52)
 
 Board → https://samdubois3.github.io/chop-tracker/

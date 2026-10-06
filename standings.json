@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-06T03:30:14+00:00"
+    "generated_at": "2026-10-06T04:00:19+00:00"
   },
   "board": {
     "phase": "chop",
@@ -15,10 +15,10 @@
     "current_week": 4,
     "week_a_done": true,
     "window_over": false,
-    "clock_phase": "B_LATE",
+    "clock_phase": "B_PRE",
     "bands": [
-      10.7,
-      22.2
+      35.5,
+      62.2
     ],
     "spread": 88.86,
     "teams_scored": 8,
@@ -97,9 +97,9 @@
         "cushion_adjusted": 12.78,
         "outplayed_by": 0,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
+          "key": "danger",
+          "label": "DANGER ZONE",
+          "emoji": "\ud83d\ude30",
           "color": "yellow"
         }
       },
@@ -116,10 +116,10 @@
         "cushion_adjusted": 24.52,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
-          "color": "green"
+          "key": "danger",
+          "label": "DANGER ZONE",
+          "emoji": "\ud83d\ude30",
+          "color": "yellow"
         }
       },
       {
@@ -135,10 +135,10 @@
         "cushion_adjusted": 43.18,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
-          "color": "green"
+          "key": "watch",
+          "label": "LOOKING OVER YOUR SHOULDER",
+          "emoji": "\ud83d\udc40",
+          "color": "yellow"
         }
       },
       {
@@ -154,10 +154,10 @@
         "cushion_adjusted": 48.58,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
-          "color": "green"
+          "key": "watch",
+          "label": "LOOKING OVER YOUR SHOULDER",
+          "emoji": "\ud83d\udc40",
+          "color": "yellow"
         }
       },
       {
