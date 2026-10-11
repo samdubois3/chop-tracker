@@ -1,15 +1,13 @@
 🪓 Weeks 5+6 · 7 alive
-as of Sun 4:30am ET
+as of Sun 1:00pm ET
 
-GUILLOTINE  L’Incorruptible Offense  0.00
-   needs 0.00 to pass sgupta18
+GUILLOTINE  sgupta18  0.00
+   needs 6.90 to pass peeyush
    9 starter(s) still to play
 
-DANGER  sgupta18  0.00  (+0.00)
-DANGER  peeyush  1.90  (+1.90)  — 1 fewer left to play
+DANGER  peeyush  6.90  (+6.90)  — 2 fewer left to play
+DANGER  L’Incorruptible Offense  9.80  (+9.80)
 DANGER  Burrowed in Loveland  13.20  (+13.20)
 DANGER  shreym  14.64  (+14.64)
-DANGER  Go Blue  23.50  (+23.50)
-DANGER  kanaad  35.60  (+35.60)  — 2 fewer left to play
 
 Board → https://samdubois3.github.io/chop-tracker/
