@@ -1,12 +1,12 @@
 🪓 Weeks 5+6 · 7 alive
-as of Sun 5:00pm ET
+as of Sun 5:30pm ET
 
-GUILLOTINE  sgupta18  53.04
-   needs 2.90 to pass shreym
+GUILLOTINE  shreym  60.44
+   needs 3.90 to pass sgupta18
    1 starter(s) still to play
 
-DANGER  shreym  55.94  (+2.90)
-DANGER  peeyush  63.50  (+10.46)
-DANGER  L’Incorruptible Offense  73.28  (+20.24)
+DANGER  sgupta18  64.34  (+3.90)
+DANGER  peeyush  72.40  (+11.96)
+DANGER  L’Incorruptible Offense  81.72  (+21.28)
 
 Board → https://samdubois3.github.io/chop-tracker/
