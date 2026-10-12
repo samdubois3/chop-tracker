@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-12T02:00:19+00:00"
+    "generated_at": "2026-10-12T02:30:14+00:00"
   },
   "board": {
     "phase": "chop",
@@ -17,10 +17,10 @@
     "window_over": false,
     "clock_phase": "A_SUN",
     "bands": [
-      44.2,
-      70.7
+      48.0,
+      76.8
     ],
-    "spread": 88.36,
+    "spread": 96.06,
     "teams_scored": 7,
     "pending_known": true,
     "holding": false,
@@ -91,13 +91,13 @@
         "rank": 4,
         "roster_id": 1,
         "team": "L\u2019Incorruptible Offense",
-        "week_a": 113.64,
+        "week_a": 122.24,
         "week_b": 0.0,
-        "total": 113.64,
-        "above_chop": 36.04,
+        "total": 122.24,
+        "above_chop": 44.64,
         "needs": null,
         "pending": 2,
-        "cushion_adjusted": 36.04,
+        "cushion_adjusted": 44.64,
         "outplayed_by": 0,
         "zone": {
           "key": "danger",
@@ -119,9 +119,9 @@
         "cushion_adjusted": 47.4,
         "outplayed_by": 0,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
+          "key": "danger",
+          "label": "DANGER ZONE",
+          "emoji": "\ud83d\ude30",
           "color": "yellow"
         }
       },
@@ -148,13 +148,13 @@
         "rank": 7,
         "roster_id": 2,
         "team": "Go Blue",
-        "week_a": 165.96,
+        "week_a": 173.66,
         "week_b": 0.0,
-        "total": 165.96,
-        "above_chop": 88.36,
+        "total": 173.66,
+        "above_chop": 96.06,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 88.36,
+        "cushion_adjusted": 96.06,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
