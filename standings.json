@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-12T00:16:54+00:00"
+    "generated_at": "2026-10-12T00:30:14+00:00"
   },
   "board": {
     "phase": "chop",
@@ -91,13 +91,13 @@
         "rank": 4,
         "roster_id": 1,
         "team": "L\u2019Incorruptible Offense",
-        "week_a": 107.94,
+        "week_a": 109.84,
         "week_b": 0.0,
-        "total": 107.94,
-        "above_chop": 30.34,
+        "total": 109.84,
+        "above_chop": 32.24,
         "needs": null,
-        "pending": 3,
-        "cushion_adjusted": 30.34,
+        "pending": 2,
+        "cushion_adjusted": 32.24,
         "outplayed_by": 0,
         "zone": {
           "key": "danger",
