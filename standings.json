@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-13T03:30:47+00:00"
+    "generated_at": "2026-10-13T04:00:19+00:00"
   },
   "board": {
     "phase": "chop",
@@ -15,10 +15,10 @@
     "current_week": 5,
     "week_a_done": true,
     "window_over": true,
-    "clock_phase": "B_LATE",
+    "clock_phase": "B_PRE",
     "bands": [
-      10.7,
-      22.2
+      35.5,
+      62.2
     ],
     "spread": 88.86,
     "teams_scored": 8,
