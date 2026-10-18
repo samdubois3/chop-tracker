@@ -1,12 +1,12 @@
 🪓 Weeks 5+6 · 7 alive
-as of Sun 1:00pm ET
+as of Sun 1:30pm ET
 
-GUILLOTINE  shreym  113.24
-   needs 11.70 to pass sgupta18
-   7 starter(s) still to play
+GUILLOTINE  shreym  117.50
+   needs 8.86 to pass sgupta18
+   4 starter(s) still to play
 
-DANGER  sgupta18  124.94  (+11.70)
-DANGER  peeyush  129.90  (+16.66)
-DANGER  kanaad  134.40  (+21.16)
+DANGER  sgupta18  126.36  (+8.86)
+DANGER  peeyush  130.30  (+12.80)
+DANGER  kanaad  158.24  (+40.74)  — 2 fewer left to play
 
 Board → https://samdubois3.github.io/chop-tracker/
