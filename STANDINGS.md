@@ -2,20 +2,18 @@
 
 | # | Team | W5 | W6 | Total | Cushion | Left |
 |---|------|----:|----:|------:|--------:|-----:|
-| 1 | 🪓 peeyush | 129.90 | 13.10 | **143.00** | — | 7 |
-| 2 | 😰 sgupta18 | 115.84 | 46.84 | **162.68** | +19.68 | 3 |
-| 3 | 👀 shreym | 87.84 | 82.10 | **169.94** | +26.94 | 4 |
-| 4 | 👀 Burrowed in Loveland | 169.10 | 9.60 | **178.70** | +35.70 | 6 |
-| 5 | 😎 kanaad | 125.00 | 73.38 | **198.38** | +55.38 | 2 |
-| 6 | 😎 L’Incorruptible Offense | 164.64 | 49.30 | **213.94** | +70.94 | 4 |
-| 7 | 😎 Go Blue | 176.06 | 39.40 | **215.46** | +72.46 | 4 |
+| 1 | 🪓 peeyush | 129.90 | 29.58 | **159.48** | — | 4 |
+| 2 | 😰 shreym | 87.84 | 85.20 | **173.04** | +13.56 | 4 |
+| 3 | 👀 Burrowed in Loveland | 169.10 | 9.60 | **178.70** | +19.22 | 5 |
+| 4 | 😰 sgupta18 | 115.84 | 72.34 | **188.18** | +28.70 | 0 |
+| 5 | 😎 kanaad | 125.00 | 86.64 | **211.64** | +52.16 | 2 |
+| 6 | 😎 L’Incorruptible Offense | 164.64 | 49.60 | **214.24** | +54.76 | 0 |
+| 7 | 😎 Go Blue | 176.06 | 46.60 | **222.66** | +63.18 | 3 |
 
-🪓 **peeyush is in line for the guillotine** — needs **19.68** more points to climb out of last.
+🪓 **peeyush is in line for the guillotine** — needs **13.56** more points to climb out of last.
 
-⚠️ **sgupta18** leads by 19.68 but has 4 fewer starter(s) left to play than the teams below — that lead does not cover it.
+⚠️ **sgupta18** leads by 28.70 but has 4 fewer starter(s) left to play than the teams below — that lead does not cover it.
 
-⚠️ **kanaad** leads by 55.38 but has 1 fewer starter(s) left to play than the teams below — that lead is really worth about 43.38.
-
-_Cushion under 18.1 pts = danger · under 36.2 pts = looking over your shoulder. “Left” is starters still on zero._
+_Cushion under 15.8 pts = danger · under 31.6 pts = looking over your shoulder. “Left” is starters still on zero._
 
 _Chopped: W3-4: legend4ever_
