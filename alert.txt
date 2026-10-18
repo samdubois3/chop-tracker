@@ -1,11 +1,11 @@
 🪓 Weeks 5+6 · 7 alive
-as of Sun 6:51pm ET
+as of Sun 7:00pm ET
 
 GUILLOTINE  peeyush  185.84
-   needs 4.30 to pass shreym
+   needs 10.00 to pass shreym
    4 starter(s) still to play
 
-DANGER  shreym  190.14  (+4.30)  — 2 fewer left to play
-DANGER  sgupta18  205.58  (+19.74)  — 2 fewer left to play
+DANGER  shreym  195.84  (+10.00)  — 2 fewer left to play
+DANGER  sgupta18  205.68  (+19.84)  — 2 fewer left to play
 
 Board → https://samdubois3.github.io/chop-tracker/
