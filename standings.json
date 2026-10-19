@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-19T01:00:20+00:00"
+    "generated_at": "2026-10-19T01:30:13+00:00"
   },
   "board": {
     "phase": "chop",
@@ -27,7 +27,7 @@
     "chopped_roster_id": null,
     "chopped_team": null,
     "labels_live": true,
-    "safety_line": 206.4,
+    "safety_line": 208.78,
     "lowest": 195.84,
     "rows": [
       {
@@ -38,7 +38,7 @@
         "week_b": 108.0,
         "total": 195.84,
         "above_chop": 0.0,
-        "needs": 10.56,
+        "needs": 12.94,
         "pending": 2,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
@@ -51,25 +51,6 @@
       },
       {
         "rank": 2,
-        "roster_id": 7,
-        "team": "peeyush",
-        "week_a": 129.9,
-        "week_b": 76.5,
-        "total": 206.4,
-        "above_chop": 10.56,
-        "needs": null,
-        "pending": 2,
-        "cushion_adjusted": 10.56,
-        "outplayed_by": 0,
-        "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
-          "color": "yellow"
-        }
-      },
-      {
-        "rank": 3,
         "roster_id": 3,
         "team": "sgupta18",
         "week_a": 115.84,
@@ -88,16 +69,35 @@
         }
       },
       {
+        "rank": 3,
+        "roster_id": 7,
+        "team": "peeyush",
+        "week_a": 129.9,
+        "week_b": 79.1,
+        "total": 209.0,
+        "above_chop": 13.16,
+        "needs": null,
+        "pending": 2,
+        "cushion_adjusted": 13.16,
+        "outplayed_by": 0,
+        "zone": {
+          "key": "watch",
+          "label": "LOOKING OVER YOUR SHOULDER",
+          "emoji": "\ud83d\udc40",
+          "color": "yellow"
+        }
+      },
+      {
         "rank": 4,
         "roster_id": 4,
         "team": "Burrowed in Loveland",
         "week_a": 169.1,
-        "week_b": 53.82,
-        "total": 222.92,
-        "above_chop": 27.08,
+        "week_b": 58.52,
+        "total": 227.62,
+        "above_chop": 31.78,
         "needs": null,
         "pending": 1,
-        "cushion_adjusted": 27.08,
+        "cushion_adjusted": 31.78,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
@@ -130,12 +130,12 @@
         "roster_id": 6,
         "team": "kanaad",
         "week_a": 125.0,
-        "week_b": 105.12,
-        "total": 230.12,
-        "above_chop": 34.28,
+        "week_b": 106.02,
+        "total": 231.02,
+        "above_chop": 35.18,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 34.28,
+        "cushion_adjusted": 35.18,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
