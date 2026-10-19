@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-19T00:33:36+00:00"
+    "generated_at": "2026-10-19T01:00:20+00:00"
   },
   "board": {
     "phase": "chop",
@@ -27,7 +27,7 @@
     "chopped_roster_id": null,
     "chopped_team": null,
     "labels_live": true,
-    "safety_line": 205.3,
+    "safety_line": 206.4,
     "lowest": 195.84,
     "rows": [
       {
@@ -38,7 +38,7 @@
         "week_b": 108.0,
         "total": 195.84,
         "above_chop": 0.0,
-        "needs": 9.46,
+        "needs": 10.56,
         "pending": 2,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
@@ -54,12 +54,12 @@
         "roster_id": 7,
         "team": "peeyush",
         "week_a": 129.9,
-        "week_b": 75.4,
-        "total": 205.3,
-        "above_chop": 9.46,
+        "week_b": 76.5,
+        "total": 206.4,
+        "above_chop": 10.56,
         "needs": null,
         "pending": 2,
-        "cushion_adjusted": 9.46,
+        "cushion_adjusted": 10.56,
         "outplayed_by": 0,
         "zone": {
           "key": "danger",
@@ -89,44 +89,25 @@
       },
       {
         "rank": 4,
-        "roster_id": 6,
-        "team": "kanaad",
-        "week_a": 125.0,
-        "week_b": 93.52,
-        "total": 218.52,
-        "above_chop": 22.68,
+        "roster_id": 4,
+        "team": "Burrowed in Loveland",
+        "week_a": 169.1,
+        "week_b": 53.82,
+        "total": 222.92,
+        "above_chop": 27.08,
         "needs": null,
-        "pending": 0,
-        "cushion_adjusted": 22.68,
+        "pending": 1,
+        "cushion_adjusted": 27.08,
         "outplayed_by": 0,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
-          "color": "yellow"
+          "key": "safe",
+          "label": "LOOKING SAFE",
+          "emoji": "\ud83d\ude0e",
+          "color": "green"
         }
       },
       {
         "rank": 5,
-        "roster_id": 4,
-        "team": "Burrowed in Loveland",
-        "week_a": 169.1,
-        "week_b": 50.62,
-        "total": 219.72,
-        "above_chop": 23.88,
-        "needs": null,
-        "pending": 1,
-        "cushion_adjusted": 23.88,
-        "outplayed_by": 0,
-        "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
-          "color": "yellow"
-        }
-      },
-      {
-        "rank": 6,
         "roster_id": 2,
         "team": "Go Blue",
         "week_a": 176.06,
@@ -136,6 +117,25 @@
         "needs": null,
         "pending": 2,
         "cushion_adjusted": 32.02,
+        "outplayed_by": 0,
+        "zone": {
+          "key": "safe",
+          "label": "LOOKING SAFE",
+          "emoji": "\ud83d\ude0e",
+          "color": "green"
+        }
+      },
+      {
+        "rank": 6,
+        "roster_id": 6,
+        "team": "kanaad",
+        "week_a": 125.0,
+        "week_b": 105.12,
+        "total": 230.12,
+        "above_chop": 34.28,
+        "needs": null,
+        "pending": 0,
+        "cushion_adjusted": 34.28,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
