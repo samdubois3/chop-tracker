@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-19T00:00:15+00:00"
+    "generated_at": "2026-10-19T00:30:14+00:00"
   },
   "board": {
     "phase": "chop",
@@ -58,7 +58,7 @@
         "total": 205.3,
         "above_chop": 9.46,
         "needs": null,
-        "pending": 4,
+        "pending": 3,
         "cushion_adjusted": 9.46,
         "outplayed_by": 0,
         "zone": {
@@ -89,15 +89,15 @@
       },
       {
         "rank": 4,
-        "roster_id": 4,
-        "team": "Burrowed in Loveland",
-        "week_a": 169.1,
-        "week_b": 49.12,
-        "total": 218.22,
-        "above_chop": 22.38,
+        "roster_id": 6,
+        "team": "kanaad",
+        "week_a": 125.0,
+        "week_b": 93.52,
+        "total": 218.52,
+        "above_chop": 22.68,
         "needs": null,
-        "pending": 3,
-        "cushion_adjusted": 22.38,
+        "pending": 1,
+        "cushion_adjusted": 22.68,
         "outplayed_by": 0,
         "zone": {
           "key": "watch",
@@ -108,15 +108,15 @@
       },
       {
         "rank": 5,
-        "roster_id": 6,
-        "team": "kanaad",
-        "week_a": 125.0,
-        "week_b": 93.52,
-        "total": 218.52,
-        "above_chop": 22.68,
+        "roster_id": 4,
+        "team": "Burrowed in Loveland",
+        "week_a": 169.1,
+        "week_b": 50.62,
+        "total": 219.72,
+        "above_chop": 23.88,
         "needs": null,
         "pending": 2,
-        "cushion_adjusted": 22.68,
+        "cushion_adjusted": 23.88,
         "outplayed_by": 0,
         "zone": {
           "key": "watch",
@@ -134,7 +134,7 @@
         "total": 227.86,
         "above_chop": 32.02,
         "needs": null,
-        "pending": 3,
+        "pending": 2,
         "cushion_adjusted": 32.02,
         "outplayed_by": 0,
         "zone": {
