@@ -6,14 +6,14 @@
 | 2 | 😰 sgupta18 | 115.84 | 92.94 | **208.78** | +9.74 | 0 |
 | 3 | 😎 kanaad | 125.00 | 113.92 | **238.92** | +39.88 | 0 |
 | 4 | 😎 L’Incorruptible Offense | 164.64 | 78.68 | **243.32** | +44.28 | 0 |
-| 5 | 😎 Burrowed in Loveland | 169.10 | 80.42 | **249.52** | +50.48 | 0 |
-| 6 | 😎 peeyush | 129.90 | 124.20 | **254.10** | +55.06 | 0 |
-| 7 | 😎 Go Blue | 176.06 | 91.66 | **267.72** | +68.68 | 0 |
+| 5 | 😎 Burrowed in Loveland | 169.10 | 84.42 | **253.52** | +54.48 | 0 |
+| 6 | 😎 peeyush | 129.90 | 126.60 | **256.50** | +57.46 | 0 |
+| 7 | 😎 Go Blue | 176.06 | 89.92 | **265.98** | +66.94 | 0 |
 
 🪓 **shreym is in line for the guillotine** — needs **9.74** more points to climb out of last.
 
 ⚠️ **sgupta18** leads by 9.74 but has 1 fewer starter(s) left to play than the teams below — that lead does not cover it.
 
-_Cushion under 8.2 pts = danger · under 17.2 pts = looking over your shoulder. “Left” is starters still on zero._
+_Cushion under 8.0 pts = danger · under 16.7 pts = looking over your shoulder. “Left” is starters still on zero._
 
 _Chopped: W3-4: legend4ever_
