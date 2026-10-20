@@ -4,7 +4,7 @@
 |---|------|----:|----:|------:|--------:|-----:|
 | 1 | 🪓 shreym | 87.84 | 111.20 | **199.04** | — | 1 |
 | 2 | 😰 sgupta18 | 115.84 | 92.94 | **208.78** | +9.74 | 0 |
-| 3 | 😎 kanaad | 125.00 | 113.92 | **238.92** | +39.88 | 0 |
+| 3 | 👀 kanaad | 125.00 | 113.92 | **238.92** | +39.88 | 0 |
 | 4 | 😎 L’Incorruptible Offense | 164.64 | 78.68 | **243.32** | +44.28 | 0 |
 | 5 | 😎 Burrowed in Loveland | 169.10 | 84.42 | **253.52** | +54.48 | 0 |
 | 6 | 😎 peeyush | 129.90 | 129.20 | **259.10** | +60.06 | 0 |
@@ -14,6 +14,6 @@
 
 ⚠️ **sgupta18** leads by 9.74 but has 1 fewer starter(s) left to play than the teams below — that lead does not cover it.
 
-_Cushion under 7.5 pts = danger · under 15.6 pts = looking over your shoulder. “Left” is starters still on zero._
+_Cushion under 25.0 pts = danger · under 43.7 pts = looking over your shoulder. “Left” is starters still on zero._
 
 _Chopped: W3-4: legend4ever_
