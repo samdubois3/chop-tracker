@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-20T02:30:14+00:00"
+    "generated_at": "2026-10-20T03:00:17+00:00"
   },
   "board": {
     "phase": "chop",
@@ -17,10 +17,10 @@
     "window_over": false,
     "clock_phase": "B_LATE",
     "bands": [
-      8.0,
-      16.7
+      7.6,
+      15.8
     ],
-    "spread": 66.94,
+    "spread": 63.36,
     "teams_scored": 7,
     "pending_known": true,
     "holding": false,
@@ -130,12 +130,12 @@
         "roster_id": 7,
         "team": "peeyush",
         "week_a": 129.9,
-        "week_b": 126.6,
-        "total": 256.5,
-        "above_chop": 57.46,
+        "week_b": 127.9,
+        "total": 257.8,
+        "above_chop": 58.76,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 57.46,
+        "cushion_adjusted": 58.76,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
@@ -149,12 +149,12 @@
         "roster_id": 2,
         "team": "Go Blue",
         "week_a": 176.06,
-        "week_b": 89.92,
-        "total": 265.98,
-        "above_chop": 66.94,
+        "week_b": 86.34,
+        "total": 262.4,
+        "above_chop": 63.36,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 66.94,
+        "cushion_adjusted": 63.36,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
