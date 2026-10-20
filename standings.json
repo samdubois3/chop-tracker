@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-20T04:00:17+00:00"
+    "generated_at": "2026-10-20T04:30:12+00:00"
   },
   "board": {
     "phase": "chop",
@@ -12,9 +12,9 @@
       6
     ],
     "is_final": false,
-    "current_week": 6,
+    "current_week": 7,
     "week_a_done": true,
-    "window_over": false,
+    "window_over": true,
     "clock_phase": "B_PRE",
     "bands": [
       25.0,
@@ -22,10 +22,10 @@
     ],
     "spread": 62.48,
     "teams_scored": 7,
-    "pending_known": true,
-    "holding": false,
-    "chopped_roster_id": null,
-    "chopped_team": null,
+    "pending_known": false,
+    "holding": true,
+    "chopped_roster_id": 5,
+    "chopped_team": "shreym",
     "labels_live": true,
     "safety_line": 208.78,
     "lowest": 199.04,
@@ -39,12 +39,12 @@
         "total": 199.04,
         "above_chop": 0.0,
         "needs": 9.74,
-        "pending": 1,
+        "pending": null,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
         "zone": {
-          "key": "guillotine",
-          "label": "IN LINE FOR THE GUILLOTINE",
+          "key": "chopped",
+          "label": "CHOPPED",
           "emoji": "\ud83e\ude93",
           "color": "red"
         }
@@ -58,14 +58,14 @@
         "total": 208.78,
         "above_chop": 9.74,
         "needs": null,
-        "pending": 0,
-        "cushion_adjusted": -2.26,
-        "outplayed_by": 1,
+        "pending": null,
+        "cushion_adjusted": 9.74,
+        "outplayed_by": 0,
         "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
-          "color": "yellow"
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
+          "color": "green"
         }
       },
       {
@@ -77,14 +77,14 @@
         "total": 238.92,
         "above_chop": 39.88,
         "needs": null,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 39.88,
         "outplayed_by": 0,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
-          "color": "yellow"
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
+          "color": "green"
         }
       },
       {
@@ -96,13 +96,13 @@
         "total": 243.32,
         "above_chop": 44.28,
         "needs": null,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 44.28,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
           "color": "green"
         }
       },
@@ -115,13 +115,13 @@
         "total": 253.52,
         "above_chop": 54.48,
         "needs": null,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 54.48,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
           "color": "green"
         }
       },
@@ -134,13 +134,13 @@
         "total": 259.1,
         "above_chop": 60.06,
         "needs": null,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 60.06,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
           "color": "green"
         }
       },
@@ -153,13 +153,13 @@
         "total": 261.52,
         "above_chop": 62.48,
         "needs": null,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 62.48,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
           "color": "green"
         }
       }
@@ -184,6 +184,25 @@
       "chopped": 8,
       "champion": null,
       "chopped_name": "legend4ever",
+      "champion_name": null
+    },
+    {
+      "window": [
+        5,
+        6
+      ],
+      "totals": {
+        "1": 243.32,
+        "2": 261.52,
+        "3": 208.78,
+        "4": 253.52,
+        "5": 199.04,
+        "6": 238.92,
+        "7": 259.1
+      },
+      "chopped": 5,
+      "champion": null,
+      "chopped_name": "shreym",
       "champion_name": null
     }
   ]
