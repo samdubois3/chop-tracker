@@ -134,6 +134,9 @@ h1{
   color:var(--dim);margin-top:5px;
 }
 .warn{font-size:11.5px;color:var(--amber);margin-top:5px;line-height:1.35}
+.title{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(255,210,74,.32);border-radius:999px;
+  padding:2px 8px;white-space:nowrap}
 .k-guillotine .zone,.k-chopped .zone{color:var(--red)}
 .k-danger .zone{color:var(--orange)}
 .k-watch .zone{color:var(--amber)}
@@ -222,6 +225,10 @@ footer{margin-top:40px;text-align:center;font-size:12px;color:var(--dimmer);line
 
 <script>
 const ZONE_COPY = {
+  champion:["var(--gold)","Champion."],
+  revolt:["var(--green)","Top of the Gulag — advancing as things stand."],
+  gulag:["var(--amber)","In the Gulag. Only the top score gets out."],
+  robespierre:["var(--green)","Climbed out of the Gulag."],
   guillotine:["var(--red)","Lowest total in the window. As things stand, this is the one that goes."],
   danger:["var(--orange)","Close enough to last that one bad Sunday flips it."],
   watch:["var(--amber)","Comfortable-ish, but not clear of it yet."],
@@ -245,14 +252,16 @@ function ago(iso){
 }
 
 function render(d){
-  const b=d.board, meta=d.meta||{}, rows=b.rows||[], warm=b.phase==="warmup", champ=b.phase==="championship";
+  const b=d.board, meta=d.meta||{}, rows=b.rows||[];
+  const warm=b.phase==="warmup", champ=b.phase==="championship", gulag=b.phase==="gulag";
   const [a,bw]=b.window||[0,0];
 
   document.title = (meta.league_name||"Chop Tracker")+" · Chop Tracker";
   document.getElementById("league").textContent = meta.league_name || "Chop Tracker";
   document.getElementById("sub").textContent =
     warm ? `Warm-up · Weeks ${a} and ${bw} · nobody can be chopped yet`
-         : champ ? `Championship · Weeks ${a}+${bw} · highest two-week total wins`
+         : gulag ? `The Gulag · Week ${a} · ${rows.length} revived · only the highest score advances`
+         : champ ? `Championship · Weeks ${a}+${bw} · three teams · highest two-week total wins`
          : b.window_over ? `Final · Weeks ${a}+${bw} · the window is decided`
                  : `Chop window · Weeks ${a}+${bw} · ${rows.length} alive · lowest two-week total goes home`;
 
@@ -264,21 +273,27 @@ function render(d){
   let h="";
   h+=`<div class="window">
         <div>
-          <h2>${warm?`Warm-up — Weeks ${a} &amp; ${bw}`:champ?`Championship — Weeks ${a}+${bw}`:b.window_over?`Final — Weeks ${a}+${bw}`:`Chop Window — Weeks ${a}+${bw}`}</h2>
+          <h2>${warm?`Warm-up — Weeks ${a} &amp; ${bw}`:gulag?`⚔️ The Gulag — Week ${a}`:champ?`👑 Championship — Weeks ${a}+${bw}`:b.window_over?`Final — Weeks ${a}+${bw}`:`Chop Window — Weeks ${a}+${bw}`}</h2>
           <div class="note">${
             warm ? `These points do not carry forward. The first chop window is Weeks ${(b.next_chop_window||[3,4])[0]}+${(b.next_chop_window||[3,4])[1]}.`
-                 : champ ? `Two teams left. Whoever scores more across both weeks takes it.`
+                 : gulag ? `Every chopped team is back for one week, rebuilt from waivers. The highest single-week score joins the final as ${esc("Robespierre")}. Everyone else is done.`
+                 : champ ? `Three teams. The two that survived all six chop windows carry +${b.bonus||10}; ${esc("Robespierre")} carries a waiver-wire roster.`
                  : b.window_over ? `This window is final.`
                  : `Totals are live and provisional until Sleeper locks the week on Tuesday morning.`}</div>
         </div>
-        <span class="pill ${warm?"warm":champ?"champ":"chop"}">${warm?"No chop":champ?"Final":b.window_over?"Decided":"1 gets chopped"}</span>
+        <span class="pill ${warm?"warm":(champ||gulag)?"champ":"chop"}">${warm?"No chop":gulag?(b.window_over?"Decided":"1 advances"):champ?(b.window_over?"Champion crowned":"3 teams left"):b.window_over?"Decided":"1 gets chopped"}</span>
       </div>`;
 
   h+=`<div class="board">`;
   for(const r of rows){
     const z=r.zone||{key:"early",label:"",emoji:""};
     let cush = "";
-    if(!warm){
+    if(gulag){
+      const left = (r.pending!=null && r.pending>0) ? ` · ${r.pending} left` : "";
+      cush = `<div class="cush">${r.above_chop?("-"+n2(r.above_chop)+" behind"):"highest score"}${left}</div>`;
+    } else if(champ){
+      cush = `<div class="cush">${r.bonus?("includes +"+n2(r.bonus)):"no head start"}</div>`;
+    } else if(!warm){
       const left = (r.pending!=null && r.pending>0) ? ` · ${r.pending} left` : "";
       cush = `<div class="cush">${r.above_chop?("+"+n2(r.above_chop)+" cushion"):"lowest total"}${left}</div>`;
     }
@@ -292,24 +307,42 @@ function render(d){
     h+=`<div class="row k-${esc(z.key)}">
           <div class="rank">${r.rank}</div>
           <div class="who">
-            <div class="team">${z.emoji?`<span class="emoji">${esc(z.emoji)}</span>`:""}${esc(r.team)}</div>
+            <div class="team">${z.emoji?`<span class="emoji">${esc(z.emoji)}</span>`:""}${esc(r.team)}${r.title?`<span class="title">${esc(r.title)}</span>`:""}</div>
             ${warm?"":`<div class="zone">${esc(z.label)}</div>`}${warn}
           </div>
           <div class="nums">
-            <div class="split"><b>W${a}</b>${n2(r.week_a)}</div>
-            <div class="split"><b>W${bw}</b>${n2(r.week_b)}</div>
+            ${gulag?"":`<div class="split"><b>W${a}</b>${n2(r.week_a)}</div>
+            <div class="split"><b>W${bw}</b>${n2(r.week_b)}</div>`}
             <div><div class="total">${n2(r.total)}</div>${cush}</div>
           </div>
         </div>`;
   }
   h+=`</div>`;
 
+  if(gulag){
+    const ex=(b.exempt||[]).filter(e=>e.title);
+    if(b.window_over && b.winner_team){
+      h+=`<div class="callout">⚔️ <b>${esc(b.winner_team)} climbs out of the Gulag</b> and joins the final as Robespierre.</div>`;
+    } else if(rows.length>1){
+      h+=`<div class="callout neutral">⚔️ <b>${esc(rows[0].team)}</b> leads by ${n2(rows[1].above_chop)}. Only the top score advances — everyone else is done for the season.</div>`;
+    }
+    if(ex.length){
+      h+=`<div class="callout neutral">Sitting this one out: ${ex.map(e=>`<b>${esc(e.team)}</b> (${esc(e.title)})`).join(" · ")}</div>`;
+    }
+  }
+  if(champ){
+    if(b.window_over && b.winner_team){
+      h+=`<div class="callout">👑 <b>${esc(b.winner_team)} wins it all.</b></div>`;
+    } else if(rows.length>1){
+      h+=`<div class="callout neutral">👑 <b>${esc(rows[0].team)}</b> leads by ${n2(rows[1].behind)}.</div>`;
+    }
+  }
   if(b.window_over && b.chopped_team){
     h+=`<div class="callout">🪓 <b>${esc(b.chopped_team)} is chopped.</b>
          ${esc(n2(rows[0].total))} — lowest of ${rows.length}.
          ${b.holding?`<br><span style="color:var(--dim)">Showing the closed window until Wednesday 3am ET. Stat corrections can still move this.</span>`:""}</div>`;
   }
-  if(!warm && !champ && !b.window_over && rows.length){
+  if(!warm && !champ && !gulag && !b.window_over && rows.length){
     const low=rows[0];
     if(b.labels_live && low.needs!=null){
       h+=`<div class="callout">🪓 <b>${esc(low.team)}</b> is in line for the guillotine —
@@ -324,7 +357,7 @@ function render(d){
          points carry into the first chop window.</div>`;
   }
 
-  if(b.bands && b.labels_live && !b.window_over){
+  if(b.bands && b.labels_live && !b.window_over && !gulag && !champ){
     h+=`<div class="legend"><h3>How the zones are set</h3>
       <div class="k"><span class="sw" style="background:var(--red)"></span><span><b>In line for the guillotine</b> — lowest total in the window.</span></div>
       <div class="k"><span class="sw" style="background:var(--orange)"></span><span><b>Danger zone</b> — cushion under ${b.bands[0]} pts.</span></div>
