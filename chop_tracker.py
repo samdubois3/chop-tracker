@@ -43,8 +43,8 @@ LEAGUE_ID = os.environ.get("SLEEPER_LEAGUE_ID", "").strip()
 # Weeks that don't count toward any chop.
 WARMUP_WEEKS = (1, 2)
 
-# Each tuple is one scoring window. Lowest CUMULATIVE score in the window is
-# chopped. The last window is the championship (no chop, highest total wins).
+# Each tuple is one chop window. Lowest CUMULATIVE score in the window goes.
+# Six of them take the league from 8 teams down to 2.
 WINDOWS = [
     (3, 4),
     (5, 6),
@@ -52,8 +52,31 @@ WINDOWS = [
     (9, 10),
     (11, 12),
     (13, 14),
-    (15, 16),  # championship: last 2 teams standing
 ]
+
+# ---------------------------------------------------------------------------
+# THE GULAG
+#
+# Week 15 is a one-week revival round. All six chopped teams come back, rebuild
+# from waivers, and play a single week; the HIGHEST scorer advances. Note the
+# inversion - every other week of this season rewards not being last, and this
+# one rewards being first.
+#
+# The two teams that survived all six chop windows sit it out, then face the
+# Gulag winner over a two-week championship with a points head start.
+GULAG_WEEK = 15
+CHAMPIONSHIP = (16, 17)
+
+# Head start for the two teams that survived fourteen weeks. A flat +10 on the
+# two-week total, on the board from the moment the championship opens rather
+# than accruing. Shifts a coin flip to roughly 59/41.
+CHAMPIONSHIP_BONUS = 10.0
+
+# The league runs a French Revolution theme. The two survivors are the ancien
+# regime; whoever climbs out of the Gulag comes for them.
+TITLE_KING = "Louis XVI"
+TITLE_QUEEN = "Marie Antoinette"
+TITLE_REVOLUTIONARY = "Robespierre"
 
 # Tiebreak scope: warm-up points don't carry, so the season-total tiebreak
 # starts at the first chop week rather than week 1.
@@ -125,6 +148,10 @@ ZONE_LABELS = {
     "chopped":    ("CHOPPED",                    "\U0001FA93", "red"),
     "survived":   ("SURVIVED",                   "\u2705",     "green"),
     "leader":     ("LEADER",                     "\U0001F3C6", "green"),
+    "champion":   ("CHAMPION",                   "\U0001F451", "green"),
+    "revolt":     ("LEADING THE REVOLT",         "\u2694\ufe0f",  "green"),
+    "gulag":      ("IN THE GULAG",               "\u26d3\ufe0f",  "yellow"),
+    "robespierre":("ROBESPIERRE \u2014 ADVANCES", "\u2694\ufe0f",  "green"),
     "trailing":   ("TRAILING",                   "\u23F3",     "yellow"),
 }
 
@@ -487,6 +514,46 @@ def in_hold_period(now=None):
     return False
 
 
+def royal_titles(cache, survivors, current_week):
+    """Louis XVI to whoever scored most since week 3; Marie Antoinette to the
+    other. Deterministic, so the titles don't shuffle between runs."""
+    end = min(current_week, WINDOWS[-1][1])
+    ranked = sorted(
+        survivors,
+        key=lambda r: -cache.season_total_through(end, r),
+    )
+    out = {}
+    if ranked:
+        out[ranked[0]] = TITLE_KING
+    if len(ranked) > 1:
+        out[ranked[1]] = TITLE_QUEEN
+    return out
+
+
+def gulag_result(cache, eliminated):
+    """Week 15, six revived teams, HIGHEST score advances.
+
+    Tiebreak is whoever survived longest before being chopped - `eliminated` is
+    in chop order, so the latest index was alive the longest.
+    """
+    pts = cache.points(GULAG_WEEK)
+    totals = {rid: round(pts.get(rid, 0.0), 2) for rid in eliminated}
+    if not totals:
+        return None
+    high = max(totals.values())
+    tied = [rid for rid, v in totals.items() if abs(v - high) < 1e-9]
+    warn = None
+    if len(tied) == 1:
+        winner = tied[0]
+    else:
+        winner = max(tied, key=lambda r: eliminated.index(r))
+        warn = (
+            f"Gulag tie at {high} pts - broken on who survived longest "
+            f"before being chopped."
+        )
+    return {"totals": totals, "winner": winner, "warning": warn, "high": high}
+
+
 def resolve(cache, league_id, current_week):
     """
     Replays every completed window from the start to figure out who's still alive.
@@ -498,20 +565,15 @@ def resolve(cache, league_id, current_week):
     active = None
     warnings = []
     just_closed = None
+    eliminated = []          # chop order, earliest first
+    gulag = None
+    titles = {}
 
     for window in WINDOWS:
         a, b = window
-        is_final = window is WINDOWS[-1]
         if current_week > b:
             before = set(survivors)
             totals = window_totals(cache, window, survivors)
-            if is_final:
-                champ = max(totals, key=lambda r: totals[r])
-                history.append(
-                    {"window": window, "totals": totals, "champion": champ, "chopped": None}
-                )
-                survivors = {champ}
-                break
             chopped, warn = pick_chopped(cache, window, survivors, totals)
             if warn:
                 warnings.append(f"W{a}-{b}: {warn}")
@@ -519,6 +581,7 @@ def resolve(cache, league_id, current_week):
                 {"window": window, "totals": totals, "chopped": chopped, "champion": None}
             )
             survivors = survivors - {chopped}
+            eliminated.append(chopped)
             just_closed = {
                 "window": window,
                 "survivors_before": before,
@@ -528,10 +591,27 @@ def resolve(cache, league_id, current_week):
             active = window
             break
 
+    # Past all six chop windows: two survivors, then the Gulag, then the final.
+    phase = "chop"
+    if active is None:
+        titles = royal_titles(cache, survivors, current_week)
+        if current_week > GULAG_WEEK:
+            gulag = gulag_result(cache, eliminated)
+            if gulag:
+                if gulag["warning"]:
+                    warnings.append(f"W{GULAG_WEEK}: {gulag['warning']}")
+                # The one place in this whole format where the survivor set
+                # GROWS rather than shrinking.
+                survivors = survivors | {gulag["winner"]}
+                titles[gulag["winner"]] = TITLE_REVOLUTIONARY
+            phase = "championship"
+        else:
+            phase = "gulag"
+
     # Hold on the window that just closed rather than jumping to the next one.
     # Only in the week straight after it ended, and only until Wednesday.
     holding = False
-    if just_closed and in_hold_period():
+    if just_closed and in_hold_period() and phase == "chop":
         a, b = just_closed["window"]
         if current_week == b + 1:
             active = just_closed["window"]
@@ -546,6 +626,148 @@ def resolve(cache, league_id, current_week):
         "warnings": warnings,
         "just_closed": just_closed,
         "holding": holding,
+        "phase": phase,
+        "eliminated": eliminated,
+        "gulag": gulag,
+        "titles": titles,
+    }
+
+
+def build_gulag_board(cache, res, current_week):
+    """Week 15. Six revived teams, one week, HIGHEST score advances.
+
+    Sorted highest-first - the opposite of every other board in this file,
+    because this is the only week where being top is what saves you.
+    """
+    elim = res["eliminated"]
+    if not elim:
+        return None
+    pts = cache.points(GULAG_WEEK)
+    totals = {rid: round(pts.get(rid, 0.0), 2) for rid in elim}
+    order = sorted(elim, key=lambda r: (-totals[r], res["names"].get(r, "")))
+    decided = current_week > GULAG_WEEK
+    winner = (res.get("gulag") or {}).get("winner")
+    top = totals[order[0]] if order else 0.0
+    pending = cache.pending(GULAG_WEEK) if current_week == GULAG_WEEK else {}
+    scored = sum(1 for v in totals.values() if v > 0)
+    live = scored >= max(2, int(len(totals) * MIN_SCORED_FRACTION))
+
+    rows = []
+    for i, rid in enumerate(order):
+        behind = round(top - totals[rid], 2)
+        if decided and winner:
+            key = "robespierre" if rid == winner else "guillotine"
+        elif not live:
+            key = "early"
+        elif i == 0:
+            key = "revolt"
+        else:
+            key = "gulag"
+        text, emoji, colour = ZONE_LABELS[key]
+        rows.append(
+            {
+                "rank": i + 1,
+                "roster_id": rid,
+                "team": res["names"].get(rid, f"Roster {rid}"),
+                "week_a": totals[rid],
+                "week_b": 0.0,
+                "total": totals[rid],
+                "above_chop": behind,       # here: points BEHIND the leader
+                "needs": behind if i > 0 else None,
+                "pending": pending.get(rid),
+                "cushion_adjusted": behind,
+                "outplayed_by": 0,
+                "title": res["titles"].get(rid),
+                "zone": {"key": key, "label": text, "emoji": emoji, "color": colour},
+            }
+        )
+    return {
+        "phase": "gulag",
+        "window": (GULAG_WEEK, GULAG_WEEK),
+        "is_final": False,
+        "current_week": current_week,
+        "week_a_done": decided,
+        "window_over": decided,
+        "clock_phase": window_phase(current_week, (GULAG_WEEK, GULAG_WEEK)),
+        "bands": None,
+        "spread": round(top - totals[order[-1]], 2) if order else 0.0,
+        "teams_scored": scored,
+        "labels_live": live,
+        "pending_known": bool(pending),
+        "holding": False,
+        "chopped_roster_id": None,
+        "chopped_team": None,
+        "safety_line": None,
+        "lowest": totals[order[-1]] if order else 0.0,
+        "winner_roster_id": winner if decided else None,
+        "winner_team": res["names"].get(winner) if (decided and winner) else None,
+        "exempt": [
+            {"roster_id": r, "team": res["names"].get(r), "title": res["titles"].get(r)}
+            for r in sorted(res["survivors"], key=lambda r: res["names"].get(r, ""))
+        ],
+        "rows": rows,
+    }
+
+
+def build_championship_board(cache, res, current_week):
+    """Weeks 16+17. Three teams: the two survivors (carrying a per-week points
+    head start) and whoever climbed out of the Gulag."""
+    a, b = CHAMPIONSHIP
+    teams = res["survivors"]
+    pa, pb = cache.points(a), cache.points(b)
+    rows = []
+    for rid in teams:
+        raw = round(pa.get(rid, 0.0) + pb.get(rid, 0.0), 2)
+        is_incumbent = res["titles"].get(rid) in (TITLE_KING, TITLE_QUEEN)
+        bonus = CHAMPIONSHIP_BONUS if is_incumbent else 0.0
+        rows.append(
+            {
+                "roster_id": rid,
+                "team": res["names"].get(rid, f"Roster {rid}"),
+                "title": res["titles"].get(rid),
+                "week_a": round(pa.get(rid, 0.0), 2),
+                "week_b": round(pb.get(rid, 0.0), 2),
+                "raw_total": raw,
+                "bonus": bonus,
+                "total": round(raw + bonus, 2),
+            }
+        )
+    rows.sort(key=lambda r: (-r["total"], r["team"]))
+    lead = rows[0]["total"] if rows else 0.0
+    decided = current_week > b
+    pending = cache.pending(current_week) if (a <= current_week <= b) else {}
+    for i, r in enumerate(rows):
+        r["rank"] = i + 1
+        r["above_chop"] = round(r["total"] - rows[-1]["total"], 2)
+        r["behind"] = round(lead - r["total"], 2)
+        r["needs"] = r["behind"] if i > 0 else None
+        r["pending"] = pending.get(r["roster_id"])
+        r["cushion_adjusted"] = r["above_chop"]
+        r["outplayed_by"] = 0
+        key = ("champion" if decided else "leader") if i == 0 else "trailing"
+        text, emoji, colour = ZONE_LABELS[key]
+        r["zone"] = {"key": key, "label": text, "emoji": emoji, "color": colour}
+    return {
+        "phase": "championship",
+        "window": CHAMPIONSHIP,
+        "is_final": True,
+        "current_week": current_week,
+        "week_a_done": current_week > a,
+        "window_over": decided,
+        "clock_phase": window_phase(current_week, CHAMPIONSHIP),
+        "bands": None,
+        "spread": round(lead - rows[-1]["total"], 2) if rows else 0.0,
+        "teams_scored": sum(1 for r in rows if r["raw_total"] > 0),
+        "labels_live": True,
+        "pending_known": bool(pending),
+        "holding": False,
+        "chopped_roster_id": None,
+        "chopped_team": None,
+        "safety_line": None,
+        "lowest": rows[-1]["total"] if rows else 0.0,
+        "bonus": CHAMPIONSHIP_BONUS,
+        "winner_team": rows[0]["team"] if (decided and rows) else None,
+        "rows": rows,
     }
 
 
@@ -669,7 +891,13 @@ def render_terminal(board, res, color=True):
     a, b = board["window"]
     n = len(board["rows"])
     out = []
-    if board["is_final"]:
+    if board["phase"] == "gulag":
+        head = (
+            f"THE GULAG — Week {a}  ({n} revived, highest score advances)"
+            if not board["window_over"]
+            else f"THE GULAG — Week {a}  (decided)"
+        )
+    elif board["is_final"]:
         head = f"CHAMPIONSHIP — Weeks {a}+{b} (highest total wins)"
     elif board["window_over"]:
         head = f"FINAL — Weeks {a}+{b}"
@@ -680,25 +908,95 @@ def render_terminal(board, res, color=True):
     out.append(c(f"{status} · {datetime.now(timezone.utc).astimezone():%a %b %d %I:%M %p %Z}", "dim"))
     out.append("")
 
-    show_left = not board["window_over"]
-    out.append(
-        f"{'':>2}  {'TEAM':<20} {'W'+str(a):>7} {'W'+str(b):>7} {'TOTAL':>8} "
-        f"{'CUSHION':>8}{' ' + format('LEFT', '>5') if show_left else ''}  ZONE"
-    )
-    out.append("-" * (92 if show_left else 86))
+    show_left = not board["window_over"] and bool(board.get("pending_known"))
+    if board["phase"] == "gulag":
+        out.append(f"{'':>2}  {'TEAM':<24} {'W'+str(a):>8} {'BEHIND':>8}{' LEFT' if show_left else ''}  ZONE")
+        out.append("-" * 84)
+    elif board["phase"] == "championship":
+        out.append(
+            f"{'':>2}  {'TEAM':<22} {'TITLE':<17} {'W'+str(a):>7} {'W'+str(b):>7} "
+            f"{'BONUS':>6} {'TOTAL':>8}  ZONE"
+        )
+        out.append("-" * 104)
+    else:
+        out.append(
+            f"{'':>2}  {'TEAM':<20} {'W'+str(a):>7} {'W'+str(b):>7} {'TOTAL':>8} "
+            f"{'CUSHION':>8}{' ' + format('LEFT', '>5') if show_left else ''}  ZONE"
+        )
+        out.append("-" * (92 if show_left else 86))
     for r in board["rows"]:
         z = r["zone"]
-        line = (
-            f"{r['rank']:>2}  {r['team'][:20]:<20} {r['week_a']:>7.2f} {r['week_b']:>7.2f} "
-            f"{r['total']:>8.2f} {('+' + format(r['above_chop'], '.2f')) if r['above_chop'] else '—':>8}"
-        )
-        if show_left:
-            line += f" {(str(r['pending']) if r.get('pending') is not None else '?'):>5}"
-        line += "  "
+        if board["phase"] == "gulag":
+            line = (
+                f"{r['rank']:>2}  {r['team'][:24]:<24} {r['total']:>8.2f} "
+                f"{('-' + format(r['above_chop'], '.2f')) if r['above_chop'] else '—':>8}"
+            )
+            if show_left:
+                line += f" {(str(r['pending']) if r.get('pending') is not None else '?'):>4}"
+            line += "  "
+        elif board["phase"] == "championship":
+            line = (
+                f"{r['rank']:>2}  {r['team'][:22]:<22} {(r.get('title') or ''):<17} "
+                f"{r['week_a']:>7.2f} {r['week_b']:>7.2f} "
+                f"{('+' + format(r['bonus'], '.0f')) if r['bonus'] else '—':>6} "
+                f"{r['total']:>8.2f}  "
+            )
+        else:
+            line = (
+                f"{r['rank']:>2}  {r['team'][:20]:<20} {r['week_a']:>7.2f} {r['week_b']:>7.2f} "
+                f"{r['total']:>8.2f} {('+' + format(r['above_chop'], '.2f')) if r['above_chop'] else '—':>8}"
+            )
+            if show_left:
+                line += f" {(str(r['pending']) if r.get('pending') is not None else '?'):>5}"
+            line += "  "
         out.append(line + c(f"{z['emoji']} {z['label']}", z["color"]))
     out.append("")
 
     low = board["rows"][0]
+    if board["phase"] == "gulag":
+        ex = board.get("exempt") or []
+        if ex:
+            out.append(
+                c(
+                    "Sitting this one out: "
+                    + " \u00b7 ".join(f"{e['team']} ({e['title']})" for e in ex if e.get("title")),
+                    "dim",
+                )
+            )
+        if board["window_over"] and board.get("winner_team"):
+            out.append(
+                c(f"\u2694\ufe0f  {board['winner_team'].upper()} CLIMBS OUT. Vive la revolution.", "green")
+            )
+        elif low["needs"] is None and board["labels_live"]:
+            runner = board["rows"][1] if len(board["rows"]) > 1 else None
+            if runner:
+                out.append(
+                    c(
+                        f"{low['team']} leads by {runner['above_chop']:.2f}. "
+                        f"Only the top score advances.",
+                        "bold",
+                    )
+                )
+        return "\n".join(out + [c("! " + w, "yellow") for w in res["warnings"]])
+    if board["phase"] == "championship":
+        out.append(
+            c(
+                f"The ancien regime carries +{board['bonus']:.0f} into the final. "
+                f"{TITLE_REVOLUTIONARY} carries nothing but a waiver-wire roster.",
+                "dim",
+            )
+        )
+        if board["window_over"] and board.get("winner_team"):
+            out.append(c(f"\U0001F451  {board['winner_team'].upper()} WINS IT ALL.", "green"))
+        elif len(board["rows"]) > 1:
+            out.append(
+                c(
+                    f"{board['rows'][0]['team']} leads by "
+                    f"{board['rows'][1]['behind']:.2f}.",
+                    "bold",
+                )
+            )
+        return "\n".join(out + [c("! " + w, "yellow") for w in res["warnings"]])
     if board["window_over"] and board.get("chopped_team"):
         out.append(
             c(f"\U0001FA93  {board['chopped_team'].upper()} IS CHOPPED.", "red")
@@ -778,6 +1076,56 @@ def render_markdown(board, res):
     a, b = board["window"]
     n = len(board["rows"])
     lines = []
+    if board["phase"] == "gulag":
+        lines.append(
+            f"**\u2694\ufe0f THE GULAG — Week {a}** \u00b7 {n} revived \u00b7 "
+            f"highest score advances"
+        )
+        lines.append("")
+        lines.append(f"| # | Team | W{a} | Behind |")
+        lines.append("|---|------|----:|-------:|")
+        for r in board["rows"]:
+            z = r["zone"]
+            lines.append(
+                f"| {r['rank']} | {z['emoji']} {r['team']} | **{r['total']:.2f}** "
+                f"| {('-' + format(r['above_chop'], '.2f')) if r['above_chop'] else '—'} |"
+            )
+        lines.append("")
+        ex = board.get("exempt") or []
+        if ex:
+            lines.append(
+                "_Sitting this one out: "
+                + " \u00b7 ".join(f"{e['team']} ({e['title']})" for e in ex if e.get("title"))
+                + "._"
+            )
+        if board["window_over"] and board.get("winner_team"):
+            lines.append("")
+            lines.append(
+                f"\u2694\ufe0f **{board['winner_team']} climbs out** and joins the final "
+                f"as {TITLE_REVOLUTIONARY}."
+            )
+        return "\n".join(lines)
+    if board["phase"] == "championship":
+        lines.append(f"**\U0001F451 CHAMPIONSHIP — Weeks {a}+{b}**")
+        lines.append("")
+        lines.append(f"| # | Team | Title | W{a} | W{b} | Bonus | Total |")
+        lines.append("|---|------|-------|----:|----:|------:|------:|")
+        for r in board["rows"]:
+            z = r["zone"]
+            lines.append(
+                f"| {r['rank']} | {z['emoji']} {r['team']} | {r.get('title') or '—'} "
+                f"| {r['week_a']:.2f} | {r['week_b']:.2f} "
+                f"| {('+' + format(r['bonus'], '.0f')) if r['bonus'] else '—'} "
+                f"| **{r['total']:.2f}** |"
+            )
+        lines.append("")
+        if board["window_over"] and board.get("winner_team"):
+            lines.append(f"\U0001F451 **{board['winner_team']} wins it all.**")
+        else:
+            lines.append(
+                f"_The ancien regime carries +{board['bonus']:.0f} into the final._"
+            )
+        return "\n".join(lines)
     if board["is_final"]:
         lines.append(f"**CHAMPIONSHIP — Weeks {a}+{b}**")
     elif board["window_over"]:
@@ -804,6 +1152,50 @@ def render_markdown(board, res):
         lines.append(row)
     lines.append("")
     low = board["rows"][0]
+    if board["phase"] == "gulag":
+        ex = board.get("exempt") or []
+        if ex:
+            out.append(
+                c(
+                    "Sitting this one out: "
+                    + " \u00b7 ".join(f"{e['team']} ({e['title']})" for e in ex if e.get("title")),
+                    "dim",
+                )
+            )
+        if board["window_over"] and board.get("winner_team"):
+            out.append(
+                c(f"\u2694\ufe0f  {board['winner_team'].upper()} CLIMBS OUT. Vive la revolution.", "green")
+            )
+        elif low["needs"] is None and board["labels_live"]:
+            runner = board["rows"][1] if len(board["rows"]) > 1 else None
+            if runner:
+                out.append(
+                    c(
+                        f"{low['team']} leads by {runner['above_chop']:.2f}. "
+                        f"Only the top score advances.",
+                        "bold",
+                    )
+                )
+        return "\n".join(out + [c("! " + w, "yellow") for w in res["warnings"]])
+    if board["phase"] == "championship":
+        out.append(
+            c(
+                f"The ancien regime carries +{board['bonus']:.0f} into the final. "
+                f"{TITLE_REVOLUTIONARY} carries nothing but a waiver-wire roster.",
+                "dim",
+            )
+        )
+        if board["window_over"] and board.get("winner_team"):
+            out.append(c(f"\U0001F451  {board['winner_team'].upper()} WINS IT ALL.", "green"))
+        elif len(board["rows"]) > 1:
+            out.append(
+                c(
+                    f"{board['rows'][0]['team']} leads by "
+                    f"{board['rows'][1]['behind']:.2f}.",
+                    "bold",
+                )
+            )
+        return "\n".join(out + [c("! " + w, "yellow") for w in res["warnings"]])
     if board["window_over"] and board.get("chopped_team"):
         lines.append(f"\U0001FA93 **{board['chopped_team']} is chopped.**")
         if board["holding"]:
@@ -964,7 +1356,41 @@ def render_alert(board, res, include_link=True):
     low = rows[0]
     lines = []
 
-    if board["is_final"]:
+    if board["phase"] == "gulag":
+        lines.append(f"\u2694\ufe0f THE GULAG \u00b7 Week {a} \u00b7 {n} revived")
+        lines.append(alert_stamp())
+        lines.append("")
+        if board["window_over"] and board.get("winner_team"):
+            lines.append(f"{board['winner_team'].upper()} CLIMBS OUT.")
+            lines.append(f"   {low['total']:.2f}, highest of {n}")
+            lines.append(f"   advances as {TITLE_REVOLUTIONARY}")
+        elif not board["labels_live"]:
+            lines.append("Too early to call.")
+        else:
+            lines.append(f"LEADING  {low['team']}  {low['total']:.2f}")
+            if low.get("pending"):
+                lines.append(f"   {low['pending']} starter(s) still to play")
+            for r in rows[1:3]:
+                lines.append(f"CHASING  {r['team']}  {r['total']:.2f}  (-{r['above_chop']:.2f})")
+            lines.append("")
+            lines.append("Only the top score advances.")
+    elif board["phase"] == "championship":
+        lead = rows[0]
+        lines.append(f"\U0001F451 CHAMPIONSHIP \u00b7 Weeks {a}+{b}")
+        lines.append(alert_stamp())
+        lines.append("")
+        if board["window_over"]:
+            lines.append(f"{lead['team'].upper()} WINS IT ALL.")
+            lines.append(f"   {lead['total']:.2f}")
+        else:
+            for r in rows:
+                tag = f"  [{r['title']}]" if r.get("title") else ""
+                bon = f"  (+{r['bonus']:.0f})" if r.get("bonus") else ""
+                lines.append(f"{r['rank']}. {r['team']}  {r['total']:.2f}{bon}{tag}")
+            if len(rows) > 1:
+                lines.append("")
+                lines.append(f"{lead['team']} leads by {rows[1]['behind']:.2f}.")
+    elif board["is_final"]:
         lead, trail = rows[-1], rows[0]
         gap = round(lead["total"] - trail["total"], 2)
         lines.append(f"\U0001F3C6 CHAMPIONSHIP \u00b7 Weeks {a}+{b}")
@@ -987,9 +1413,6 @@ def render_alert(board, res, include_link=True):
                 )
         else:
             lines.append(f"Lowest total: {low['team']} \u2014 {low['total']:.2f}")
-        if board.get("holding"):
-            lines.append("")
-            lines.append("Stat corrections can still move this until Wednesday.")
     elif not board["labels_live"]:
         lines.append(f"\U0001FA93 Weeks {a}+{b} \u00b7 {n} alive")
         lines.append(alert_stamp())
@@ -1122,7 +1545,12 @@ def main():
                 print(f"\n(webhook failed: {e})", file=sys.stderr)
         return
 
-    board = build_board(cache, res, current_week)
+    if res["phase"] == "gulag":
+        board = build_gulag_board(cache, res, current_week)
+    elif res["phase"] == "championship":
+        board = build_championship_board(cache, res, current_week)
+    else:
+        board = build_board(cache, res, current_week)
     if board is None:
         champ = res["history"][-1].get("champion") if res["history"] else None
         if champ:
