@@ -1,12 +1,10 @@
 🪓 Weeks 7+8 · 6 alive
-as of Sun 3:30pm ET
+as of Sun 4:00pm ET
 
-GUILLOTINE  sgupta18  32.22
-   needs 15.88 to pass L’Incorruptible Offense
+GUILLOTINE  sgupta18  33.22
+   needs 26.98 to pass L’Incorruptible Offense
    4 starter(s) still to play
 
-DANGER  L’Incorruptible Offense  48.10  (+15.88)  — 2 fewer left to play
-DANGER  Go Blue  56.66  (+24.44)
-DANGER  Burrowed in Loveland  57.62  (+25.40)
+DANGER  L’Incorruptible Offense  60.20  (+26.98)  — 2 fewer left to play
 
 Board → https://samdubois3.github.io/chop-tracker/
