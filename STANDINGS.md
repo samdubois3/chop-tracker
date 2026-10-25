@@ -2,19 +2,15 @@
 
 | # | Team | W7 | W8 | Total | Cushion | Left |
 |---|------|----:|----:|------:|--------:|-----:|
-| 1 | 🕐 Burrowed in Loveland | 0.00 | 0.00 | **0.00** | — | 9 |
-| 2 | 🕐 L’Incorruptible Offense | 0.00 | 0.00 | **0.00** | — | 9 |
-| 3 | 🕐 kanaad | 0.00 | 0.00 | **0.00** | — | 9 |
-| 4 | 🕐 sgupta18 | 8.60 | 0.00 | **8.60** | +8.60 | 8 |
-| 5 | 🕐 peeyush | 30.44 | 0.00 | **30.44** | +30.44 | 8 |
-| 6 | 🕐 Go Blue | 38.80 | 0.00 | **38.80** | +38.80 | 6 |
+| 1 | 🪓 L’Incorruptible Offense | 20.10 | 0.00 | **20.10** | — | 2 |
+| 2 | 😰 sgupta18 | 20.60 | 0.00 | **20.60** | +0.50 | 4 |
+| 3 | 😰 Burrowed in Loveland | 21.48 | 0.00 | **21.48** | +1.38 | 3 |
+| 4 | 👀 Go Blue | 42.36 | 0.00 | **42.36** | +22.26 | 3 |
+| 5 | 👀 kanaad | 44.98 | 0.00 | **44.98** | +24.88 | 3 |
+| 6 | 👀 peeyush | 60.14 | 0.00 | **60.14** | +40.04 | 2 |
 
-🕐 **Burrowed in Loveland is too early to call** — needs **0.00** more points to climb out of last.
+🪓 **L’Incorruptible Offense is in line for the guillotine** — needs **0.50** more points to climb out of last.
 
-⚠️ **sgupta18** leads by 8.60 but has 1 fewer starter(s) left to play than the teams below — that lead does not cover it.
-
-⚠️ **Go Blue** leads by 38.80 but has 2 fewer starter(s) left to play than the teams below — that lead is really worth about 14.80.
-
-_Only 3 of 6 teams have played — zones stay dark until most of the field is in._
+_Cushion under 22.0 pts = danger · under 44.0 pts = looking over your shoulder. “Left” is starters still on zero._
 
 _Chopped: W3-4: legend4ever · W5-6: shreym_
