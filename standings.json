@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-25T08:30:18+00:00"
+    "generated_at": "2026-10-25T17:00:16+00:00"
   },
   "board": {
     "phase": "chop",
@@ -15,13 +15,13 @@
     "current_week": 7,
     "week_a_done": false,
     "window_over": false,
-    "clock_phase": "A_THU",
+    "clock_phase": "A_SUN",
     "bands": [
-      25.0,
-      50.0
+      22.0,
+      44.0
     ],
-    "spread": 30.44,
-    "teams_scored": 2,
+    "spread": 38.8,
+    "teams_scored": 3,
     "pending_known": true,
     "holding": false,
     "chopped_roster_id": null,
@@ -91,32 +91,13 @@
         "rank": 4,
         "roster_id": 3,
         "team": "sgupta18",
-        "week_a": 0.0,
+        "week_a": 8.6,
         "week_b": 0.0,
-        "total": 0.0,
-        "above_chop": 0.0,
-        "needs": null,
-        "pending": 9,
-        "cushion_adjusted": 0.0,
-        "outplayed_by": 0,
-        "zone": {
-          "key": "early",
-          "label": "TOO EARLY TO CALL",
-          "emoji": "\ud83d\udd50",
-          "color": "dim"
-        }
-      },
-      {
-        "rank": 5,
-        "roster_id": 2,
-        "team": "Go Blue",
-        "week_a": 17.0,
-        "week_b": 0.0,
-        "total": 17.0,
-        "above_chop": 17.0,
+        "total": 8.6,
+        "above_chop": 8.6,
         "needs": null,
         "pending": 8,
-        "cushion_adjusted": 5.0,
+        "cushion_adjusted": -3.4,
         "outplayed_by": 1,
         "zone": {
           "key": "early",
@@ -126,7 +107,7 @@
         }
       },
       {
-        "rank": 6,
+        "rank": 5,
         "roster_id": 7,
         "team": "peeyush",
         "week_a": 30.44,
@@ -137,6 +118,25 @@
         "pending": 8,
         "cushion_adjusted": 30.44,
         "outplayed_by": 0,
+        "zone": {
+          "key": "early",
+          "label": "TOO EARLY TO CALL",
+          "emoji": "\ud83d\udd50",
+          "color": "dim"
+        }
+      },
+      {
+        "rank": 6,
+        "roster_id": 2,
+        "team": "Go Blue",
+        "week_a": 38.8,
+        "week_b": 0.0,
+        "total": 38.8,
+        "above_chop": 38.8,
+        "needs": null,
+        "pending": 6,
+        "cushion_adjusted": 14.8,
+        "outplayed_by": 2,
         "zone": {
           "key": "early",
           "label": "TOO EARLY TO CALL",
