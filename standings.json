@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-21T23:54:08+00:00"
+    "generated_at": "2026-10-25T04:00:18+00:00"
   },
   "board": {
     "phase": "chop",
@@ -15,10 +15,13 @@
     "current_week": 7,
     "week_a_done": false,
     "window_over": false,
-    "clock_phase": "A_PRE",
-    "bands": null,
-    "spread": 0.0,
-    "teams_scored": 0,
+    "clock_phase": "A_THU",
+    "bands": [
+      25.0,
+      50.0
+    ],
+    "spread": 30.44,
+    "teams_scored": 2,
     "pending_known": true,
     "holding": false,
     "chopped_roster_id": null,
@@ -48,25 +51,6 @@
       },
       {
         "rank": 2,
-        "roster_id": 2,
-        "team": "Go Blue",
-        "week_a": 0.0,
-        "week_b": 0.0,
-        "total": 0.0,
-        "above_chop": 0.0,
-        "needs": null,
-        "pending": 9,
-        "cushion_adjusted": 0.0,
-        "outplayed_by": 0,
-        "zone": {
-          "key": "early",
-          "label": "TOO EARLY TO CALL",
-          "emoji": "\ud83d\udd50",
-          "color": "dim"
-        }
-      },
-      {
-        "rank": 3,
         "roster_id": 1,
         "team": "L\u2019Incorruptible Offense",
         "week_a": 0.0,
@@ -85,7 +69,7 @@
         }
       },
       {
-        "rank": 4,
+        "rank": 3,
         "roster_id": 6,
         "team": "kanaad",
         "week_a": 0.0,
@@ -104,9 +88,9 @@
         }
       },
       {
-        "rank": 5,
-        "roster_id": 7,
-        "team": "peeyush",
+        "rank": 4,
+        "roster_id": 3,
+        "team": "sgupta18",
         "week_a": 0.0,
         "week_b": 0.0,
         "total": 0.0,
@@ -123,16 +107,35 @@
         }
       },
       {
-        "rank": 6,
-        "roster_id": 3,
-        "team": "sgupta18",
-        "week_a": 0.0,
+        "rank": 5,
+        "roster_id": 2,
+        "team": "Go Blue",
+        "week_a": 17.0,
         "week_b": 0.0,
-        "total": 0.0,
-        "above_chop": 0.0,
+        "total": 17.0,
+        "above_chop": 17.0,
         "needs": null,
-        "pending": 9,
-        "cushion_adjusted": 0.0,
+        "pending": 8,
+        "cushion_adjusted": 5.0,
+        "outplayed_by": 1,
+        "zone": {
+          "key": "early",
+          "label": "TOO EARLY TO CALL",
+          "emoji": "\ud83d\udd50",
+          "color": "dim"
+        }
+      },
+      {
+        "rank": 6,
+        "roster_id": 7,
+        "team": "peeyush",
+        "week_a": 30.44,
+        "week_b": 0.0,
+        "total": 30.44,
+        "above_chop": 30.44,
+        "needs": null,
+        "pending": 8,
+        "cushion_adjusted": 30.44,
         "outplayed_by": 0,
         "zone": {
           "key": "early",
