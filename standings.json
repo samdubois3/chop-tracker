@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-26T02:30:14+00:00"
+    "generated_at": "2026-10-26T03:00:19+00:00"
   },
   "board": {
     "phase": "chop",
@@ -70,25 +70,6 @@
       },
       {
         "rank": 3,
-        "roster_id": 3,
-        "team": "sgupta18",
-        "week_a": 103.52,
-        "week_b": 0.0,
-        "total": 103.52,
-        "above_chop": 6.7,
-        "needs": null,
-        "pending": 0,
-        "cushion_adjusted": 6.7,
-        "outplayed_by": 0,
-        "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
-          "color": "yellow"
-        }
-      },
-      {
-        "rank": 4,
         "roster_id": 4,
         "team": "Burrowed in Loveland",
         "week_a": 105.48,
@@ -107,7 +88,7 @@
         }
       },
       {
-        "rank": 5,
+        "rank": 4,
         "roster_id": 7,
         "team": "peeyush",
         "week_a": 106.04,
@@ -117,6 +98,25 @@
         "needs": null,
         "pending": 1,
         "cushion_adjusted": 9.22,
+        "outplayed_by": 0,
+        "zone": {
+          "key": "danger",
+          "label": "DANGER ZONE",
+          "emoji": "\ud83d\ude30",
+          "color": "yellow"
+        }
+      },
+      {
+        "rank": 5,
+        "roster_id": 3,
+        "team": "sgupta18",
+        "week_a": 107.42,
+        "week_b": 0.0,
+        "total": 107.42,
+        "above_chop": 10.6,
+        "needs": null,
+        "pending": 0,
+        "cushion_adjusted": 10.6,
         "outplayed_by": 0,
         "zone": {
           "key": "danger",
