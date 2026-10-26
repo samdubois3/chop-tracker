@@ -1,11 +1,10 @@
 🪓 Weeks 7+8 · 6 alive
-as of Sun 8:30pm ET
+as of Sun 8:46pm ET
 
-GUILLOTINE  sgupta18  74.32
-   needs 18.70 to pass Go Blue
-   1 starter(s) still to play
+GUILLOTINE  sgupta18  77.62
+   needs 15.40 to pass Go Blue
 
-DANGER  Go Blue  93.02  (+18.70)
-DANGER  L’Incorruptible Offense  96.82  (+22.50)  — 1 fewer left to play
+DANGER  Go Blue  93.02  (+15.40)
+DANGER  L’Incorruptible Offense  96.82  (+19.20)
 
 Board → https://samdubois3.github.io/chop-tracker/
