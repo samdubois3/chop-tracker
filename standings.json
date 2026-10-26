@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-10-26T03:00:19+00:00"
+    "generated_at": "2026-10-26T03:30:13+00:00"
   },
   "board": {
     "phase": "chop",
@@ -15,10 +15,10 @@
     "current_week": 7,
     "week_a_done": false,
     "window_over": false,
-    "clock_phase": "A_SUN",
+    "clock_phase": "A_LATE",
     "bands": [
-      22.0,
-      44.0
+      20.0,
+      40.0
     ],
     "spread": 17.9,
     "teams_scored": 6,
@@ -27,7 +27,7 @@
     "chopped_roster_id": null,
     "chopped_team": null,
     "labels_live": true,
-    "safety_line": 100.52,
+    "safety_line": 101.52,
     "lowest": 96.82,
     "rows": [
       {
@@ -38,7 +38,7 @@
         "week_b": 0.0,
         "total": 96.82,
         "above_chop": 0.0,
-        "needs": 3.7,
+        "needs": 4.7,
         "pending": 0,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
@@ -53,13 +53,13 @@
         "rank": 2,
         "roster_id": 2,
         "team": "Go Blue",
-        "week_a": 100.52,
+        "week_a": 101.52,
         "week_b": 0.0,
-        "total": 100.52,
-        "above_chop": 3.7,
+        "total": 101.52,
+        "above_chop": 4.7,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 3.7,
+        "cushion_adjusted": 4.7,
         "outplayed_by": 0,
         "zone": {
           "key": "danger",
