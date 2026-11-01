@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-01T22:33:02+00:00"
+    "generated_at": "2026-11-01T23:00:20+00:00"
   },
   "board": {
     "phase": "chop",
@@ -17,17 +17,17 @@
     "window_over": false,
     "clock_phase": "B_SUN",
     "bands": [
-      19.2,
-      38.4
+      18.4,
+      36.9
     ],
-    "spread": 76.78,
+    "spread": 73.78,
     "teams_scored": 6,
     "pending_known": true,
     "holding": false,
     "chopped_roster_id": null,
     "chopped_team": null,
     "labels_live": true,
-    "safety_line": 206.6,
+    "safety_line": 206.22,
     "lowest": 196.62,
     "rows": [
       {
@@ -38,7 +38,7 @@
         "week_b": 96.1,
         "total": 196.62,
         "above_chop": 0.0,
-        "needs": 9.98,
+        "needs": 9.6,
         "pending": 1,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
@@ -51,6 +51,25 @@
       },
       {
         "rank": 2,
+        "roster_id": 1,
+        "team": "L\u2019Incorruptible Offense",
+        "week_a": 96.82,
+        "week_b": 109.4,
+        "total": 206.22,
+        "above_chop": 9.6,
+        "needs": null,
+        "pending": 1,
+        "cushion_adjusted": 9.6,
+        "outplayed_by": 0,
+        "zone": {
+          "key": "danger",
+          "label": "DANGER ZONE",
+          "emoji": "\ud83d\ude30",
+          "color": "yellow"
+        }
+      },
+      {
+        "rank": 3,
         "roster_id": 6,
         "team": "kanaad",
         "week_a": 129.22,
@@ -69,35 +88,16 @@
         }
       },
       {
-        "rank": 3,
-        "roster_id": 1,
-        "team": "L\u2019Incorruptible Offense",
-        "week_a": 96.82,
-        "week_b": 113.5,
-        "total": 210.32,
-        "above_chop": 13.7,
-        "needs": null,
-        "pending": 1,
-        "cushion_adjusted": 13.7,
-        "outplayed_by": 0,
-        "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
-          "color": "yellow"
-        }
-      },
-      {
         "rank": 4,
         "roster_id": 3,
         "team": "sgupta18",
         "week_a": 107.42,
-        "week_b": 104.6,
-        "total": 212.02,
-        "above_chop": 15.4,
+        "week_b": 103.8,
+        "total": 211.22,
+        "above_chop": 14.6,
         "needs": null,
         "pending": 1,
-        "cushion_adjusted": 15.4,
+        "cushion_adjusted": 14.6,
         "outplayed_by": 0,
         "zone": {
           "key": "danger",
@@ -111,18 +111,18 @@
         "roster_id": 4,
         "team": "Burrowed in Loveland",
         "week_a": 126.98,
-        "week_b": 106.88,
-        "total": 233.86,
-        "above_chop": 37.24,
+        "week_b": 110.88,
+        "total": 237.86,
+        "above_chop": 41.24,
         "needs": null,
         "pending": 1,
-        "cushion_adjusted": 37.24,
+        "cushion_adjusted": 41.24,
         "outplayed_by": 0,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
-          "color": "yellow"
+          "key": "safe",
+          "label": "LOOKING SAFE",
+          "emoji": "\ud83d\ude0e",
+          "color": "green"
         }
       },
       {
@@ -130,12 +130,12 @@
         "roster_id": 7,
         "team": "peeyush",
         "week_a": 127.94,
-        "week_b": 145.46,
-        "total": 273.4,
-        "above_chop": 76.78,
+        "week_b": 142.46,
+        "total": 270.4,
+        "above_chop": 73.78,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 64.78,
+        "cushion_adjusted": 61.78,
         "outplayed_by": 1,
         "zone": {
           "key": "safe",
