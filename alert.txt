@@ -1,10 +1,10 @@
 🪓 Weeks 7+8 · 6 alive
-as of Sun 1:00pm ET
+as of Sun 1:30pm ET
 
-GUILLOTINE  Go Blue  109.32
-   needs 8.90 to pass L’Incorruptible Offense
-   8 starter(s) still to play
+GUILLOTINE  Go Blue  120.38
+   needs 4.84 to pass L’Incorruptible Offense
+   1 starter(s) still to play
 
-DANGER  L’Incorruptible Offense  118.22  (+8.90)
+DANGER  L’Incorruptible Offense  125.22  (+4.84)
 
 Board → https://samdubois3.github.io/chop-tracker/
