@@ -2,14 +2,14 @@
 
 | # | Team | W7 | W8 | Total | Cushion | Left |
 |---|------|----:|----:|------:|--------:|-----:|
-| 1 | 🪓 Go Blue | 100.52 | 19.86 | **120.38** | — | 1 |
-| 2 | 😰 L’Incorruptible Offense | 96.82 | 28.40 | **125.22** | +4.84 | 4 |
-| 3 | 👀 sgupta18 | 107.42 | 28.98 | **136.40** | +16.02 | 3 |
-| 4 | 👀 kanaad | 129.22 | 14.16 | **143.38** | +23.00 | 1 |
-| 5 | 😎 Burrowed in Loveland | 126.98 | 37.48 | **164.46** | +44.08 | 3 |
-| 6 | 😎 peeyush | 127.94 | 38.38 | **166.32** | +45.94 | 2 |
+| 1 | 🪓 Go Blue | 100.52 | 32.24 | **132.76** | — | 1 |
+| 2 | 👀 sgupta18 | 107.42 | 37.44 | **144.86** | +12.10 | 3 |
+| 3 | 👀 kanaad | 129.22 | 20.88 | **150.10** | +17.34 | 1 |
+| 4 | 👀 L’Incorruptible Offense | 96.82 | 57.80 | **154.62** | +21.86 | 4 |
+| 5 | 😎 Burrowed in Loveland | 126.98 | 47.18 | **174.16** | +41.40 | 3 |
+| 6 | 😎 peeyush | 127.94 | 49.24 | **177.18** | +44.42 | 2 |
 
-🪓 **Go Blue is in line for the guillotine** — needs **4.84** more points to climb out of last.
+🪓 **Go Blue is in line for the guillotine** — needs **12.10** more points to climb out of last.
 
 _Cushion under 12.0 pts = danger · under 24.0 pts = looking over your shoulder. “Left” is starters still on zero._
 
