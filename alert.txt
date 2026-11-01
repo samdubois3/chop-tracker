@@ -1,12 +1,12 @@
 🪓 Weeks 7+8 · 6 alive
-as of Sun 5:00pm ET
+as of Sun 5:30pm ET
 
 GUILLOTINE  Go Blue  196.62
-   needs 3.90 to pass L’Incorruptible Offense
+   needs 9.98 to pass kanaad
    1 starter(s) still to play
 
-DANGER  L’Incorruptible Offense  200.52  (+3.90)
 DANGER  kanaad  206.60  (+9.98)
-DANGER  sgupta18  212.72  (+16.10)
+DANGER  L’Incorruptible Offense  209.32  (+12.70)
+DANGER  sgupta18  210.72  (+14.10)
 
 Board → https://samdubois3.github.io/chop-tracker/
