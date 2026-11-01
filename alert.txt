@@ -1,8 +1,11 @@
 🪓 Weeks 7+8 · 6 alive
-as of Sun 2:00pm ET
+as of Sun 2:30pm ET
 
-GUILLOTINE  Go Blue  132.76
-   needs 12.10 to pass sgupta18
+GUILLOTINE  Go Blue  147.32
+   needs 6.72 to pass sgupta18
    1 starter(s) still to play
+
+DANGER  sgupta18  154.04  (+6.72)
+DANGER  kanaad  158.80  (+11.48)
 
 Board → https://samdubois3.github.io/chop-tracker/
