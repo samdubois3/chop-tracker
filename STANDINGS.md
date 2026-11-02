@@ -3,15 +3,15 @@
 | # | Team | W7 | W8 | Total | Cushion | Left |
 |---|------|----:|----:|------:|--------:|-----:|
 | 1 | 🪓 Go Blue | 100.52 | 96.10 | **196.62** | — | 1 |
-| 2 | 😰 kanaad | 129.22 | 87.38 | **216.60** | +19.98 | 0 |
-| 3 | 👀 L’Incorruptible Offense | 96.82 | 122.30 | **219.12** | +22.50 | 0 |
+| 2 | 😰 kanaad | 129.22 | 85.38 | **214.60** | +17.98 | 0 |
+| 3 | 👀 L’Incorruptible Offense | 96.82 | 124.04 | **220.86** | +24.24 | 0 |
 | 4 | 👀 sgupta18 | 107.42 | 115.80 | **223.22** | +26.60 | 1 |
 | 5 | 😎 Burrowed in Loveland | 126.98 | 124.18 | **251.16** | +54.54 | 1 |
 | 6 | 😎 peeyush | 127.94 | 143.96 | **271.90** | +75.28 | 0 |
 
-🪓 **Go Blue is in line for the guillotine** — needs **19.98** more points to climb out of last.
+🪓 **Go Blue is in line for the guillotine** — needs **17.98** more points to climb out of last.
 
-⚠️ **kanaad** leads by 19.98 but has 1 fewer starter(s) left to play than the teams below — that lead is really worth about 7.98.
+⚠️ **kanaad** leads by 17.98 but has 1 fewer starter(s) left to play than the teams below — that lead is really worth about 5.98.
 
 _Cushion under 18.8 pts = danger · under 37.6 pts = looking over your shoulder. “Left” is starters still on zero._
 
