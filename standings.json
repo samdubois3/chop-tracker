@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-02T00:30:14+00:00"
+    "generated_at": "2026-11-02T01:00:17+00:00"
   },
   "board": {
     "phase": "chop",
@@ -92,12 +92,12 @@
         "roster_id": 3,
         "team": "sgupta18",
         "week_a": 107.42,
-        "week_b": 113.0,
-        "total": 220.42,
-        "above_chop": 23.8,
+        "week_b": 115.8,
+        "total": 223.22,
+        "above_chop": 26.6,
         "needs": null,
         "pending": 1,
-        "cushion_adjusted": 23.8,
+        "cushion_adjusted": 26.6,
         "outplayed_by": 0,
         "zone": {
           "key": "watch",
