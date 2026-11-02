@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-02T04:00:16+00:00"
+    "generated_at": "2026-11-02T04:30:14+00:00"
   },
   "board": {
     "phase": "chop",
@@ -15,10 +15,10 @@
     "current_week": 8,
     "week_a_done": true,
     "window_over": false,
-    "clock_phase": "B_SUN",
+    "clock_phase": "B_LATE",
     "bands": [
-      18.8,
-      37.6
+      9.0,
+      18.8
     ],
     "spread": 75.28,
     "teams_scored": 6,
@@ -27,7 +27,7 @@
     "chopped_roster_id": null,
     "chopped_team": null,
     "labels_live": true,
-    "safety_line": 218.6,
+    "safety_line": 222.6,
     "lowest": 196.62,
     "rows": [
       {
@@ -38,7 +38,7 @@
         "week_b": 96.1,
         "total": 196.62,
         "above_chop": 0.0,
-        "needs": 21.98,
+        "needs": 25.98,
         "pending": 1,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
@@ -54,17 +54,17 @@
         "roster_id": 6,
         "team": "kanaad",
         "week_a": 129.22,
-        "week_b": 89.38,
-        "total": 218.6,
-        "above_chop": 21.98,
+        "week_b": 93.38,
+        "total": 222.6,
+        "above_chop": 25.98,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 9.98,
+        "cushion_adjusted": 13.98,
         "outplayed_by": 1,
         "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
+          "key": "watch",
+          "label": "LOOKING OVER YOUR SHOULDER",
+          "emoji": "\ud83d\udc40",
           "color": "yellow"
         }
       },
@@ -81,10 +81,10 @@
         "cushion_adjusted": 26.6,
         "outplayed_by": 0,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
-          "color": "yellow"
+          "key": "safe",
+          "label": "LOOKING SAFE",
+          "emoji": "\ud83d\ude0e",
+          "color": "green"
         }
       },
       {
@@ -92,18 +92,18 @@
         "roster_id": 1,
         "team": "L\u2019Incorruptible Offense",
         "week_a": 96.82,
-        "week_b": 126.78,
-        "total": 223.6,
-        "above_chop": 26.98,
+        "week_b": 127.88,
+        "total": 224.7,
+        "above_chop": 28.08,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 26.98,
+        "cushion_adjusted": 28.08,
         "outplayed_by": 0,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
-          "color": "yellow"
+          "key": "safe",
+          "label": "LOOKING SAFE",
+          "emoji": "\ud83d\ude0e",
+          "color": "green"
         }
       },
       {
