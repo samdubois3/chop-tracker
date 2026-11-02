@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-02T01:30:13+00:00"
+    "generated_at": "2026-11-02T01:55:26+00:00"
   },
   "board": {
     "phase": "chop",
@@ -27,7 +27,7 @@
     "chopped_roster_id": null,
     "chopped_team": null,
     "labels_live": true,
-    "safety_line": 208.88,
+    "safety_line": 209.48,
     "lowest": 196.62,
     "rows": [
       {
@@ -38,7 +38,7 @@
         "week_b": 96.1,
         "total": 196.62,
         "above_chop": 0.0,
-        "needs": 12.26,
+        "needs": 12.86,
         "pending": 1,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
@@ -54,12 +54,12 @@
         "roster_id": 1,
         "team": "L\u2019Incorruptible Offense",
         "week_a": 96.82,
-        "week_b": 112.06,
-        "total": 208.88,
-        "above_chop": 12.26,
+        "week_b": 112.66,
+        "total": 209.48,
+        "above_chop": 12.86,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 0.26,
+        "cushion_adjusted": 0.86,
         "outplayed_by": 1,
         "zone": {
           "key": "danger",
@@ -73,12 +73,12 @@
         "roster_id": 6,
         "team": "kanaad",
         "week_a": 129.22,
-        "week_b": 92.38,
-        "total": 221.6,
-        "above_chop": 24.98,
+        "week_b": 89.38,
+        "total": 218.6,
+        "above_chop": 21.98,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 24.98,
+        "cushion_adjusted": 21.98,
         "outplayed_by": 0,
         "zone": {
           "key": "watch",
