@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-03T05:00:23+00:00"
+    "generated_at": "2026-11-03T05:30:16+00:00"
   },
   "board": {
     "phase": "chop",
@@ -12,9 +12,9 @@
       8
     ],
     "is_final": false,
-    "current_week": 8,
+    "current_week": 9,
     "week_a_done": true,
-    "window_over": false,
+    "window_over": true,
     "clock_phase": "B_PRE",
     "bands": [
       29.5,
@@ -22,10 +22,10 @@
     ],
     "spread": 73.78,
     "teams_scored": 6,
-    "pending_known": true,
-    "holding": false,
-    "chopped_roster_id": null,
-    "chopped_team": null,
+    "pending_known": false,
+    "holding": true,
+    "chopped_roster_id": 2,
+    "chopped_team": "Go Blue",
     "labels_live": true,
     "safety_line": 222.6,
     "lowest": 198.12,
@@ -39,12 +39,12 @@
         "total": 198.12,
         "above_chop": 0.0,
         "needs": 24.48,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
         "zone": {
-          "key": "guillotine",
-          "label": "IN LINE FOR THE GUILLOTINE",
+          "key": "chopped",
+          "label": "CHOPPED",
           "emoji": "\ud83e\ude93",
           "color": "red"
         }
@@ -58,14 +58,14 @@
         "total": 222.6,
         "above_chop": 24.48,
         "needs": null,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 24.48,
         "outplayed_by": 0,
         "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
-          "color": "yellow"
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
+          "color": "green"
         }
       },
       {
@@ -77,14 +77,14 @@
         "total": 224.7,
         "above_chop": 26.58,
         "needs": null,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 26.58,
         "outplayed_by": 0,
         "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
-          "color": "yellow"
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
+          "color": "green"
         }
       },
       {
@@ -96,14 +96,14 @@
         "total": 244.02,
         "above_chop": 45.9,
         "needs": null,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 45.9,
         "outplayed_by": 0,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
-          "color": "yellow"
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
+          "color": "green"
         }
       },
       {
@@ -115,13 +115,13 @@
         "total": 258.16,
         "above_chop": 60.04,
         "needs": null,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 60.04,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
           "color": "green"
         }
       },
@@ -134,13 +134,13 @@
         "total": 271.9,
         "above_chop": 73.78,
         "needs": null,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 73.78,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
           "color": "green"
         }
       }
@@ -184,6 +184,24 @@
       "chopped": 5,
       "champion": null,
       "chopped_name": "shreym",
+      "champion_name": null
+    },
+    {
+      "window": [
+        7,
+        8
+      ],
+      "totals": {
+        "1": 224.7,
+        "2": 198.12,
+        "3": 244.02,
+        "4": 258.16,
+        "6": 222.6,
+        "7": 271.9
+      },
+      "chopped": 2,
+      "champion": null,
+      "chopped_name": "Go Blue",
       "champion_name": null
     }
   ]
