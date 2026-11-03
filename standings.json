@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-03T04:30:16+00:00"
+    "generated_at": "2026-11-03T05:00:23+00:00"
   },
   "board": {
     "phase": "chop",
@@ -15,10 +15,10 @@
     "current_week": 8,
     "week_a_done": true,
     "window_over": false,
-    "clock_phase": "B_LATE",
+    "clock_phase": "B_PRE",
     "bands": [
-      8.9,
-      18.4
+      29.5,
+      51.6
     ],
     "spread": 73.78,
     "teams_scored": 6,
@@ -62,10 +62,10 @@
         "cushion_adjusted": 24.48,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
-          "color": "green"
+          "key": "danger",
+          "label": "DANGER ZONE",
+          "emoji": "\ud83d\ude30",
+          "color": "yellow"
         }
       },
       {
@@ -81,10 +81,10 @@
         "cushion_adjusted": 26.58,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
-          "color": "green"
+          "key": "danger",
+          "label": "DANGER ZONE",
+          "emoji": "\ud83d\ude30",
+          "color": "yellow"
         }
       },
       {
@@ -100,10 +100,10 @@
         "cushion_adjusted": 45.9,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
-          "color": "green"
+          "key": "watch",
+          "label": "LOOKING OVER YOUR SHOULDER",
+          "emoji": "\ud83d\udc40",
+          "color": "yellow"
         }
       },
       {

@@ -1,7 +1,10 @@
 🪓 Weeks 7+8 · 6 alive
-as of Mon 11:30pm ET
+as of Tue 12:00am ET
 
 GUILLOTINE  Go Blue  198.12
    needs 24.48 to pass kanaad
+
+DANGER  kanaad  222.60  (+24.48)
+DANGER  L’Incorruptible Offense  224.70  (+26.58)
 
 Board → https://samdubois3.github.io/chop-tracker/
