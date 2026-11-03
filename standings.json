@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-03T02:00:17+00:00"
+    "generated_at": "2026-11-03T02:30:19+00:00"
   },
   "board": {
     "phase": "chop",
@@ -111,12 +111,12 @@
         "roster_id": 4,
         "team": "Burrowed in Loveland",
         "week_a": 126.98,
-        "week_b": 128.38,
-        "total": 255.36,
-        "above_chop": 55.74,
+        "week_b": 129.28,
+        "total": 256.26,
+        "above_chop": 56.64,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 55.74,
+        "cushion_adjusted": 56.64,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",

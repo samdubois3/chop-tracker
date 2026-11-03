@@ -6,7 +6,7 @@
 | 2 | 😎 kanaad | 129.22 | 93.38 | **222.60** | +22.98 | 0 |
 | 3 | 😎 L’Incorruptible Offense | 96.82 | 127.88 | **224.70** | +25.08 | 0 |
 | 4 | 😎 sgupta18 | 107.42 | 120.50 | **227.92** | +28.30 | 0 |
-| 5 | 😎 Burrowed in Loveland | 126.98 | 128.38 | **255.36** | +55.74 | 0 |
+| 5 | 😎 Burrowed in Loveland | 126.98 | 129.28 | **256.26** | +56.64 | 0 |
 | 6 | 😎 peeyush | 127.94 | 143.96 | **271.90** | +72.28 | 0 |
 
 🪓 **Go Blue is in line for the guillotine** — needs **22.98** more points to climb out of last.
