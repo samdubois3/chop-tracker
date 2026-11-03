@@ -1,7 +1,7 @@
 🪓 Weeks 7+8 · 6 alive
-as of Mon 10:30pm ET
+as of Mon 10:54pm ET
 
-GUILLOTINE  Go Blue  199.12
-   needs 23.48 to pass kanaad
+GUILLOTINE  Go Blue  198.12
+   needs 24.48 to pass kanaad
 
 Board → https://samdubois3.github.io/chop-tracker/
