@@ -1,11 +1,11 @@
 🪓 Weeks 9+10 · 5 alive
-as of Sun 5:00pm ET
+as of Sun 5:30pm ET
 
-GUILLOTINE  peeyush  75.20
-   needs 4.70 to pass L’Incorruptible Offense
+GUILLOTINE  L’Incorruptible Offense  80.90
+   needs 4.60 to pass peeyush
    2 starter(s) still to play
 
-DANGER  L’Incorruptible Offense  79.90  (+4.70)
-DANGER  kanaad  81.50  (+6.30)  — 1 fewer left to play
+DANGER  peeyush  85.50  (+4.60)
+DANGER  kanaad  91.52  (+10.62)  — 1 fewer left to play
 
 Board → https://samdubois3.github.io/chop-tracker/
