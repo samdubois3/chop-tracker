@@ -1,13 +1,13 @@
 🪓 Weeks 9+10 · 5 alive
-as of Sun 1:00pm ET
+as of Sun 1:30pm ET
 
-GUILLOTINE  peeyush  17.70
-   needs 16.84 to pass Burrowed in Loveland
-   8 starter(s) still to play
+GUILLOTINE  peeyush  32.40
+   needs 8.24 to pass Burrowed in Loveland
+   5 starter(s) still to play
 
-DANGER  Burrowed in Loveland  34.54  (+16.84)
-DANGER  kanaad  35.80  (+18.10)  — 1 fewer left to play
-DANGER  L’Incorruptible Offense  37.50  (+19.80)
-DANGER  sgupta18  38.88  (+21.18)  — 1 fewer left to play
+DANGER  Burrowed in Loveland  40.64  (+8.24)
+DANGER  kanaad  43.00  (+10.60)
+DANGER  L’Incorruptible Offense  43.54  (+11.14)  — 2 fewer left to play
+DANGER  sgupta18  59.38  (+26.98)  — 2 fewer left to play
 
 Board → https://samdubois3.github.io/chop-tracker/
