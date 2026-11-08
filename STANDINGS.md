@@ -4,13 +4,13 @@
 |---|------|----:|----:|------:|--------:|-----:|
 | 1 | 🪓 L’Incorruptible Offense | 80.90 | 0.00 | **80.90** | — | 2 |
 | 2 | 😰 peeyush | 85.50 | 0.00 | **85.50** | +4.60 | 2 |
-| 3 | 😰 kanaad | 91.52 | 0.00 | **91.52** | +10.62 | 1 |
-| 4 | 👀 Burrowed in Loveland | 106.74 | 0.00 | **106.74** | +25.84 | 1 |
+| 3 | 😰 kanaad | 91.02 | 0.00 | **91.02** | +10.12 | 1 |
+| 4 | 👀 Burrowed in Loveland | 109.14 | 0.00 | **109.14** | +28.24 | 1 |
 | 5 | 👀 sgupta18 | 129.98 | 0.00 | **129.98** | +49.08 | 0 |
 
 🪓 **L’Incorruptible Offense is in line for the guillotine** — needs **4.60** more points to climb out of last.
 
-⚠️ **kanaad** leads by 10.62 but has 1 fewer starter(s) left to play than the teams below — that lead does not cover it.
+⚠️ **kanaad** leads by 10.12 but has 1 fewer starter(s) left to play than the teams below — that lead does not cover it.
 
 ⚠️ **sgupta18** leads by 49.08 but has 1 fewer starter(s) left to play than the teams below — that lead is really worth about 37.08.
 
