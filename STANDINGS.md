@@ -2,18 +2,18 @@
 
 | # | Team | W9 | W10 | Total | Cushion | Left |
 |---|------|----:|----:|------:|--------:|-----:|
-| 1 | 🪓 peeyush | 65.90 | 0.00 | **65.90** | — | 3 |
-| 2 | 😰 kanaad | 69.00 | 0.00 | **69.00** | +3.10 | 2 |
-| 3 | 😰 L’Incorruptible Offense | 74.30 | 0.00 | **74.30** | +8.40 | 2 |
-| 4 | 👀 Burrowed in Loveland | 103.14 | 0.00 | **103.14** | +37.24 | 3 |
-| 5 | 👀 sgupta18 | 115.18 | 0.00 | **115.18** | +49.28 | 0 |
+| 1 | 🪓 peeyush | 75.20 | 0.00 | **75.20** | — | 2 |
+| 2 | 😰 L’Incorruptible Offense | 79.90 | 0.00 | **79.90** | +4.70 | 2 |
+| 3 | 😰 kanaad | 81.50 | 0.00 | **81.50** | +6.30 | 1 |
+| 4 | 👀 Burrowed in Loveland | 110.74 | 0.00 | **110.74** | +35.54 | 1 |
+| 5 | 👀 sgupta18 | 128.38 | 0.00 | **128.38** | +53.18 | 0 |
 
-🪓 **peeyush is in line for the guillotine** — needs **3.10** more points to climb out of last.
+🪓 **peeyush is in line for the guillotine** — needs **4.70** more points to climb out of last.
 
-⚠️ **kanaad** leads by 3.10 but has 1 fewer starter(s) left to play than the teams below — that lead does not cover it.
+⚠️ **kanaad** leads by 6.30 but has 1 fewer starter(s) left to play than the teams below — that lead does not cover it.
 
-⚠️ **sgupta18** leads by 49.28 but has 2 fewer starter(s) left to play than the teams below — that lead is really worth about 25.28.
+⚠️ **sgupta18** leads by 53.18 but has 1 fewer starter(s) left to play than the teams below — that lead is really worth about 41.18.
 
-_Cushion under 24.6 pts = danger · under 44.0 pts = looking over your shoulder. “Left” is starters still on zero._
+_Cushion under 26.6 pts = danger · under 44.0 pts = looking over your shoulder. “Left” is starters still on zero._
 
 _Chopped: W3-4: legend4ever · W5-6: shreym · W7-8: Go Blue_
