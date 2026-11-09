@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-09T01:00:18+00:00"
+    "generated_at": "2026-11-09T01:30:13+00:00"
   },
   "board": {
     "phase": "chop",
@@ -17,10 +17,10 @@
     "window_over": false,
     "clock_phase": "A_SUN",
     "bands": [
-      27.2,
+      27.0,
       44.0
     ],
-    "spread": 54.34,
+    "spread": 53.94,
     "teams_scored": 5,
     "pending_known": true,
     "holding": false,
@@ -28,18 +28,18 @@
     "chopped_team": null,
     "labels_live": true,
     "safety_line": 94.6,
-    "lowest": 91.1,
+    "lowest": 91.5,
     "rows": [
       {
         "rank": 1,
         "roster_id": 1,
         "team": "L\u2019Incorruptible Offense",
-        "week_a": 91.1,
+        "week_a": 91.5,
         "week_b": 0.0,
-        "total": 91.1,
+        "total": 91.5,
         "above_chop": 0.0,
-        "needs": 3.5,
-        "pending": 2,
+        "needs": 3.1,
+        "pending": 1,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
         "zone": {
@@ -56,10 +56,10 @@
         "week_a": 94.6,
         "week_b": 0.0,
         "total": 94.6,
-        "above_chop": 3.5,
+        "above_chop": 3.1,
         "needs": null,
         "pending": 2,
-        "cushion_adjusted": 3.5,
+        "cushion_adjusted": 3.1,
         "outplayed_by": 0,
         "zone": {
           "key": "danger",
@@ -75,15 +75,15 @@
         "week_a": 126.28,
         "week_b": 0.0,
         "total": 126.28,
-        "above_chop": 35.18,
+        "above_chop": 34.78,
         "needs": null,
         "pending": 1,
-        "cushion_adjusted": 23.18,
-        "outplayed_by": 1,
+        "cushion_adjusted": 34.78,
+        "outplayed_by": 0,
         "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
+          "key": "watch",
+          "label": "LOOKING OVER YOUR SHOULDER",
+          "emoji": "\ud83d\udc40",
           "color": "yellow"
         }
       },
@@ -94,10 +94,10 @@
         "week_a": 134.98,
         "week_b": 0.0,
         "total": 134.98,
-        "above_chop": 43.88,
+        "above_chop": 43.48,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 31.88,
+        "cushion_adjusted": 31.48,
         "outplayed_by": 1,
         "zone": {
           "key": "watch",
@@ -113,10 +113,10 @@
         "week_a": 145.44,
         "week_b": 0.0,
         "total": 145.44,
-        "above_chop": 54.34,
+        "above_chop": 53.94,
         "needs": null,
         "pending": 1,
-        "cushion_adjusted": 54.34,
+        "cushion_adjusted": 53.94,
         "outplayed_by": 0,
         "zone": {
           "key": "safe",
