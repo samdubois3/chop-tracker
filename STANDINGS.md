@@ -5,7 +5,7 @@
 | 1 | 🪓 L’Incorruptible Offense | 93.50 | 0.00 | **93.50** | — | 1 |
 | 2 | 😰 peeyush | 94.60 | 0.00 | **94.60** | +1.10 | 2 |
 | 3 | 👀 sgupta18 | 134.98 | 0.00 | **134.98** | +41.48 | 0 |
-| 4 | 😎 kanaad | 138.68 | 0.00 | **138.68** | +45.18 | 0 |
+| 4 | 😎 kanaad | 142.88 | 0.00 | **142.88** | +49.38 | 0 |
 | 5 | 😎 Burrowed in Loveland | 145.44 | 0.00 | **145.44** | +51.94 | 1 |
 
 🪓 **L’Incorruptible Offense is in line for the guillotine** — needs **1.10** more points to climb out of last.
