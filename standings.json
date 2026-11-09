@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-09T02:30:13+00:00"
+    "generated_at": "2026-11-09T03:00:18+00:00"
   },
   "board": {
     "phase": "chop",
@@ -72,18 +72,18 @@
         "rank": 3,
         "roster_id": 6,
         "team": "kanaad",
-        "week_a": 129.38,
+        "week_a": 131.78,
         "week_b": 0.0,
-        "total": 129.38,
-        "above_chop": 35.88,
+        "total": 131.78,
+        "above_chop": 38.28,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 23.88,
+        "cushion_adjusted": 26.28,
         "outplayed_by": 1,
         "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
+          "key": "watch",
+          "label": "LOOKING OVER YOUR SHOULDER",
+          "emoji": "\ud83d\udc40",
           "color": "yellow"
         }
       },
