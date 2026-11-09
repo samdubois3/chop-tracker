@@ -4,13 +4,13 @@
 |---|------|----:|----:|------:|--------:|-----:|
 | 1 | 🪓 L’Incorruptible Offense | 93.50 | 0.00 | **93.50** | — | 1 |
 | 2 | 😰 peeyush | 94.60 | 0.00 | **94.60** | +1.10 | 2 |
-| 3 | 👀 kanaad | 131.78 | 0.00 | **131.78** | +38.28 | 0 |
-| 4 | 👀 sgupta18 | 134.98 | 0.00 | **134.98** | +41.48 | 0 |
+| 3 | 👀 sgupta18 | 134.98 | 0.00 | **134.98** | +41.48 | 0 |
+| 4 | 😎 kanaad | 138.68 | 0.00 | **138.68** | +45.18 | 0 |
 | 5 | 😎 Burrowed in Loveland | 145.44 | 0.00 | **145.44** | +51.94 | 1 |
 
 🪓 **L’Incorruptible Offense is in line for the guillotine** — needs **1.10** more points to climb out of last.
 
-⚠️ **kanaad** leads by 38.28 but has 1 fewer starter(s) left to play than the teams below — that lead is really worth about 26.28.
+⚠️ **sgupta18** leads by 41.48 but has 1 fewer starter(s) left to play than the teams below — that lead is really worth about 29.48.
 
 _Cushion under 26.0 pts = danger · under 44.0 pts = looking over your shoulder. “Left” is starters still on zero._
 
