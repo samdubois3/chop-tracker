@@ -1,16 +1,15 @@
-**FINAL — Weeks 7+8**
+**CHOP WINDOW — Weeks 9+10** · 5 alive · lowest total goes home
 
-| # | Team | W7 | W8 | Total | Cushion |
-|---|------|----:|----:|------:|--------:|
-| 1 | 🪓 Go Blue | 100.52 | 97.60 | **198.12** | — |
-| 2 | ✅ kanaad | 129.22 | 93.38 | **222.60** | +24.48 |
-| 3 | ✅ L’Incorruptible Offense | 96.82 | 127.88 | **224.70** | +26.58 |
-| 4 | ✅ sgupta18 | 107.42 | 136.60 | **244.02** | +45.90 |
-| 5 | ✅ Burrowed in Loveland | 126.98 | 131.18 | **258.16** | +60.04 |
-| 6 | ✅ peeyush | 127.94 | 143.96 | **271.90** | +73.78 |
+| # | Team | W9 | W10 | Total | Cushion | Left |
+|---|------|----:|----:|------:|--------:|-----:|
+| 1 | 🪓 L’Incorruptible Offense | 101.50 | 0.00 | **101.50** | — | 9 |
+| 2 | 👀 peeyush | 124.16 | 0.00 | **124.16** | +22.66 | 9 |
+| 3 | 👀 sgupta18 | 134.98 | 0.00 | **134.98** | +33.48 | 9 |
+| 4 | 😎 kanaad | 151.78 | 0.00 | **151.78** | +50.28 | 9 |
+| 5 | 😎 Burrowed in Loveland | 155.04 | 0.00 | **155.04** | +53.54 | 9 |
 
-🪓 **Go Blue is chopped.**
+🪓 **L’Incorruptible Offense is in line for the guillotine** — needs **22.66** more points to climb out of last.
 
-_Showing the closed window until Wednesday 3am ET. Stat corrections can still move this._
+_Cushion under 21.4 pts = danger · under 37.5 pts = looking over your shoulder. “Left” is starters still on zero._
 
 _Chopped: W3-4: legend4ever · W5-6: shreym · W7-8: Go Blue_
