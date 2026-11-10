@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-10T11:36:57+00:00"
+    "generated_at": "2026-11-10T18:00:24+00:00"
   },
   "board": {
     "phase": "chop",
@@ -58,13 +58,13 @@
         "total": 124.16,
         "above_chop": 22.66,
         "needs": null,
-        "pending": 9,
-        "cushion_adjusted": 22.66,
-        "outplayed_by": 0,
+        "pending": 8,
+        "cushion_adjusted": 10.66,
+        "outplayed_by": 1,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
+          "key": "danger",
+          "label": "DANGER ZONE",
+          "emoji": "\ud83d\ude30",
           "color": "yellow"
         }
       },
