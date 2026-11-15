@@ -1,11 +1,11 @@
 🪓 Weeks 9+10 · 5 alive
-as of Sun 6:17pm ET
+as of Sun 6:30pm ET
 
 GUILLOTINE  peeyush  204.90
-   needs 2.12 to pass L’Incorruptible Offense
+   needs 2.52 to pass L’Incorruptible Offense
    1 starter(s) still to play
 
-DANGER  L’Incorruptible Offense  207.02  (+2.12)
-DANGER  Burrowed in Loveland  219.34  (+14.44)
+DANGER  L’Incorruptible Offense  207.42  (+2.52)
+DANGER  Burrowed in Loveland  220.94  (+16.04)
 
 Board → https://samdubois3.github.io/chop-tracker/
