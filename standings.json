@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-11T04:30:14+00:00"
+    "generated_at": "2026-11-15T05:00:17+00:00"
   },
   "board": {
     "phase": "chop",
@@ -15,31 +15,31 @@
     "current_week": 10,
     "week_a_done": true,
     "window_over": false,
-    "clock_phase": "B_PRE",
+    "clock_phase": "B_THU",
     "bands": [
-      21.4,
-      37.5
+      16.0,
+      32.0
     ],
-    "spread": 53.54,
+    "spread": 31.34,
     "teams_scored": 5,
     "pending_known": true,
     "holding": false,
     "chopped_roster_id": null,
     "chopped_team": null,
     "labels_live": true,
-    "safety_line": 124.16,
-    "lowest": 101.5,
+    "safety_line": 128.06,
+    "lowest": 123.7,
     "rows": [
       {
         "rank": 1,
         "roster_id": 1,
         "team": "L\u2019Incorruptible Offense",
         "week_a": 101.5,
-        "week_b": 0.0,
-        "total": 101.5,
+        "week_b": 22.2,
+        "total": 123.7,
         "above_chop": 0.0,
-        "needs": 22.66,
-        "pending": 9,
+        "needs": 4.36,
+        "pending": 8,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
         "zone": {
@@ -54,13 +54,13 @@
         "roster_id": 7,
         "team": "peeyush",
         "week_a": 124.16,
-        "week_b": 0.0,
-        "total": 124.16,
-        "above_chop": 22.66,
+        "week_b": 3.9,
+        "total": 128.06,
+        "above_chop": 4.36,
         "needs": null,
         "pending": 8,
-        "cushion_adjusted": 10.66,
-        "outplayed_by": 1,
+        "cushion_adjusted": 4.36,
+        "outplayed_by": 0,
         "zone": {
           "key": "danger",
           "label": "DANGER ZONE",
@@ -75,15 +75,15 @@
         "week_a": 134.98,
         "week_b": 0.0,
         "total": 134.98,
-        "above_chop": 33.48,
+        "above_chop": 11.28,
         "needs": null,
         "pending": 9,
-        "cushion_adjusted": 33.48,
+        "cushion_adjusted": 11.28,
         "outplayed_by": 0,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
+          "key": "danger",
+          "label": "DANGER ZONE",
+          "emoji": "\ud83d\ude30",
           "color": "yellow"
         }
       },
@@ -94,16 +94,16 @@
         "week_a": 151.78,
         "week_b": 0.0,
         "total": 151.78,
-        "above_chop": 50.28,
+        "above_chop": 28.08,
         "needs": null,
         "pending": 9,
-        "cushion_adjusted": 50.28,
+        "cushion_adjusted": 28.08,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
-          "color": "green"
+          "key": "watch",
+          "label": "LOOKING OVER YOUR SHOULDER",
+          "emoji": "\ud83d\udc40",
+          "color": "yellow"
         }
       },
       {
@@ -113,16 +113,16 @@
         "week_a": 155.04,
         "week_b": 0.0,
         "total": 155.04,
-        "above_chop": 53.54,
+        "above_chop": 31.34,
         "needs": null,
         "pending": 9,
-        "cushion_adjusted": 53.54,
+        "cushion_adjusted": 31.34,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
-          "color": "green"
+          "key": "watch",
+          "label": "LOOKING OVER YOUR SHOULDER",
+          "emoji": "\ud83d\udc40",
+          "color": "yellow"
         }
       }
     ]
