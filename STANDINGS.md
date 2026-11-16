@@ -2,14 +2,14 @@
 
 | # | Team | W9 | W10 | Total | Cushion | Left |
 |---|------|----:|----:|------:|--------:|-----:|
-| 1 | 🪓 L’Incorruptible Offense | 101.50 | 110.12 | **211.62** | — | 0 |
-| 2 | 😰 Burrowed in Loveland | 155.04 | 73.24 | **228.28** | +16.66 | 0 |
-| 3 | 👀 peeyush | 124.16 | 123.24 | **247.40** | +35.78 | 0 |
-| 4 | 😎 kanaad | 151.78 | 133.46 | **285.24** | +73.62 | 1 |
-| 5 | 😎 sgupta18 | 134.98 | 171.78 | **306.76** | +95.14 | 0 |
+| 1 | 🪓 L’Incorruptible Offense | 101.50 | 112.92 | **214.42** | — | 0 |
+| 2 | 😰 Burrowed in Loveland | 155.04 | 82.46 | **237.50** | +23.08 | 0 |
+| 3 | 👀 peeyush | 124.16 | 126.84 | **251.00** | +36.58 | 0 |
+| 4 | 😎 kanaad | 151.78 | 133.46 | **285.24** | +70.82 | 1 |
+| 5 | 😎 sgupta18 | 134.98 | 175.78 | **310.76** | +96.34 | 0 |
 
-🪓 **L’Incorruptible Offense is in line for the guillotine** — needs **16.66** more points to climb out of last.
+🪓 **L’Incorruptible Offense is in line for the guillotine** — needs **23.08** more points to climb out of last.
 
-_Cushion under 23.8 pts = danger · under 47.6 pts = looking over your shoulder. “Left” is starters still on zero._
+_Cushion under 24.1 pts = danger · under 48.2 pts = looking over your shoulder. “Left” is starters still on zero._
 
 _Chopped: W3-4: legend4ever · W5-6: shreym · W7-8: Go Blue_
