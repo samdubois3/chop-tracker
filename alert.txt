@@ -1,10 +1,9 @@
 🪓 Weeks 9+10 · 5 alive
-as of Sun 8:00pm ET
+as of Sun 8:30pm ET
 
-GUILLOTINE  L’Incorruptible Offense  207.42
-   needs 18.82 to pass Burrowed in Loveland
-   2 starter(s) still to play
+GUILLOTINE  L’Incorruptible Offense  211.62
+   needs 16.66 to pass Burrowed in Loveland
 
-DANGER  Burrowed in Loveland  226.24  (+18.82)  — 1 fewer left to play
+DANGER  Burrowed in Loveland  228.28  (+16.66)
 
 Board → https://samdubois3.github.io/chop-tracker/
