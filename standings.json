@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-17T01:00:19+00:00"
+    "generated_at": "2026-11-17T01:30:15+00:00"
   },
   "board": {
     "phase": "chop",
@@ -96,7 +96,7 @@
         "total": 285.24,
         "above_chop": 44.62,
         "needs": null,
-        "pending": 1,
+        "pending": 0,
         "cushion_adjusted": 44.62,
         "outplayed_by": 0,
         "zone": {
