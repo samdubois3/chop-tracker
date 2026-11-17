@@ -1,10 +1,8 @@
-🪓 Weeks 9+10 · 5 alive
-as of Tue 12:00am ET
+🪓 FINAL — Weeks 9+10
+as of Tue 12:03am ET
 
-GUILLOTINE  L’Incorruptible Offense  240.62
-   needs 15.88 to pass peeyush
-
-DANGER  peeyush  256.50  (+15.88)
-DANGER  Burrowed in Loveland  266.90  (+26.28)
+L’INCORRUPTIBLE OFFENSE IS CHOPPED.
+   240.62, lowest of 5
+   survived by peeyush at 256.50 (15.88 clear)
 
 Board → https://samdubois3.github.io/chop-tracker/

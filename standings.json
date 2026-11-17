@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-17T05:00:18+00:00"
+    "generated_at": "2026-11-17T05:03:16+00:00"
   },
   "board": {
     "phase": "chop",
@@ -12,9 +12,9 @@
       10
     ],
     "is_final": false,
-    "current_week": 10,
+    "current_week": 11,
     "week_a_done": true,
-    "window_over": false,
+    "window_over": true,
     "clock_phase": "B_PRE",
     "bands": [
       29.3,
@@ -22,10 +22,10 @@
     ],
     "spread": 73.14,
     "teams_scored": 5,
-    "pending_known": true,
-    "holding": false,
-    "chopped_roster_id": null,
-    "chopped_team": null,
+    "pending_known": false,
+    "holding": true,
+    "chopped_roster_id": 1,
+    "chopped_team": "L\u2019Incorruptible Offense",
     "labels_live": true,
     "safety_line": 256.5,
     "lowest": 240.62,
@@ -39,12 +39,12 @@
         "total": 240.62,
         "above_chop": 0.0,
         "needs": 15.88,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
         "zone": {
-          "key": "guillotine",
-          "label": "IN LINE FOR THE GUILLOTINE",
+          "key": "chopped",
+          "label": "CHOPPED",
           "emoji": "\ud83e\ude93",
           "color": "red"
         }
@@ -58,14 +58,14 @@
         "total": 256.5,
         "above_chop": 15.88,
         "needs": null,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 15.88,
         "outplayed_by": 0,
         "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
-          "color": "yellow"
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
+          "color": "green"
         }
       },
       {
@@ -77,14 +77,14 @@
         "total": 266.9,
         "above_chop": 26.28,
         "needs": null,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 26.28,
         "outplayed_by": 0,
         "zone": {
-          "key": "danger",
-          "label": "DANGER ZONE",
-          "emoji": "\ud83d\ude30",
-          "color": "yellow"
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
+          "color": "green"
         }
       },
       {
@@ -96,13 +96,13 @@
         "total": 292.64,
         "above_chop": 52.02,
         "needs": null,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 52.02,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
           "color": "green"
         }
       },
@@ -115,13 +115,13 @@
         "total": 313.76,
         "above_chop": 73.14,
         "needs": null,
-        "pending": 0,
+        "pending": null,
         "cushion_adjusted": 73.14,
         "outplayed_by": 0,
         "zone": {
-          "key": "safe",
-          "label": "LOOKING SAFE",
-          "emoji": "\ud83d\ude0e",
+          "key": "survived",
+          "label": "SURVIVED",
+          "emoji": "\u2705",
           "color": "green"
         }
       }
@@ -183,6 +183,23 @@
       "chopped": 2,
       "champion": null,
       "chopped_name": "Go Blue",
+      "champion_name": null
+    },
+    {
+      "window": [
+        9,
+        10
+      ],
+      "totals": {
+        "1": 240.62,
+        "3": 313.76,
+        "4": 266.9,
+        "6": 292.64,
+        "7": 256.5
+      },
+      "chopped": 1,
+      "champion": null,
+      "chopped_name": "L\u2019Incorruptible Offense",
       "champion_name": null
     }
   ]
