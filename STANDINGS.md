@@ -2,12 +2,12 @@
 
 | # | Team | W11 | W12 | Total | Cushion | Left |
 |---|------|----:|----:|------:|--------:|-----:|
-| 1 | 🪓 kanaad | 63.90 | 0.00 | **63.90** | — | 2 |
-| 2 | 👀 peeyush | 87.26 | 0.00 | **87.26** | +23.36 | 2 |
-| 3 | 👀 Burrowed in Loveland | 92.60 | 0.00 | **92.60** | +28.70 | 3 |
-| 4 | 👀 sgupta18 | 93.08 | 0.00 | **93.08** | +29.18 | 2 |
+| 1 | 🪓 kanaad | 67.40 | 0.00 | **67.40** | — | 2 |
+| 2 | 😰 peeyush | 87.26 | 0.00 | **87.26** | +19.86 | 2 |
+| 3 | 👀 sgupta18 | 89.84 | 0.00 | **89.84** | +22.44 | 2 |
+| 4 | 👀 Burrowed in Loveland | 93.70 | 0.00 | **93.70** | +26.30 | 3 |
 
-🪓 **kanaad is in line for the guillotine** — needs **23.36** more points to climb out of last.
+🪓 **kanaad is in line for the guillotine** — needs **19.86** more points to climb out of last.
 
 _Cushion under 22.0 pts = danger · under 44.0 pts = looking over your shoulder. “Left” is starters still on zero._
 
