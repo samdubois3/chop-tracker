@@ -1,11 +1,12 @@
 🪓 Weeks 11+12 · 4 alive
-as of Sun 1:30pm ET
+as of Sun 2:00pm ET
 
-GUILLOTINE  sgupta18  12.80
-   needs 14.54 to pass peeyush
+GUILLOTINE  sgupta18  25.50
+   needs 8.70 to pass kanaad
    5 starter(s) still to play
 
-DANGER  peeyush  27.34  (+14.54)  — 2 fewer left to play
-DANGER  Burrowed in Loveland  28.60  (+15.80)
+DANGER  kanaad  34.20  (+8.70)  — 1 fewer left to play
+DANGER  Burrowed in Loveland  37.70  (+12.20)
+DANGER  peeyush  55.20  (+29.70)  — 1 fewer left to play
 
 Board → https://samdubois3.github.io/chop-tracker/
