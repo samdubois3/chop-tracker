@@ -2,14 +2,14 @@
 
 | # | Team | W11 | W12 | Total | Cushion | Left |
 |---|------|----:|----:|------:|--------:|-----:|
-| 1 | 🪓 kanaad | 56.20 | 0.00 | **56.20** | — | 4 |
-| 2 | 😰 sgupta18 | 74.20 | 0.00 | **74.20** | +18.00 | 5 |
-| 3 | 👀 Burrowed in Loveland | 81.00 | 0.00 | **81.00** | +24.80 | 4 |
-| 4 | 😰 peeyush | 87.26 | 0.00 | **87.26** | +31.06 | 3 |
+| 1 | 🪓 kanaad | 57.40 | 0.00 | **57.40** | — | 3 |
+| 2 | 👀 Burrowed in Loveland | 82.70 | 0.00 | **82.70** | +25.30 | 3 |
+| 3 | 👀 peeyush | 87.26 | 0.00 | **87.26** | +29.86 | 3 |
+| 4 | 😰 sgupta18 | 90.72 | 0.00 | **90.72** | +33.32 | 2 |
 
-🪓 **kanaad is in line for the guillotine** — needs **18.00** more points to climb out of last.
+🪓 **kanaad is in line for the guillotine** — needs **25.30** more points to climb out of last.
 
-⚠️ **peeyush** leads by 31.06 but has 1 fewer starter(s) left to play than the teams below — that lead is really worth about 19.06.
+⚠️ **sgupta18** leads by 33.32 but has 1 fewer starter(s) left to play than the teams below — that lead is really worth about 21.32.
 
 _Cushion under 22.0 pts = danger · under 44.0 pts = looking over your shoulder. “Left” is starters still on zero._
 
