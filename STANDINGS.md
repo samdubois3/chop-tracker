@@ -13,6 +13,6 @@
 
 ⚠️ **kanaad** leads by 18.00 but has 1 fewer starter(s) left to play than the teams below — that lead is really worth about 6.00.
 
-_Cushion under 25.0 pts = danger · under 50.0 pts = looking over your shoulder. “Left” is starters still on zero._
+_Cushion under 22.0 pts = danger · under 44.0 pts = looking over your shoulder. “Left” is starters still on zero._
 
 _Chopped: W3-4: legend4ever · W5-6: shreym · W7-8: Go Blue · W9-10: L’Incorruptible Offense_
