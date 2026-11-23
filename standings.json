@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-23T03:17:21+00:00"
+    "generated_at": "2026-11-23T03:30:17+00:00"
   },
   "board": {
     "phase": "chop",
@@ -27,7 +27,7 @@
     "chopped_roster_id": null,
     "chopped_team": null,
     "labels_live": true,
-    "safety_line": 99.54,
+    "safety_line": 99.82,
     "lowest": 95.76,
     "rows": [
       {
@@ -38,7 +38,7 @@
         "week_b": 0.0,
         "total": 95.76,
         "above_chop": 0.0,
-        "needs": 3.78,
+        "needs": 4.06,
         "pending": 1,
         "cushion_adjusted": 0.0,
         "outplayed_by": 0,
@@ -53,13 +53,13 @@
         "rank": 2,
         "roster_id": 6,
         "team": "kanaad",
-        "week_a": 99.54,
+        "week_a": 99.82,
         "week_b": 0.0,
-        "total": 99.54,
-        "above_chop": 3.78,
+        "total": 99.82,
+        "above_chop": 4.06,
         "needs": null,
         "pending": 1,
-        "cushion_adjusted": 3.78,
+        "cushion_adjusted": 4.06,
         "outplayed_by": 0,
         "zone": {
           "key": "danger",
@@ -72,13 +72,13 @@
         "rank": 3,
         "roster_id": 3,
         "team": "sgupta18",
-        "week_a": 110.84,
+        "week_a": 111.84,
         "week_b": 0.0,
-        "total": 110.84,
-        "above_chop": 15.08,
+        "total": 111.84,
+        "above_chop": 16.08,
         "needs": null,
         "pending": 1,
-        "cushion_adjusted": 15.08,
+        "cushion_adjusted": 16.08,
         "outplayed_by": 0,
         "zone": {
           "key": "danger",

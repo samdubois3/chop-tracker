@@ -1,11 +1,11 @@
 🪓 Weeks 11+12 · 4 alive
-as of Sun 10:17pm ET
+as of Sun 10:30pm ET
 
 GUILLOTINE  peeyush  95.76
-   needs 3.78 to pass kanaad
+   needs 4.06 to pass kanaad
    1 starter(s) still to play
 
-DANGER  kanaad  99.54  (+3.78)
-DANGER  sgupta18  110.84  (+15.08)
+DANGER  kanaad  99.82  (+4.06)
+DANGER  sgupta18  111.84  (+16.08)
 
 Board → https://samdubois3.github.io/chop-tracker/
