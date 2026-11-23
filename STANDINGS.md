@@ -2,12 +2,12 @@
 
 | # | Team | W11 | W12 | Total | Cushion | Left |
 |---|------|----:|----:|------:|--------:|-----:|
-| 1 | 🪓 kanaad | 91.86 | 0.00 | **91.86** | — | 1 |
-| 2 | 😰 peeyush | 94.06 | 0.00 | **94.06** | +2.20 | 1 |
-| 3 | 😰 sgupta18 | 110.74 | 0.00 | **110.74** | +18.88 | 1 |
-| 4 | 👀 Bayou Bengals | 118.80 | 0.00 | **118.80** | +26.94 | 2 |
+| 1 | 🪓 peeyush | 95.76 | 0.00 | **95.76** | — | 1 |
+| 2 | 😰 kanaad | 99.04 | 0.00 | **99.04** | +3.28 | 1 |
+| 3 | 😰 sgupta18 | 110.84 | 0.00 | **110.84** | +15.08 | 1 |
+| 4 | 👀 Bayou Bengals | 117.80 | 0.00 | **117.80** | +22.04 | 2 |
 
-🪓 **kanaad is in line for the guillotine** — needs **2.20** more points to climb out of last.
+🪓 **peeyush is in line for the guillotine** — needs **3.28** more points to climb out of last.
 
 _Cushion under 22.0 pts = danger · under 44.0 pts = looking over your shoulder. “Left” is starters still on zero._
 
