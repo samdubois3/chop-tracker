@@ -1,12 +1,12 @@
 🪓 Weeks 11+12 · 4 alive
-as of Sun 11:00pm ET
+as of Sun 11:30pm ET
 
-GUILLOTINE  kanaad  102.42
-   needs 2.04 to pass peeyush
+GUILLOTINE  kanaad  102.70
+   needs 1.76 to pass peeyush
    1 starter(s) still to play
 
-DANGER  peeyush  104.46  (+2.04)
-DANGER  sgupta18  113.84  (+11.42)
-DANGER  Bayou Bengals  117.80  (+15.38)
+DANGER  peeyush  104.46  (+1.76)
+DANGER  sgupta18  115.34  (+12.64)
+DANGER  Bayou Bengals  117.80  (+15.10)
 
 Board → https://samdubois3.github.io/chop-tracker/
