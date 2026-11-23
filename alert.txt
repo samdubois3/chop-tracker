@@ -1,10 +1,10 @@
 🪓 Weeks 11+12 · 4 alive
-as of Sun 7:32pm ET
+as of Sun 8:00pm ET
 
-GUILLOTINE  kanaad  71.60
-   needs 19.66 to pass peeyush
+GUILLOTINE  kanaad  75.10
+   needs 16.16 to pass peeyush
    2 starter(s) still to play
 
-DANGER  peeyush  91.26  (+19.66)
+DANGER  peeyush  91.26  (+16.16)
 
 Board → https://samdubois3.github.io/chop-tracker/
