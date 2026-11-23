@@ -1,10 +1,11 @@
 🪓 Weeks 11+12 · 4 alive
-as of Sun 7:00pm ET
+as of Sun 7:30pm ET
 
-GUILLOTINE  kanaad  68.70
-   needs 21.76 to pass sgupta18
+GUILLOTINE  kanaad  71.60
+   needs 16.94 to pass sgupta18
    2 starter(s) still to play
 
-DANGER  sgupta18  90.46  (+21.76)
+DANGER  sgupta18  88.54  (+16.94)
+DANGER  peeyush  91.26  (+19.66)
 
 Board → https://samdubois3.github.io/chop-tracker/
