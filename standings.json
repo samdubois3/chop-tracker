@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-24T03:30:19+00:00"
+    "generated_at": "2026-11-24T04:00:29+00:00"
   },
   "board": {
     "phase": "chop",
@@ -20,7 +20,7 @@
       20.0,
       40.0
     ],
-    "spread": 38.82,
+    "spread": 41.84,
     "teams_scored": 4,
     "pending_known": true,
     "holding": false,
@@ -91,19 +91,19 @@
         "rank": 4,
         "roster_id": 4,
         "team": "Bayou Bengals",
-        "week_a": 141.52,
+        "week_a": 144.54,
         "week_b": 0.0,
-        "total": 141.52,
-        "above_chop": 38.82,
+        "total": 144.54,
+        "above_chop": 41.84,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 38.82,
+        "cushion_adjusted": 41.84,
         "outplayed_by": 0,
         "zone": {
-          "key": "watch",
-          "label": "LOOKING OVER YOUR SHOULDER",
-          "emoji": "\ud83d\udc40",
-          "color": "yellow"
+          "key": "safe",
+          "label": "LOOKING SAFE",
+          "emoji": "\ud83d\ude0e",
+          "color": "green"
         }
       }
     ]
