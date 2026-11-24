@@ -123,8 +123,9 @@ ZONE_BANDS = {
 # that just closed instead of jumping straight to the next one. Stat corrections
 # land Tuesday and Wednesday, and the league wants to see the result it just
 # lived through rather than an empty board. Released at this weekday/hour, ET.
-HOLD_WEEKDAY = 2    # Mon=0 .. so 2 = Wednesday
-HOLD_HOUR = 3       # 3am ET, matching when the league's waivers clear
+ROLLOVER_WEEKDAY = 1   # Tuesday - when Sleeper advances the NFL week
+HOLD_WEEKDAY = 2       # Wednesday (Mon=0)
+HOLD_HOUR = 3          # 3am ET, matching when the league's waivers clear
 
 # What one unplayed starter is worth, for judging whether a lead is real.
 # Half-PPR, 9 starters, ~110 pts/team/week works out near 12 a slot. Kickers
@@ -502,14 +503,24 @@ def pick_chopped(cache, window, survivors, totals):
 def in_hold_period(now=None):
     """True while we should still be showing the window that just closed.
 
-    Runs from whenever Sleeper rolls the week over (Tuesday morning) until
-    HOLD_WEEKDAY/HOLD_HOUR. Monday is included because a window whose second
-    week ends on Monday night is already decided by then.
+    Tuesday (when Sleeper rolls the week over) through Wednesday 3am ET, and
+    nothing else.
+
+    This used to read `weekday() < HOLD_WEEKDAY`, which also caught MONDAY - on
+    the theory that a window ending Monday night is already decided. That was
+    wrong twice over. On the Monday a window ends, `current_week` still equals
+    that window's last week, so the caller's `current_week == b + 1` guard
+    fails and the hold could never fire anyway. But `current_week == b + 1`
+    stays true for the whole of the FOLLOWING NFL week, so when Monday came
+    round again seven days later the hold re-engaged and the board dropped back
+    to a window that had closed a week earlier. That is what sent a stale
+    Weeks 9+10 result to the league on Mon 23 Nov.
     """
     now = now or _eastern_now()
-    if now.weekday() < HOLD_WEEKDAY:
+    wd = now.weekday()
+    if wd == ROLLOVER_WEEKDAY:
         return True
-    if now.weekday() == HOLD_WEEKDAY:
+    if wd == HOLD_WEEKDAY:
         return now.hour < HOLD_HOUR
     return False
 
