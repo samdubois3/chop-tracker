@@ -5,7 +5,7 @@
 | 1 | 🪓 kanaad | 102.70 | 0.00 | **102.70** | — | 1 |
 | 2 | 😰 peeyush | 114.06 | 0.00 | **114.06** | +11.36 | 0 |
 | 3 | 😰 sgupta18 | 120.14 | 0.00 | **120.14** | +17.44 | 0 |
-| 4 | 👀 Bayou Bengals | 133.46 | 0.00 | **133.46** | +30.76 | 0 |
+| 4 | 👀 Bayou Bengals | 133.36 | 0.00 | **133.36** | +30.66 | 0 |
 
 🪓 **kanaad is in line for the guillotine** — needs **11.36** more points to climb out of last.
 
