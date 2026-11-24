@@ -3,7 +3,7 @@
     "league_name": "\ud83e\ude93 Once Upon a Time in Columbus",
     "season": "2026",
     "total_rosters": 8,
-    "generated_at": "2026-11-24T03:00:20+00:00"
+    "generated_at": "2026-11-24T03:30:19+00:00"
   },
   "board": {
     "phase": "chop",
@@ -20,7 +20,7 @@
       20.0,
       40.0
     ],
-    "spread": 30.66,
+    "spread": 38.82,
     "teams_scored": 4,
     "pending_known": true,
     "holding": false,
@@ -72,13 +72,13 @@
         "rank": 3,
         "roster_id": 3,
         "team": "sgupta18",
-        "week_a": 120.14,
+        "week_a": 121.14,
         "week_b": 0.0,
-        "total": 120.14,
-        "above_chop": 17.44,
+        "total": 121.14,
+        "above_chop": 18.44,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 17.44,
+        "cushion_adjusted": 18.44,
         "outplayed_by": 0,
         "zone": {
           "key": "danger",
@@ -91,13 +91,13 @@
         "rank": 4,
         "roster_id": 4,
         "team": "Bayou Bengals",
-        "week_a": 133.36,
+        "week_a": 141.52,
         "week_b": 0.0,
-        "total": 133.36,
-        "above_chop": 30.66,
+        "total": 141.52,
+        "above_chop": 38.82,
         "needs": null,
         "pending": 0,
-        "cushion_adjusted": 30.66,
+        "cushion_adjusted": 38.82,
         "outplayed_by": 0,
         "zone": {
           "key": "watch",
