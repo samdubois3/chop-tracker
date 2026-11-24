@@ -1,5 +1,5 @@
 🪓 Weeks 11+12 · 4 alive
-as of Mon 8:30pm ET
+as of Mon 9:00pm ET
 
 GUILLOTINE  kanaad  102.70
    needs 1.76 to pass peeyush
@@ -7,6 +7,6 @@ GUILLOTINE  kanaad  102.70
 
 DANGER  peeyush  104.46  (+1.76)  — 1 fewer left to play
 DANGER  sgupta18  115.34  (+12.64)
-DANGER  Bayou Bengals  118.62  (+15.92)
+DANGER  Bayou Bengals  122.00  (+19.30)
 
 Board → https://samdubois3.github.io/chop-tracker/
